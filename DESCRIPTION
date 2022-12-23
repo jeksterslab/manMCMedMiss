@@ -1,0 +1,39 @@
+Package: manMCMedMiss
+Title: Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data
+Version: 0.9.2
+Authors@R: c(
+    person(given = "Ivan Jacob Agaloos",
+           family = "Pesigan",
+           role = c("aut", "cre", "cph"),
+           email = "r.jeksterslab@gmail.com",
+           comment = c(ORCID = "0000-0003-4818-8420")),
+    person(given = "Shu Fai",
+           family = "Cheung",
+           role = "ctb",
+           email = "shufai.cheung@gmail.com",
+           comment = c(ORCID = "0000-0002-9871-9448"))
+    )
+Description: Research compendium for the manuscript
+    Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data
+    containing scripts used in the simulation study and other supplementary materials.
+URL: https://github.com/jeksterslab/manMCMedMiss, https://jeksterslab.github.io/manMCMedMiss/
+BugReports: https://github.com/jeksterslab/manMCMedMiss/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 3.5.0)
+Imports:
+    stats, 
+    ggplot2,
+    MASS,
+    mice,
+    party
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat,
+    DT,
+    microbenchmark,
+    semmcci
+RoxygenNote: 7.2.3

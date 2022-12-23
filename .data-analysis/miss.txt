@@ -1,0 +1,41 @@
+
+	 Conditional inference tree with 12 terminal nodes
+
+Response:  y 
+Inputs:  tauprime, n, alphabeta, mechanism, proportion, method 
+Number of observations:  6691 
+
+1) n <= 50; criterion = 1, statistic = 70.723
+  2) tauprime <= 0.1414214; criterion = 1, statistic = 66.756
+    3) method == {MC.COMPLETE, MC.FIML, NBBC.COMPLETE, NBPC.COMPLETE}; criterion = 1, statistic = 35.415
+      4)*  weights = 162 
+    3) method == {MC.MI, NBBC.FIML, NBPC.FIML}
+      5)*  weights = 321 
+  2) tauprime > 0.1414214
+    6) alphabeta == {.14(.38,.38), .23(.38,.60), .23(.60,.38), .27(.38,.71), .27(.71,.38), .36(.60,.60), .43(.71,.60)}; criterion = 1, statistic = 69.745
+      7) tauprime <= 0.3605551; criterion = 1, statistic = 30.072
+        8) method == {MC.FIML}; criterion = 1, statistic = 44.61
+          9) alphabeta == {.14(.38,.38), .23(.38,.60), .27(.38,.71), .36(.60,.60), .43(.71,.60)}; criterion = 1, statistic = 41
+            10)*  weights = 30 
+          9) alphabeta == {.23(.60,.38), .27(.71,.38)}
+            11)*  weights = 12 
+        8) method == {MC.COMPLETE, MC.MI, NBBC.COMPLETE, NBBC.FIML, NBPC.COMPLETE, NBPC.FIML}
+          12)*  weights = 147 
+      7) tauprime > 0.3605551
+        13) alphabeta == {.14(.38,.38), .23(.38,.60), .36(.60,.60)}; criterion = 1, statistic = 37.365
+          14)*  weights = 81 
+        13) alphabeta == {.23(.60,.38), .27(.71,.38)}
+          15)*  weights = 54 
+    6) alphabeta == {.43(.60,.71)}
+      16)*  weights = 27 
+1) n > 50
+  17) alphabeta == {.14(.38,.38), .23(.38,.60), .23(.60,.38), .27(.71,.38), .36(.60,.60), .43(.60,.71), .43(.71,.60), .51(.71,.71)}; criterion = 1, statistic = 144.263
+    18) alphabeta == {.14(.38,.38), .23(.38,.60), .23(.60,.38), .36(.60,.60), .43(.60,.71), .43(.71,.60), .51(.71,.71)}; criterion = 1, statistic = 36.018
+      19)*  weights = 4534 
+    18) alphabeta == {.27(.71,.38)}
+      20)*  weights = 756 
+  17) alphabeta == {.27(.38,.71)}
+    21) tauprime <= 0.1414214; criterion = 1, statistic = 35.119
+      22)*  weights = 378 
+    21) tauprime > 0.1414214
+      23)*  weights = 189 

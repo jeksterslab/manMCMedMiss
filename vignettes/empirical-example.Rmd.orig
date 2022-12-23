@@ -1,0 +1,265 @@
+
+---
+title: "Empirical Example"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Empirical Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
+
+In this empirical example, we use data from a study by Elliot and others (2007) on the effects of an intervention on healthy dietary behavior mediated by knowledge of healthy dietary behavior. This data was used as an empirical example in Yuan and MacKinnon (2009) and Wu and Jia (2013).
+
+## Data
+
+```{r}
+#| message = FALSE
+library(manMCMedMiss)
+```
+
+The data frame `elliot2007()`, which is included in the `manMCMedMiss` package, has 354 cases and 3 variables:
+
+  - `x` - Intervention group membership.
+  - `m` - Knowledge of healthy dietary behavior (knowledge post-intervention minus knowledge pre-intervention).
+  - `y` - Healthy dietary behavior (behavior post-intervention minus behavior pre-intervention).
+
+```{r}
+knitr::kable(head(elliot2007))
+```
+
+## Arguments
+
+```{r}
+#| include = FALSE
+production <- TRUE
+if (production) {
+  m <- 100L
+  R <- 20000L
+  B <- 5000L
+} else {
+  m <- 10L
+  R <- 10L
+  B <- 10L
+}
+```
+
+```{r}
+#| echo = FALSE
+variables <- c(
+  "m",
+  "R",
+  "B",
+  "mplus_bin"
+)
+values <- c(
+  m,
+  R,
+  B,
+  "\"/opt/mplusdemo/mpdemo\""
+)
+notes <- c(
+  "Number of imputations.",
+  "Number of Monte Carlo replications.",
+  "Number of bootstrap samples.",
+  "Path to Mplus binary."
+)
+tab <- cbind(
+  Variables = variables,
+  Values = values,
+  Notes = notes
+)
+knitr::kable(
+  x = tab
+)
+```
+
+> **NOTE**: If you are using `jeksterslab/manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
+
+```{r}
+#| include = FALSE
+root <- rprojroot::is_rstudio_project
+mplus_bin <- root$find_file(
+  ".setup",
+  "bin",
+  "mpdemo"
+)
+```
+
+## Amputation
+
+Generate sample data with missing values. The missing data mechanism is missing at random (MAR). The proportion of missing cases is 0.30.
+
+```{r}
+set.seed(42)
+data_missing <- AmputeData(
+  elliot2007,
+  mech = "MAR",
+  prop = 0.10
+)
+knitr::kable(head(data_missing, n = 10))
+```
+
+## Imputation
+
+Perform multiple imputations
+
+```{r}
+data_mi <- ImputeData(
+  data_missing,
+  m = m,
+  mplus_bin = mplus_bin
+)
+```
+
+## Model Fitting
+
+### Maximum Likelihood
+
+Parameters of the simple mediation model are estimated using full-information maximum likelihood to handle missing data.
+
+```{r}
+fit_ml <- FitModelML(
+  data_missing,
+  mplus_bin = mplus_bin
+)
+fit_ml
+```
+
+### Multiple Imputation
+
+Parameters of the simple mediation model are estimated using normal theory maximum likelihood for each of the imputed data sets. The parameter estimates and their sampling covariance matrix are pooled.
+
+```{r}
+fit_mi <- FitModelMI(
+  data_mi,
+  mplus_bin = mplus_bin
+)
+fit_mi
+```
+
+## Monte Carlo Method
+
+### Maximum Likelihood
+
+```{r}
+mc_ml <- MCML(
+  fit_ml,
+  R = R
+)
+mc_ml
+```
+
+### Multiple Imputation
+
+The two versions are based on the pooled covariance matrix used. `vcov` uses the total covariance matrix $\mathbf{V}_{T}$ while `vcov_tilde` uses the adjusted total covariance matrix $\tilde{\mathbf{V}}_{T}$.
+
+```{r}
+mc_mi <- MCMI(
+  fit_mi,
+  R = R
+)
+mc_mi
+```
+
+## Nonparametric Bootstrapping
+
+### Maximum Likelihood Nested within Nonparametric Bootstrap (NB(ML))
+
+```{r}
+nb_ml <- NBML(
+  data_missing,
+  B = B,
+  mplus_bin = mplus_bin
+)
+nb_ml
+```
+
+### Multiple Imputation
+
+#### Multiple Imputation Nested Within Nonparametric Bootstrap (NB(MI))
+
+```{r}
+nb_mi <- NBMI(
+  data_missing,
+  data_mi,
+  B = B,
+  m = m,
+  mplus_bin = mplus_bin
+)
+nb_mi
+```
+
+#### Nonparametric Bootstrap Nested Within Multiple Imputation (MI(NB))
+
+```{r}
+mi_nb <- MINB(
+  data_mi,
+  B = B
+)
+mi_nb
+```
+
+## Joint Significance Test
+
+The `JointSigML()` and `JointSigMI()` functions return `1` for a significant result and `0` otherwise. Note that the output vector's name corresponds to the `alpha` level. The default value of `alpha` is `alpha = c(0.05, 0.01, 0.001)`.
+
+### Maximum Likelihood
+
+```{r}
+joint_ml <- JointSigML(
+  fit_ml
+)
+joint_ml
+```
+
+### Multiple Imputation
+
+The two versions are based on the two types of pooled covariance matrices $\mathbf{V}_{T}$ and $\tilde{\mathbf{V}}_{T}$.
+
+```{r}
+joint_mi <- JointSigMI(
+  fit_mi
+)
+joint_mi
+```
+
+## Results
+
+Here is a summary of the $95\%$ confidence intervals.
+
+```{r}
+ci <- rbind(
+  mc_ml[c(3, 4)],
+  mc_mi[, c(3, 4)],
+  nb_ml[, c(2, 6)],
+  nb_mi[, c(3, 4)],
+  mi_nb[, c(3, 4)]
+)
+rownames(ci) <- c(
+  "MC.FIML",
+  "MC.MI",
+  "MC.MI.ADJ",
+  "NBBC(FIML)",
+  "NBPC(FIML)",
+  "NBBC(MI)",
+  "NBPC(MI)",
+  "MI(NBBC)",
+  "MI(NBPC)"
+)
+knitr::kable(ci)
+```

@@ -1,0 +1,86 @@
+---
+title: "Conditional Inference Trees"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Conditional Inference Trees}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-tree-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
+
+## Notes:
+
+- Values in the figures represent the proportion of robust cases.
+- The blue bar represents proportions greater than or equal to .90.
+- The red bar represents proportions less than .90.
+
+```{r}
+#| message = FALSE
+library(manMCMedMiss)
+library(party)
+```
+
+```{r}
+results_no_adj <- results
+results_no_adj <- results_no_adj[
+  which(
+    !(
+      results_no_adj$method %in% c("MC.MI.ADJ", "SIG.MI.ADJ")
+    )
+  ),
+]
+results_no_adj$method <- factor(results_no_adj$method)
+```
+
+## Type I Error
+
+```{r}
+type1 <- Tree(
+  results_no_adj,
+  type = "type1",
+  dichotomize = TRUE
+)
+type1
+```
+
+![Type I Error Rate (Dichotomized)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/latexsrc/figures/png/manMCMedMiss-type1-robust.png)
+
+## Statistical Power
+
+```{r}
+power <- Tree(
+  results_no_adj,
+  type = "power",
+  dichotomize = TRUE
+)
+power
+```
+
+![Statistical Power (Dichotomized)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/latexsrc/figures/png/manMCMedMiss-power-robust.png)
+
+## Miss Rate
+
+```{r}
+miss <- Tree(
+  results_no_adj,
+  type = "miss",
+  dichotomize = TRUE
+)
+miss
+```
+
+![Miss Rate (Dichotomized)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/latexsrc/figures/png/manMCMedMiss-miss-robust.png)

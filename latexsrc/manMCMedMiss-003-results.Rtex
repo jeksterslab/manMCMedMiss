@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\input{latexsrc/preamble/preamble}
+
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   "latexsrc",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+%% begin.rcode
+% #| label = "biblatex",
+% #| echo = FALSE,
+% #| warning = FALSE,
+% #| results = "asis"
+% cat(
+%   .PreambleBiblatexCombined(
+%     path = root$find_file(
+%       "latexsrc",
+%       "bib"
+%     ),
+%     output_path = root$find_file(
+%       "latexsrc"
+%     )
+%   )
+% )
+%% end.rcode
+
+\title{Simulation Results}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+%% begin.rcode
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   ".data-process",
+% #|   "data-process-results.R"
+% #| )
+%% end.rcode
+
+%% begin.rcode
+% #| include = FALSE
+% load(
+%   root$find_file(
+%     "data",
+%     "results.rda"
+%   )
+% )
+%% end.rcode
+
+
+%% begin.rcode
+% head(results)
+%% end.rcode
+
+See \texttt{results()} documentation for more information.
+
+\nocite{Lib-R-Manual-2022}
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,213 @@
+---
+title: "Benchmark"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Benchmark}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+The following is a simple benchmark comparing the computational requirements of the methods to generate confidence intervals for the indirect effect with missing observations. We will use the generated data in the [Data Generation](articles/data-generation.html) article.
+
+In this benchmark, we compare the following methods
+
+- Monte Carlo method using full-information maximum likelihood (`MCML()`), 
+- Monte Carlo method using multiple imputation (`MCMI()`),
+- full-information maximum likelihood nested within nonparametric bootstrap (`NBML()`),
+- multiple imputation nested within nonparametric bootstrap (`NBMI()`)
+- nonparametric bootstrap nested within multiple imputation (`MINB()`)
+
+## Arguments
+
+
+```r
+library(manMCMedMiss)
+library(microbenchmark)
+```
+
+
+
+
+|Variables |Values                  |Notes                               |
+|:---------|:-----------------------|:-----------------------------------|
+|m         |100                     |Number of imputations.              |
+|R         |5000                    |Number of Monte Carlo replications. |
+|B         |5000                    |Number of bootstrap samples.        |
+|mplus_bin |"/opt/mplusdemo/mpdemo" |Path to Mplus binary.               |
+
+> **NOTE**: If you are using `jeksterslab/manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](articles/containers.html) article, set `mplus_bin = "mpdemo"`.
+
+
+
+## Benchmark
+
+## Parameters
+
+
+|Variable |Value             |Notes           |
+|:--------|:-----------------|:---------------|
+|n        |50                |$n$             |
+|tauprime |0.14142135623731  |$\tau^{\prime}$ |
+|alpha    |0.714074191775111 |$\alpha$        |
+|beta     |0.714074191775111 |$\beta$         |
+
+## Data
+
+### Generation
+
+Generate sample data with complete observations.
+
+
+```r
+set.seed(42)
+data_complete <- GenData(
+  n = n,
+  tauprime = tauprime,
+  beta = beta,
+  alpha = alpha
+)
+```
+
+### Amputation
+
+Generate sample data with missing values using the multivariate amputation approach proposed by Schouten et al. (2018).
+
+
+```r
+data_missing <- AmputeData(
+  data_complete,
+  mech = "MAR",
+  prop = 0.10
+)
+```
+
+### Imputation
+
+Perform multiple imputation following Asparouhov and Muthen (2010) using `Mplus`.
+
+
+```r
+data_mi <- ImputeData(
+  data_missing,
+  m = m,
+  mplus_bin = mplus_bin
+)
+```
+
+## Maximum Likelihood
+
+### Missing Data
+
+Parameters of the simple mediation model are estimated using full-information maximum likelihood to handle missing data.
+
+
+```r
+fit_ml <- FitModelML(
+  data_missing,
+  mplus_bin = mplus_bin
+)
+```
+
+## Multiple Imputation
+
+Parameters of the simple mediation model are estimated using maximum likelihood for each of the imputed data sets. The parameter estimates and their sampling covariance matrix are pooled.
+
+
+```r
+fit_mi <- FitModelMI(
+  data_mi,
+  mplus_bin = mplus_bin
+)
+```
+
+## Benchmark
+
+
+
+
+```r
+benchmark <- microbenchmark(
+  MCML = MCML(
+    fit_ml,
+    R = R
+  ),
+  MCMI = MCMI(
+    fit_mi,
+    R = R
+  ),
+  NBML = NBML(
+    data_missing,
+    B = B,
+    mplus_bin = mplus_bin
+  ),
+  NBMI = NBMI(
+    data_missing,
+    data_mi,
+    B = B,
+    m = m,
+    mplus_bin = mplus_bin
+  ),
+  MINB = MINB(
+    data_mi,
+    B = B
+  ),
+  times = 10
+)
+```
+
+## Summary of Benchmark Results
+
+
+```r
+summary(benchmark, unit = "ms")
+#>   expr          min           lq         mean       median           uq
+#> 1 MCML 2.971261e+00 3.082620e+00 3.876784e+00 3.098002e+00 3.348944e+00
+#> 2 MCMI 5.861882e+00 5.900029e+00 7.315402e+00 6.140012e+00 6.336096e+00
+#> 3 NBML 3.026049e+03 3.049777e+03 3.179221e+03 3.077141e+03 3.233131e+03
+#> 4 NBMI 1.793326e+06 1.802455e+06 1.805615e+06 1.805834e+06 1.811882e+06
+#> 5 MINB 7.872854e+04 7.932137e+04 7.955449e+04 7.963104e+04 7.987027e+04
+#>            max neval cld
+#> 1 1.029741e+01    10 a  
+#> 2 1.782065e+01    10 a  
+#> 3 3.613534e+03    10 a  
+#> 4 1.815541e+06    10   c
+#> 5 7.997328e+04    10  b
+```
+
+## Summary of Benchmark Results Relative to the Fastest Method
+
+
+```r
+summary(benchmark, unit = "relative")
+#>   expr          min           lq         mean       median           uq
+#> 1 MCML      1.00000 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00
+#> 2 MCMI      1.97286 1.913966e+00 1.886977e+00 1.981926e+00 1.891968e+00
+#> 3 NBML   1018.43937 9.893457e+02 8.200666e+02 9.932661e+02 9.654180e+02
+#> 4 NBMI 603557.18397 5.847154e+05 4.657507e+05 5.829029e+05 5.410307e+05
+#> 5 MINB  26496.67534 2.573180e+04 2.052074e+04 2.570400e+04 2.384939e+04
+#>            max neval cld
+#> 1 1.000000e+00    10 a  
+#> 2 1.730595e+00    10 a  
+#> 3 3.509167e+02    10 a  
+#> 4 1.763104e+05    10   c
+#> 5 7.766347e+03    10  b
+```
+
+## Plot
+
+<img src="fig-vignettes-benchmark-unnamed-chunk-16-1.png" width="3300" /><img src="fig-vignettes-benchmark-unnamed-chunk-16-2.png" width="3300" />
+
+The `MC` approaches are faster compared to their `NB` counterparts. Note the increasing model complexity will increase the computational cost of `NB`. However, for `MC`, model complexity will not increase the computational cost of the simulation stage. For example, `MI` estimates are more computationally intensive than `ML` estimates. This results in a large difference between `NBML` and the two `NB` methods using `MI`, that is, `NBMI` and `MINB`. Note that `MINB` is faster than `NBMI` as expected but it is still significantly slower than the `MC` approaches.
+
+However, if we perform the model fitting step outside the benchmark calculation, the speed of `MCML` and `MCMI` will be virtually identical. In this implementation, however, `MCMI` will be a little bit slower than `MCML` because it generates two sets of confidence intervals (`vcov` and `vcov_tilde`) while `MCML` generates a single set. Since `MC` relies on a single estimate of the parameters and the sampling covariance matrix, it is suited for more complex models.
+
+> **NOTE**: Note that since `NB` only needs point estimates, a closed form solution of the indirect effect is used in `NBMI` and `MINB`. When optimization is used to estimate parameters in the context of structural equation modeling, `NBMI` and `MINB` will be significantly slower.
+
+## References
+
+Asparouhov, T., & Muthen, B. (2010). *Multiple imputation with Mplus*. Retrieved from http://www.statmodel.com/download/Imputations7.pdf
+
+Schouten, R. M., Lugtig, P. and Vink, G. (2018). Generating missing values for simulation purposes: A multivariate amputation procedure. *Journal of Statistical Computation and Simulation*, *88*(15), 1909--1930. https://doi.org/10.1080/00949655.2018.1491577

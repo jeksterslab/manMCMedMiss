@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\input{latexsrc/preamble/preamble}
+
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   "latexsrc",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+%% begin.rcode
+% #| label = "biblatex",
+% #| echo = FALSE,
+% #| warning = FALSE,
+% #| results = "asis"
+% cat(
+%   .PreambleBiblatexCombined(
+%     path = root$find_file(
+%       "latexsrc",
+%       "bib"
+%     ),
+%     output_path = root$find_file(
+%       "latexsrc"
+%     )
+%   )
+% )
+%% end.rcode
+
+\title{manMCMedMiss: Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Description}
+
+A collection of functions used in the manuscript
+\textit{Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data}.
+
+\section*{Installation}
+
+You can install the released version of
+\texttt{manMCMedMiss}
+from
+\href{https://github.com/jeksterslab/manMCMedMiss}{GitHub}
+with:
+
+%% begin.rcode
+% #| eval = FALSE
+% install.packages("remotes")
+% remotes::install_github("jeksterslab/manMCMedMiss")
+%% end.rcode
+
+\section*{More Information}
+
+See
+\href{https://jeksterslab.github.io/manMCMedMiss/index.html}{GitHub Pages}
+for package documentation.
+
+\nocite{Lib-R-Manual-2022}
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,1429 @@
+
+---
+title: "Box Plots"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Box Plots}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-box-plots-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
+
+Presented below are box plots of Type I error rates, statistical power, and miss rates. See `FigBoxPlot()` for more details on the plots below.
+
+```{r}
+#| include = FALSE
+library(manMCMedMiss)
+```
+
+```{r}
+#| include = FALSE
+ns <- sort(
+  unique(
+    results$n
+  )
+)
+```
+
+## Complete Data
+
+```{r}
+#| include = FALSE
+mech <- "COMPLETE"
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "\n",
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "\n",
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "\n",
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "\n",
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "\n",
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "\n",
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+## Missing Completely at Random (MCAR)
+
+```{r}
+#| include = FALSE
+mech <- "MCAR"
+```
+
+<!-- 10 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .1
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+<!-- 20 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .2
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+<!-- 30 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .3
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+## Missing at Random (MAR)
+
+```{r}
+#| include = FALSE
+mech <- "MAR"
+```
+
+<!-- 10 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .1
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+<!-- 20 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .2
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+<!-- 30 Percent Missing Observations -->
+
+```{r}
+#| include = FALSE
+prop <- .3
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Type I Error Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "type1",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Type I Error Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "type1",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Statistical Power",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "power",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Statistical Power",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "power",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+cat(
+  paste0(
+    "### Miss Rate",
+    " (",
+    "Mechanism = ",
+    mech,
+    ", ",
+    "Proportion = ",
+    prop,
+    ")",
+    "\n"
+  )
+)
+print(
+  FigBoxPlot(
+    results,
+    type = "miss",
+    mech = mech,
+    prop = prop
+  )
+)
+```
+
+```{r}
+#| echo = FALSE,
+#| results = "asis",
+#| message = FALSE,
+#| warning = FALSE
+for (n in seq_along(ns)) {
+  cat("<div class=\"boxplot\">")
+  cat(
+    paste0(
+      "### Miss Rate",
+      " (",
+      "Mechanism = ",
+      mech,
+      ", ",
+      "Proportion = ",
+      prop,
+      ", ",
+      "n = ",
+      ns[n],
+      ")",
+      "\n"
+    )
+  )
+  print(
+    FigBoxPlot(
+      results,
+      type = "miss",
+      mech = mech,
+      prop = prop,
+      n = ns[n]
+    )
+  )
+  cat("</div>  \n\n")
+}
+```

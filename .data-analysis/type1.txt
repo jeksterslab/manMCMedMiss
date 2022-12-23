@@ -1,0 +1,83 @@
+
+	 Conditional inference tree with 26 terminal nodes
+
+Response:  y 
+Inputs:  tauprime, n, alphabeta, mechanism, proportion, method 
+Number of observations:  8957 
+
+1) alphabeta == {.00(.00,.00)}; criterion = 1, statistic = 4822.126
+  2)*  weights = 1278 
+1) alphabeta == {.00(.00,.38), .00(.00,.60), .00(.00,.71), .00(.38,.00), .00(.60,.00), .00(.71,.00)}
+  3) method == {NBBC.COMPLETE, NBBC.FIML}; criterion = 1, statistic = 1109.392
+    4) n <= 100; criterion = 1, statistic = 315.76
+      5) alphabeta == {.00(.00,.71), .00(.71,.00)}; criterion = 1, statistic = 51.458
+        6) n <= 75; criterion = 1, statistic = 108.376
+          7) n <= 50; criterion = 1, statistic = 25.615
+            8)*  weights = 56 
+          7) n > 50
+            9)*  weights = 56 
+        6) n > 75
+          10)*  weights = 56 
+      5) alphabeta == {.00(.00,.38), .00(.00,.60), .00(.38,.00), .00(.60,.00)}
+        11)*  weights = 336 
+    4) n > 100
+      12) alphabeta == {.00(.00,.60), .00(.00,.71), .00(.60,.00), .00(.71,.00)}; criterion = 1, statistic = 256.035
+        13)*  weights = 560 
+      12) alphabeta == {.00(.00,.38), .00(.38,.00)}
+        14) n <= 200; criterion = 1, statistic = 113.879
+          15)*  weights = 112 
+        14) n > 200
+          16)*  weights = 168 
+  3) method == {MC.COMPLETE, MC.FIML, MC.MI, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE, SIG.FIML, SIG.MI}
+    17) n <= 50; criterion = 1, statistic = 237.481
+      18) alphabeta == {.00(.00,.71), .00(.60,.00), .00(.71,.00)}; criterion = 1, statistic = 154.161
+        19) method == {MC.COMPLETE, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE}; criterion = 1, statistic = 162.331
+          20)*  weights = 108 
+        19) method == {MC.FIML, MC.MI, SIG.FIML, SIG.MI}
+          21) alphabeta == {.00(.60,.00)}; criterion = 1, statistic = 43.72
+            22)*  weights = 96 
+          21) alphabeta == {.00(.00,.71), .00(.71,.00)}
+            23) method == {MC.FIML, SIG.FIML}; criterion = 1, statistic = 42.169
+              24)*  weights = 96 
+            23) method == {MC.MI, SIG.MI}
+              25)*  weights = 96 
+      18) alphabeta == {.00(.00,.38), .00(.00,.60), .00(.38,.00)}
+        26) method == {MC.COMPLETE, MC.FIML, MC.MI, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI}; criterion = 1, statistic = 57.616
+          27) tauprime <= 0.1414214; criterion = 1, statistic = 37.307
+            28) alphabeta == {.00(.00,.60)}; criterion = 1, statistic = 43.7
+              29) method == {MC.FIML, SIG.FIML}; criterion = 1, statistic = 41.075
+                30)*  weights = 24 
+              29) method == {MC.COMPLETE, MC.MI, NBPC.COMPLETE, SIG.COMPLETE, SIG.MI}
+                31)*  weights = 30 
+            28) alphabeta == {.00(.00,.38), .00(.38,.00)}
+              32) method == {MC.MI}; criterion = 1, statistic = 46.813
+                33) alphabeta == {.00(.00,.38)}; criterion = 1, statistic = 23
+                  34)*  weights = 12 
+                33) alphabeta == {.00(.38,.00)}
+                  35)*  weights = 12 
+              32) method == {MC.COMPLETE, MC.FIML, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI}
+                36)*  weights = 84 
+          27) tauprime > 0.1414214
+            37)*  weights = 162 
+        26) method == {NBPC.FIML}
+          38) alphabeta == {.00(.00,.38), .00(.38,.00)}; criterion = 1, statistic = 47.333
+            39)*  weights = 48 
+          38) alphabeta == {.00(.00,.60)}
+            40)*  weights = 24 
+    17) n > 50
+      41) alphabeta == {.00(.00,.38), .00(.00,.60), .00(.00,.71), .00(.38,.00)}; criterion = 1, statistic = 87.193
+        42)*  weights = 3695 
+      41) alphabeta == {.00(.60,.00), .00(.71,.00)}
+        43) tauprime <= 0; criterion = 1, statistic = 29.366
+          44) alphabeta == {.00(.60,.00)}; criterion = 1, statistic = 25.26
+            45)*  weights = 231 
+          44) alphabeta == {.00(.71,.00)}
+            46)*  weights = 231 
+        43) tauprime > 0
+          47) method == {MC.FIML, SIG.FIML}; criterion = 1, statistic = 37.46
+            48) alphabeta == {.00(.71,.00)}; criterion = 1, statistic = 18.63
+              49)*  weights = 252 
+            48) alphabeta == {.00(.60,.00)}
+              50)*  weights = 252 
+          47) method == {MC.COMPLETE, MC.MI, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE, SIG.MI}
+            51)*  weights = 882 

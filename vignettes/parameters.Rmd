@@ -1,0 +1,86 @@
+---
+title: "Simulation Parameters"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Simulation Parameters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, message = FALSE}
+library(manMCMedMiss)
+```
+
+## Effect and Sample Sizes
+
+```{r echo = FALSE}
+DT::formatRound(
+  DT::datatable(
+    params,
+    options = list(
+      scrollX = TRUE
+    )
+  ),
+  columns = c(2, 3, 4, 6, 7, 8),
+  digits = 3
+)
+```
+
+$\tau^{\prime}$
+
+```{r echo = FALSE}
+sort(unique(params$tauprime))
+```
+
+$\beta$
+
+```{r echo = FALSE}
+sort(unique(params$beta))
+```
+
+$\alpha$
+
+```{r echo = FALSE}
+sort(unique(params$alpha))
+```
+
+$\alpha \beta$
+
+```{r echo = FALSE}
+sort(unique(params$alphabeta))
+```
+
+$n$
+
+```{r echo = FALSE}
+sort(unique(params$n))
+```
+
+## Missing Data Mechanism
+
+```{r echo = FALSE}
+sort(unique(results$mechanism))
+```
+
+## Proportion of Missing Cases
+
+```{r echo = FALSE}
+sort(unique(results$proportion))
+```
+
+## Methods
+
+```{r echo = FALSE}
+sort(unique(results$method))
+```
+
+See `params()` and `results()` documentation for more information.

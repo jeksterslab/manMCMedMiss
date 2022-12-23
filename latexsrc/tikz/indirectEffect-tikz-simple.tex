@@ -1,0 +1,81 @@
+\documentclass[tikz, border=1mm]{standalone}
+
+% convert -density 300 indirectEffect-tikz-simple.pdf -quality 100 -background white -alpha remove -alpha off indirectEffect-tikz-simple.png
+
+\begin{document}
+
+\usetikzlibrary{
+	er,
+	arrows,
+	positioning
+}
+
+\begin{tikzpicture}[
+		auto,
+		node distance = 15mm and 15mm,
+		manifest/.style = {
+			rectangle,
+			draw,
+			thick,
+			inner sep = 0pt,
+			minimum width = 15mm,
+			minimum height = 10mm
+		},
+		inv/.style = {
+			rectangle,
+			draw=none,
+			fill=none,
+			inner sep = 0pt,
+			minimum width = 15mm,
+			minimum height = 10mm
+		},
+		error/.style = {
+			ellipse,
+			draw,
+			thick,
+			inner sep = 0pt,
+			minimum size = 7mm,
+			align = center
+		},
+		mean/.style={
+			regular polygon,
+			regular polygon sides = 3,
+			draw,
+			thick,
+			inner sep = 0pt,
+			minimum width = 7mm,
+			minimum height = 7mm
+		},
+		path/.style = {
+			->,
+			thick,
+			>=stealth'
+		},
+		cov/.style = {
+			<->,
+			thick,
+			>=stealth'
+		},
+	]
+	\node[inv] (inv) {};
+	\node[manifest] (X) [right = of inv] {$X$};
+	\node[manifest] (M) [above left = of X] {$M$};
+	\node[manifest] (Y) [below left = of M] {$Y$};
+	\node[error] (varepsilonM) [above = of M] {$\varepsilon_{M}$};
+	\node[error] (varepsilonY) [above = of Y] {$\varepsilon_{Y}$};
+	\node[mean] (1) [below = of inv] {$1$};
+	\draw[path] (M) to node[above] {$\beta$} (Y);
+	\draw[path] (X) to node[above right] {$\tau^{\prime}$} (Y);
+	\draw[path] (X) to node[above] {$\alpha$} (M);
+	\draw[path] (varepsilonM) to node {$1$} (M);
+	\draw[path] (varepsilonY) to node {$1$} (Y);
+	\draw[path] (1) to node {$\mu_{X}$} (X);
+	\draw[path] (1) to node[below left] {$\delta_{M}$} (M);
+	\draw[path] (1) to node {$\delta_{Y}$} (Y);
+	\draw[cov] (X) to[out = 70, in = 110, looseness = 5] node[above] {$\sigma_{X}^{2}$} (X);
+	\draw[cov] (varepsilonM) to[out = -290, in = -250, looseness = 5] node[above] {$\sigma^{2}_{\varepsilon_{M}}$} (varepsilonM);
+	\draw[cov] (varepsilonY) to[out = -290, in = -250, looseness = 5] node[above] {$\sigma^{2}_{\varepsilon_{Y}}$} (varepsilonY);
+	\draw[cov] (1) to[out = -60, in = -120, looseness = 5] node[below] {$1$} (1);
+\end{tikzpicture}
+
+\end{document}
