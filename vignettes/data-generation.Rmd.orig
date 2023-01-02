@@ -99,7 +99,7 @@ knitr::kable(
 )
 ```
 
-> **NOTE**: If you are using `jeksterslab/manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
+> **NOTE**: If you are using `manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
 
 ```{r}
 #| include = FALSE

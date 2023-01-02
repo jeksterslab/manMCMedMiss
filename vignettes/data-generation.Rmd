@@ -56,7 +56,7 @@ library(manMCMedMiss)
 |m         |100                     |Number of imputations. |
 |mplus_bin |"/opt/mplusdemo/mpdemo" |Path to Mplus binary.  |
 
-> **NOTE**: If you are using `jeksterslab/manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
+> **NOTE**: If you are using `manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
 
 
 

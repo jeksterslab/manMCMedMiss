@@ -54,7 +54,7 @@ knitr::kable(head(elliot2007))
 |B         |5000                    |Number of bootstrap samples.        |
 |mplus_bin |"/opt/mplusdemo/mpdemo" |Path to Mplus binary.               |
 
-> **NOTE**: If you are using `jeksterslab/manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
+> **NOTE**: If you are using `manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
 
 
 
@@ -157,12 +157,12 @@ fit_ml
 #> $output
 #>   [1] "Mplus VERSION 8.8 DEMO (Linux)"                                                                     
 #>   [2] "MUTHEN & MUTHEN"                                                                                    
-#>   [3] "12/23/2022  12:26 AM"                                                                               
+#>   [3] "01/01/2023  12:03 AM"                                                                               
 #>   [4] ""                                                                                                   
 #>   [5] "INPUT INSTRUCTIONS"                                                                                 
 #>   [6] ""                                                                                                   
 #>   [7] "  DATA:"                                                                                            
-#>   [8] "  FILE = file2eb070203886;"                                                                         
+#>   [8] "  FILE = file3e9a4baebbfe;"                                                                         
 #>   [9] "  VARIABLE:"                                                                                        
 #>  [10] "  NAMES = X M Y;"                                                                                   
 #>  [11] "  USEVARIABLES = X M Y;"                                                                            
@@ -176,8 +176,8 @@ fit_ml
 #>  [19] "  M ON X (A);"                                                                                      
 #>  [20] "  X WITH X;"                                                                                        
 #>  [21] "  SAVEDATA:"                                                                                        
-#>  [22] "  RESULTS ARE file2eb0b10a29;"                                                                      
-#>  [23] "  TECH3 IS file2eb029785b1c;"                                                                       
+#>  [22] "  RESULTS ARE file3e9a30dd6fc1;"                                                                    
+#>  [23] "  TECH3 IS file3e9a1b5d4777;"                                                                       
 #>  [24] ""                                                                                                   
 #>  [25] ""                                                                                                   
 #>  [26] ""                                                                                                   
@@ -214,7 +214,7 @@ fit_ml
 #>  [57] "Convergence criterion for H1                             0.100D-03"                                 
 #>  [58] ""                                                                                                   
 #>  [59] "Input data file(s)"                                                                                 
-#>  [60] "  file2eb070203886"                                                                                 
+#>  [60] "  file3e9a4baebbfe"                                                                                 
 #>  [61] ""                                                                                                   
 #>  [62] "Input data format  FREE"                                                                            
 #>  [63] ""                                                                                                   
@@ -366,7 +366,7 @@ fit_ml
 #> [209] "    Condition Number"                                                                               
 #> [210] ""                                                                                                   
 #> [211] "  Save file"                                                                                        
-#> [212] "    file2eb0b10a29"                                                                                 
+#> [212] "    file3e9a30dd6fc1"                                                                               
 #> [213] ""                                                                                                   
 #> [214] "  Save file format           Free"                                                                  
 #> [215] ""                                                                                                   
@@ -377,11 +377,11 @@ fit_ml
 #> [220] "  Estimated Covariance Matrix for the Parameter Estimates"                                          
 #> [221] ""                                                                                                   
 #> [222] "  Save file"                                                                                        
-#> [223] "    file2eb029785b1c"                                                                               
+#> [223] "    file3e9a1b5d4777"                                                                               
 #> [224] "  Save format      Free"                                                                            
 #> [225] ""                                                                                                   
-#> [226] "     Beginning Time:  00:26:26"                                                                     
-#> [227] "        Ending Time:  00:26:26"                                                                     
+#> [226] "     Beginning Time:  00:03:37"                                                                     
+#> [227] "        Ending Time:  00:03:37"                                                                     
 #> [228] "       Elapsed Time:  00:00:00"                                                                     
 #> [229] ""                                                                                                   
 #> [230] ""                                                                                                   
