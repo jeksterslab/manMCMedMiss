@@ -82,7 +82,7 @@ Agaloos Pesigan</h4>
 <p>The following is a simple benchmark comparing the computational
 requirements of the methods to generate confidence intervals for the
 indirect effect with missing observations. We will use the generated
-data in the <a href="articles/data-generation.html">Data Generation</a>
+data in the <a href="data-generation.html">Data Generation</a>
 article.</p>
 <p>In this benchmark, we compare the following methods</p>
 <ul>
@@ -139,8 +139,8 @@ bootstrap (<code><a href="../reference/NBML.html">NBML()</a></code>),</li>
 </table>
 <blockquote>
 <p><strong>NOTE</strong>: If you are using
-<code>jeksterslab/manmcmedmiss-rocker</code> or
-<code>manmcmedmiss.sif</code> described in the <a href="articles/containers.html">Containers</a> article, set
+<code>manmcmedmiss-rocker</code> or <code>manmcmedmiss.sif</code>
+described in the <a href="containers.html">Containers</a> article, set
 <code>mplus_bin = "mpdemo"</code>.</p>
 </blockquote>
 </div>
@@ -287,17 +287,17 @@ and their sampling covariance matrix are pooled.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark</span>, unit <span class="op">=</span> <span class="st">"ms"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   expr          min           lq         mean       median           uq</span></span>
-<span><span class="co">#&gt; 1 MCML 2.971261e+00 3.082620e+00 3.876784e+00 3.098002e+00 3.348944e+00</span></span>
-<span><span class="co">#&gt; 2 MCMI 5.861882e+00 5.900029e+00 7.315402e+00 6.140012e+00 6.336096e+00</span></span>
-<span><span class="co">#&gt; 3 NBML 3.026049e+03 3.049777e+03 3.179221e+03 3.077141e+03 3.233131e+03</span></span>
-<span><span class="co">#&gt; 4 NBMI 1.793326e+06 1.802455e+06 1.805615e+06 1.805834e+06 1.811882e+06</span></span>
-<span><span class="co">#&gt; 5 MINB 7.872854e+04 7.932137e+04 7.955449e+04 7.963104e+04 7.987027e+04</span></span>
+<span><span class="co">#&gt; 1 MCML 2.939726e+00 2.999212e+00 3.120572e+00 3.034956e+00 3.367501e+00</span></span>
+<span><span class="co">#&gt; 2 MCMI 5.834296e+00 5.853147e+00 6.747377e+00 6.374880e+00 6.557129e+00</span></span>
+<span><span class="co">#&gt; 3 NBML 3.004390e+03 3.033336e+03 3.050016e+03 3.043444e+03 3.060001e+03</span></span>
+<span><span class="co">#&gt; 4 NBMI 1.685645e+06 1.704009e+06 1.721273e+06 1.726249e+06 1.741997e+06</span></span>
+<span><span class="co">#&gt; 5 MINB 7.570451e+04 7.591786e+04 7.634517e+04 7.641855e+04 7.670130e+04</span></span>
 <span><span class="co">#&gt;            max neval cld</span></span>
-<span><span class="co">#&gt; 1 1.029741e+01    10 a  </span></span>
-<span><span class="co">#&gt; 2 1.782065e+01    10 a  </span></span>
-<span><span class="co">#&gt; 3 3.613534e+03    10 a  </span></span>
-<span><span class="co">#&gt; 4 1.815541e+06    10   c</span></span>
-<span><span class="co">#&gt; 5 7.997328e+04    10  b</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 3.394150e+00    10 a  </span></span>
+<span><span class="co">#&gt; 2 1.127714e+01    10 a  </span></span>
+<span><span class="co">#&gt; 3 3.145125e+03    10 a  </span></span>
+<span><span class="co">#&gt; 4 1.745557e+06    10   c</span></span>
+<span><span class="co">#&gt; 5 7.675691e+04    10  b</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="summary-of-benchmark-results-relative-to-the-fastest-method">Summary of Benchmark Results Relative to the Fastest Method<a class="anchor" aria-label="anchor" href="#summary-of-benchmark-results-relative-to-the-fastest-method"></a>
@@ -305,17 +305,17 @@ and their sampling covariance matrix are pooled.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark</span>, unit <span class="op">=</span> <span class="st">"relative"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   expr          min           lq         mean       median           uq</span></span>
-<span><span class="co">#&gt; 1 MCML      1.00000 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00</span></span>
-<span><span class="co">#&gt; 2 MCMI      1.97286 1.913966e+00 1.886977e+00 1.981926e+00 1.891968e+00</span></span>
-<span><span class="co">#&gt; 3 NBML   1018.43937 9.893457e+02 8.200666e+02 9.932661e+02 9.654180e+02</span></span>
-<span><span class="co">#&gt; 4 NBMI 603557.18397 5.847154e+05 4.657507e+05 5.829029e+05 5.410307e+05</span></span>
-<span><span class="co">#&gt; 5 MINB  26496.67534 2.573180e+04 2.052074e+04 2.570400e+04 2.384939e+04</span></span>
+<span><span class="co">#&gt; 1 MCML 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00      1.00000</span></span>
+<span><span class="co">#&gt; 2 MCMI 1.984639e+00 1.951562e+00 2.162224e+00 2.100485e+00      1.94718</span></span>
+<span><span class="co">#&gt; 3 NBML 1.021997e+03 1.011378e+03 9.773898e+02 1.002797e+03    908.68594</span></span>
+<span><span class="co">#&gt; 4 NBMI 5.734020e+05 5.681523e+05 5.515889e+05 5.687888e+05 517296.59901</span></span>
+<span><span class="co">#&gt; 5 MINB 2.575223e+04 2.531260e+04 2.446512e+04 2.517946e+04  22776.92093</span></span>
 <span><span class="co">#&gt;            max neval cld</span></span>
 <span><span class="co">#&gt; 1 1.000000e+00    10 a  </span></span>
-<span><span class="co">#&gt; 2 1.730595e+00    10 a  </span></span>
-<span><span class="co">#&gt; 3 3.509167e+02    10 a  </span></span>
-<span><span class="co">#&gt; 4 1.763104e+05    10   c</span></span>
-<span><span class="co">#&gt; 5 7.766347e+03    10  b</span></span></code></pre></div>
+<span><span class="co">#&gt; 2 3.322522e+00    10 a  </span></span>
+<span><span class="co">#&gt; 3 9.266310e+02    10 a  </span></span>
+<span><span class="co">#&gt; 4 5.142840e+05    10   c</span></span>
+<span><span class="co">#&gt; 5 2.261447e+04    10  b</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
