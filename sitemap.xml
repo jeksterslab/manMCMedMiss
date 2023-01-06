@@ -37,6 +37,12 @@
     <loc>https://github.com/jeksterslab/manMCMedMiss/articles/inference.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/manMCMedMiss/articles/mc-fiml.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/manMCMedMiss/articles/mc-mi.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/manMCMedMiss/articles/model-fitting.html</loc>
   </url>
   <url>
@@ -158,6 +164,9 @@
   </url>
   <url>
     <loc>https://github.com/jeksterslab/manMCMedMiss/reference/MCML.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/manMCMedMiss/reference/MICombine.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/manMCMedMiss/reference/MINB.html</loc>
