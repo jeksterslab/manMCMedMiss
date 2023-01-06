@@ -1,0 +1,82 @@
+---
+title: "Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+In this example, we use data from a study by Elliot and others (2007) on the effects of an intervention on healthy dietary behavior mediated by knowledge of healthy dietary behavior. This data was used as an empirical example in Yuan and MacKinnon (2009) and Wu and Jia (2013).
+
+## Data
+
+
+```r
+library(manMCMedMiss)
+```
+
+The data frame `elliot2007()`, which is included in the `manMCMedMiss` package, has 354 cases and 3 variables:
+
+  - `x` - Intervention group membership.
+  - `m` - Knowledge of healthy dietary behavior (knowledge post-intervention minus knowledge pre-intervention).
+  - `y` - Healthy dietary behavior (behavior post-intervention minus behavior pre-intervention).
+
+
+```r
+knitr::kable(head(elliot2007))
+```
+
+
+
+|  x|    m|         y|
+|--:|----:|---------:|
+|  0|  1.0|  1.666666|
+|  0|  0.0|  4.000000|
+|  0|  0.0|  0.000000|
+|  0| -0.5| -0.666667|
+|  0|  0.5|  1.333333|
+|  0|  1.0|  2.333334|
+
+## Model Fitting
+
+We fit the model using the argument `missing = "fiml"` to use full-information maximum likelihood to deal with missing data.
+Note that we need to define the indirect effect as the product of `a` and `b` using the `:=` operator in the model syntax.
+
+
+```r
+library(lavaan)
+model <- "
+  y ~ x + b * m
+  m ~ a * x
+  indirect := a * b
+"
+fit <- sem(
+  model = model,
+  data = elliot2007,
+  missing = "fiml"
+)
+```
+
+## Monte Carlo Confidence Intervals
+
+The fitted `lavaan` model saved in the object `fit` is passed as the first argument to the `semmcci::MC()` function to generate Monte Carlo confidence intervals. 
+
+
+```r
+library(semmcci)
+MC(fit)
+#> Monte Carlo Confidence Intervals
+#>             est     se     R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%
+#> y~x      0.1079 0.1161 20000 -0.2648 -0.1963 -0.1207 0.3342 0.4078 0.4908
+#> b        0.1416 0.0516 20000 -0.0415  0.0067  0.0406 0.2442 0.2740 0.3024
+#> a        0.3968 0.1178 20000  0.0030  0.0969  0.1669 0.6280 0.6959 0.7745
+#> y~~y     1.1248 0.0843 20000  0.8308  0.9110  0.9622 1.2871 1.3415 1.4078
+#> m~~m     1.2025 0.0900 20000  0.9060  0.9709  1.0260 1.3776 1.4309 1.4902
+#> y~1      0.3504 0.0733 20000  0.1160  0.1683  0.2077 0.4935 0.5394 0.5892
+#> m~1      0.0032 0.0750 20000 -0.2406 -0.1956 -0.1433 0.1492 0.1951 0.2537
+#> indirect 0.0562 0.0271 20000 -0.0143  0.0017  0.0121 0.1177 0.1407 0.1736
+```

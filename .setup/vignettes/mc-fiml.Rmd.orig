@@ -1,0 +1,70 @@
+---
+title: "Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
+
+In this example, we use data from a study by Elliot and others (2007) on the effects of an intervention on healthy dietary behavior mediated by knowledge of healthy dietary behavior. This data was used as an empirical example in Yuan and MacKinnon (2009) and Wu and Jia (2013).
+
+## Data
+
+```{r}
+#| message = FALSE
+library(manMCMedMiss)
+```
+
+The data frame `elliot2007()`, which is included in the `manMCMedMiss` package, has 354 cases and 3 variables:
+
+  - `x` - Intervention group membership.
+  - `m` - Knowledge of healthy dietary behavior (knowledge post-intervention minus knowledge pre-intervention).
+  - `y` - Healthy dietary behavior (behavior post-intervention minus behavior pre-intervention).
+
+```{r}
+knitr::kable(head(elliot2007))
+```
+
+## Model Fitting
+
+We fit the model using the argument `missing = "fiml"` to use full-information maximum likelihood to deal with missing data.
+Note that we need to define the indirect effect as the product of `a` and `b` using the `:=` operator in the model syntax.
+
+```{r}
+library(lavaan)
+model <- "
+  y ~ x + b * m
+  m ~ a * x
+  indirect := a * b
+"
+fit <- sem(
+  model = model,
+  data = elliot2007,
+  missing = "fiml"
+)
+```
+
+## Monte Carlo Confidence Intervals
+
+The fitted `lavaan` model saved in the object `fit` is passed as the first argument to the `semmcci::MC()` function to generate Monte Carlo confidence intervals. 
+
+```{r}
+library(semmcci)
+MC(fit)
+```
