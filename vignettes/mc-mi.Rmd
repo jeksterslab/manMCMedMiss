@@ -8,14 +8,26 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
 
 In this example, we use data from a study by Elliot and others (2007) on the effects of an intervention on healthy dietary behavior mediated by knowledge of healthy dietary behavior. This data was used as an empirical example in Yuan and MacKinnon (2009) and Wu and Jia (2013).
 
 ## Data
 
-
-```r
+```{r}
+#| message = FALSE
 library(manMCMedMiss)
 ```
 
@@ -25,36 +37,38 @@ The data frame `elliot2007()`, which is included in the `manMCMedMiss` package, 
   - `m` - Knowledge of healthy dietary behavior (knowledge post-intervention minus knowledge pre-intervention).
   - `y` - Healthy dietary behavior (behavior post-intervention minus behavior pre-intervention).
 
-
-```r
+```{r}
 knitr::kable(head(elliot2007))
 ```
 
+## Amputation
 
+Generate sample data with missing values. The missing data mechanism is missing at random (MAR). The proportion of missing cases is 0.30.
 
-|  x|    m|         y|
-|--:|----:|---------:|
-|  0|  1.0|  1.666666|
-|  0|  0.0|  4.000000|
-|  0|  0.0|  0.000000|
-|  0| -0.5| -0.666667|
-|  0|  0.5|  1.333333|
-|  0|  1.0|  2.333334|
+```{r}
+set.seed(42)
+data_missing <- AmputeData(
+  elliot2007,
+  mech = "MAR",
+  prop = 0.10
+)
+knitr::kable(head(data_missing, n = 10))
+```
 
 ## Multiple Imputation
 
-Multiple data sets with complete date are generated from the original data set with missing values using multiple imputation.
+Multiple data sets with complete data are generated from the original data set with missing values using multiple imputation.
 There are several packages in `R` such as `Amelia`, `mice`, and `norm2` that can be used to generate completed data sets.
 In the example below, we use the `mice` package to generate `m = 100` completed data sets using the joint specification approach
 by specifying `method = "norm"`.
 The data sets are saved in the list `mi` of length `m`.
 
-
-```r
+```{r}
+#| message = FALSE
 library(mice)
 mi <- complete(
   mice(
-    elliot2007,
+    data_missing,
     method = "norm",
     m = 100,
     print = FALSE,
@@ -69,11 +83,9 @@ mi <- complete(
 We fit the model to each of the `m = 100` data sets using `lavaan`.
 The output is saved in the list `fit`.
 
-
-```r
+```{r}
+#| message = FALSE
 library(lavaan)
-#> This is lavaan 0.6-12
-#> lavaan is FREE software! Please report any bugs.
 model <- "
   y ~ x + b * m
   m ~ a * x
@@ -100,8 +112,7 @@ We use the `lavaan::coef()` function to extract the parameter estimates
 for each of the `m = 100` fitted models
 and save the results in a list `param_vec`.
 
-
-```r
+```{r}
 param_vec <- lapply(
   X = fit,
   FUN = function(fit) {
@@ -114,8 +125,7 @@ We use the `lavaan::vcov()` function to extract the sampling variance-covariance
 for each of the `m = 100` fitted models
 and save the results in a list `var_mat`.
 
-
-```r
+```{r}
 var_mat <- lapply(
   X = fit,
   FUN = function(fit) {
@@ -128,13 +138,11 @@ The estimates are combined using the `manMCMedMiss::MICombine()` function.
 The `manMCMedMiss::MICombine()` function uses a multivariate approach to combining
 the entire sampling variance-covariance matrix and not just the diagonal elements.
 
-
-```r
+```{r}
 mi <- MICombine(
   param_vec = param_vec,
   var_mat = var_mat
 )
-#> Error in eval(expr, envir, enclos): cannot open file '/data/home/yb47324/manMCMedMiss/.library/manMCMedMiss/R/manMCMedMiss.rdb': No such file or directory
 ```
 
 A distribution of parameter estimates
@@ -142,27 +150,24 @@ are generated from the multivariate normal distribution
 using the pooled parameter estimates vector
 and the total sampling variance-covariance matrix.
 
-
-```r
+```{r}
 set.seed(42)
-R = 20000
+R <- 20000
 mc <- MASS::mvrnorm(
   n = R,
   mu = mi$estimates,
   Sigma = mi$total
 )
-#> Error in array(x, c(length(x), 1L), if (!is.null(names(x))) list(names(x), : 'data' must be of a vector type, was 'NULL'
 ```
 
 The corresponding quantiles for the 95% confidence intervals,
 namely 2.5% and 97.5%,
 are the lower and upper limits of the Monte Carlo confidence intervals.
 
-
-```r
+```{r}
 stats::quantile(
   mc[, "a"] * mc[, "b"],
   probs = c(0.025, 0.975)
 )
-#> Error in stats::quantile(mc[, "a"] * mc[, "b"], probs = c(0.025, 0.975)): object 'mc' not found
 ```
+
