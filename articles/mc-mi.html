@@ -144,9 +144,82 @@ post-intervention minus behavior pre-intervention).</li>
 </table>
 </div>
 <div class="section level2">
+<h2 id="amputation">Amputation<a class="anchor" aria-label="anchor" href="#amputation"></a>
+</h2>
+<p>Generate sample data with missing values. The missing data mechanism
+is missing at random (MAR). The proportion of missing cases is 0.30.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span><span class="va">data_missing</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/AmputeData.html">AmputeData</a></span><span class="op">(</span></span>
+<span>  <span class="va">elliot2007</span>,</span>
+<span>  mech <span class="op">=</span> <span class="st">"MAR"</span>,</span>
+<span>  prop <span class="op">=</span> <span class="fl">0.10</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data_missing</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">x</th>
+<th align="right">m</th>
+<th align="right">y</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.000000</td>
+<td align="right">1.666666</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">4.000000</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">-0.500000</td>
+<td align="right">-0.666667</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.500000</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1.000000</td>
+<td align="right">2.333334</td>
+</tr>
+<tr class="odd">
+<td align="right">NA</td>
+<td align="right">1.166667</td>
+<td align="right">3.333333</td>
+</tr>
+<tr class="even">
+<td align="right">NA</td>
+<td align="right">0.833333</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.666667</td>
+<td align="right">1.666667</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">-0.333333</td>
+<td align="right">1.666666</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
 <h2 id="multiple-imputation">Multiple Imputation<a class="anchor" aria-label="anchor" href="#multiple-imputation"></a>
 </h2>
-<p>Multiple data sets with complete date are generated from the original
+<p>Multiple data sets with complete data are generated from the original
 data set with missing values using multiple imputation. There are
 several packages in <code>R</code> such as <code>Amelia</code>,
 <code>mice</code>, and <code>norm2</code> that can be used to generate
@@ -155,11 +228,11 @@ package to generate <code>m = 100</code> completed data sets using the
 joint specification approach by specifying <code>method = "norm"</code>.
 The data sets are saved in the list <code>mi</code> of length
 <code>m</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice" class="external-link">mice</a></span><span class="op">)</span></span>
 <span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">complete</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://amices.org/mice/reference/mice.html" class="external-link">mice</a></span><span class="op">(</span></span>
-<span>    <span class="va">elliot2007</span>,</span>
+<span>    <span class="va">data_missing</span>,</span>
 <span>    method <span class="op">=</span> <span class="st">"norm"</span>,</span>
 <span>    m <span class="op">=</span> <span class="fl">100</span>,</span>
 <span>    print <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -174,10 +247,8 @@ The data sets are saved in the list <code>mi</code> of length
 <p>We fit the model to each of the <code>m = 100</code> data sets using
 <code>lavaan</code>. The output is saved in the list
 <code>fit</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be" class="external-link">lavaan</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; This is lavaan 0.6-12</span></span>
-<span><span class="co">#&gt; lavaan is FREE software! Please report any bugs.</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">  y ~ x + b * m</span></span>
 <span><span class="st">  m ~ a * x</span></span>
@@ -203,7 +274,7 @@ The data sets are saved in the list <code>mi</code> of length
 <p>We use the <code>lavaan::coef()</code> function to extract the
 parameter estimates for each of the <code>m = 100</code> fitted models
 and save the results in a list <code>param_vec</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">param_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
 <span>  X <span class="op">=</span> <span class="va">fit</span>,</span>
 <span>  FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">fit</span><span class="op">)</span> <span class="op">{</span></span>
@@ -213,7 +284,7 @@ and save the results in a list <code>param_vec</code>.</p>
 <p>We use the <code>lavaan::vcov()</code> function to extract the
 sampling variance-covariance matrix for each of the <code>m = 100</code>
 fitted models and save the results in a list <code>var_mat</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">var_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
 <span>  X <span class="op">=</span> <span class="va">fit</span>,</span>
 <span>  FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">fit</span><span class="op">)</span> <span class="op">{</span></span>
@@ -225,33 +296,32 @@ fitted models and save the results in a list <code>var_mat</code>.</p>
 <code><a href="../reference/MICombine.html">manMCMedMiss::MICombine()</a></code> function uses a multivariate
 approach to combining the entire sampling variance-covariance matrix and
 not just the diagonal elements.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MICombine.html">MICombine</a></span><span class="op">(</span></span>
 <span>  param_vec <span class="op">=</span> <span class="va">param_vec</span>,</span>
 <span>  var_mat <span class="op">=</span> <span class="va">var_mat</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in eval(expr, envir, enclos): cannot open file '/data/home/yb47324/manMCMedMiss/.library/manMCMedMiss/R/manMCMedMiss.rdb': No such file or directory</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
 <p>A distribution of parameter estimates are generated from the
 multivariate normal distribution using the pooled parameter estimates
 vector and the total sampling variance-covariance matrix.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
-<span><span class="va">R</span> <span class="op">=</span> <span class="fl">20000</span></span>
+<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fl">20000</span></span>
 <span><span class="va">mc</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html" class="external-link">mvrnorm</a></span><span class="op">(</span></span>
 <span>  n <span class="op">=</span> <span class="va">R</span>,</span>
 <span>  mu <span class="op">=</span> <span class="va">mi</span><span class="op">$</span><span class="va">estimates</span>,</span>
 <span>  Sigma <span class="op">=</span> <span class="va">mi</span><span class="op">$</span><span class="va">total</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in array(x, c(length(x), 1L), if (!is.null(names(x))) list(names(x), : 'data' must be of a vector type, was 'NULL'</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
 <p>The corresponding quantiles for the 95% confidence intervals, namely
 2.5% and 97.5%, are the lower and upper limits of the Monte Carlo
 confidence intervals.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span></span>
 <span>  <span class="va">mc</span><span class="op">[</span>, <span class="st">"a"</span><span class="op">]</span> <span class="op">*</span> <span class="va">mc</span><span class="op">[</span>, <span class="st">"b"</span><span class="op">]</span>,</span>
 <span>  probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in stats::quantile(mc[, "a"] * mc[, "b"], probs = c(0.025, 0.975)): object 'mc' not found</span></span></code></pre></div>
+<span><span class="co">#&gt;        2.5%       97.5% </span></span>
+<span><span class="co">#&gt; 0.009149208 0.122679519</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

@@ -144,6 +144,79 @@ post-intervention minus behavior pre-intervention).</li>
 </table>
 </div>
 <div class="section level2">
+<h2 id="amputation">Amputation<a class="anchor" aria-label="anchor" href="#amputation"></a>
+</h2>
+<p>Generate sample data with missing values. The missing data mechanism
+is missing at random (MAR). The proportion of missing cases is 0.30.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span><span class="va">data_missing</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/AmputeData.html">AmputeData</a></span><span class="op">(</span></span>
+<span>  <span class="va">elliot2007</span>,</span>
+<span>  mech <span class="op">=</span> <span class="st">"MAR"</span>,</span>
+<span>  prop <span class="op">=</span> <span class="fl">0.10</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data_missing</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">x</th>
+<th align="right">m</th>
+<th align="right">y</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.000000</td>
+<td align="right">1.666666</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">4.000000</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">-0.500000</td>
+<td align="right">-0.666667</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.500000</td>
+<td align="right">1.333333</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1.000000</td>
+<td align="right">2.333334</td>
+</tr>
+<tr class="odd">
+<td align="right">NA</td>
+<td align="right">1.166667</td>
+<td align="right">3.333333</td>
+</tr>
+<tr class="even">
+<td align="right">NA</td>
+<td align="right">0.833333</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">1.666667</td>
+<td align="right">1.666667</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">-0.333333</td>
+<td align="right">1.666666</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
 <h2 id="model-fitting">Model Fitting<a class="anchor" aria-label="anchor" href="#model-fitting"></a>
 </h2>
 <p>We fit the model using the argument <code>missing = "fiml"</code> to
@@ -151,7 +224,7 @@ use full-information maximum likelihood to deal with missing data. Note
 that we need to define the indirect effect as the product of
 <code>a</code> and <code>b</code> using the <code>:=</code> operator in
 the model syntax.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be" class="external-link">lavaan</a></span><span class="op">)</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">  y ~ x + b * m</span></span>
@@ -160,8 +233,9 @@ the model syntax.</p>
 <span><span class="st">"</span></span>
 <span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/sem.html" class="external-link">sem</a></span><span class="op">(</span></span>
 <span>  model <span class="op">=</span> <span class="va">model</span>,</span>
-<span>  data <span class="op">=</span> <span class="va">elliot2007</span>,</span>
-<span>  missing <span class="op">=</span> <span class="st">"fiml"</span></span>
+<span>  data <span class="op">=</span> <span class="va">data_missing</span>,</span>
+<span>  missing <span class="op">=</span> <span class="st">"fiml"</span>,</span>
+<span>  fixed.x <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -171,19 +245,21 @@ the model syntax.</p>
 <code>fit</code> is passed as the first argument to the
 <code><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">semmcci::MC()</a></code> function to generate Monte Carlo confidence
 intervals.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/semmcci" class="external-link">semmcci</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">MC</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Monte Carlo Confidence Intervals</span></span>
 <span><span class="co">#&gt;             est     se     R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%</span></span>
-<span><span class="co">#&gt; y~x      0.1079 0.1161 20000 -0.2648 -0.1963 -0.1207 0.3342 0.4078 0.4908</span></span>
-<span><span class="co">#&gt; b        0.1416 0.0516 20000 -0.0415  0.0067  0.0406 0.2442 0.2740 0.3024</span></span>
-<span><span class="co">#&gt; a        0.3968 0.1178 20000  0.0030  0.0969  0.1669 0.6280 0.6959 0.7745</span></span>
-<span><span class="co">#&gt; y~~y     1.1248 0.0843 20000  0.8308  0.9110  0.9622 1.2871 1.3415 1.4078</span></span>
-<span><span class="co">#&gt; m~~m     1.2025 0.0900 20000  0.9060  0.9709  1.0260 1.3776 1.4309 1.4902</span></span>
-<span><span class="co">#&gt; y~1      0.3504 0.0733 20000  0.1160  0.1683  0.2077 0.4935 0.5394 0.5892</span></span>
-<span><span class="co">#&gt; m~1      0.0032 0.0750 20000 -0.2406 -0.1956 -0.1433 0.1492 0.1951 0.2537</span></span>
-<span><span class="co">#&gt; indirect 0.0562 0.0271 20000 -0.0143  0.0017  0.0121 0.1177 0.1407 0.1736</span></span></code></pre></div>
+<span><span class="co">#&gt; y~x      0.1513 0.1278 20000 -0.2508 -0.1755 -0.0993 0.3986 0.4764 0.5562</span></span>
+<span><span class="co">#&gt; b        0.1521 0.0557 20000 -0.0302  0.0063  0.0418 0.2606 0.2959 0.3320</span></span>
+<span><span class="co">#&gt; a        0.3697 0.1291 20000 -0.0593  0.0395  0.1178 0.6236 0.7024 0.7753</span></span>
+<span><span class="co">#&gt; y~~y     1.1491 0.0902 20000  0.8684  0.9206  0.9716 1.3257 1.3839 1.4412</span></span>
+<span><span class="co">#&gt; m~~m     1.2120 0.0934 20000  0.9083  0.9687  1.0292 1.3965 1.4510 1.5174</span></span>
+<span><span class="co">#&gt; x~~x     0.2415 0.0193 20000  0.1797  0.1919  0.2036 0.2795 0.2923 0.3052</span></span>
+<span><span class="co">#&gt; y~1      0.3364 0.0778 20000  0.0862  0.1410  0.1856 0.4910 0.5429 0.5987</span></span>
+<span><span class="co">#&gt; m~1      0.0068 0.0789 20000 -0.2488 -0.1989 -0.1492 0.1628 0.2102 0.2674</span></span>
+<span><span class="co">#&gt; x~1      0.4119 0.0275 20000  0.3223  0.3418  0.3582 0.4663 0.4849 0.5051</span></span>
+<span><span class="co">#&gt; indirect 0.0562 0.0294 20000 -0.0139 -0.0003  0.0090 0.1224 0.1501 0.1930</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
