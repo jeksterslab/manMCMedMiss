@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 ## Normal Theory Maximum Likelihood Estimation
 
 This is the `Mplus` code deployed by `FitModelML()`.
+Note that `FitModelMI()` used `FitModelML()` to fit the model
+on each of the imputed data sets.
 
 ```
 DATA:
