@@ -1,7 +1,7 @@
 ---
 title: "Benchmark: The Simple Mediation Model with Missing Data using semmcci vs. Nonparametric Bootstrap in lavaan"
 author: "Ivan Jacob Agaloos Pesigan"
-date: "2023-01-06"
+date: "2023-01-08"
 output:
   rmarkdown::html_vignette:
     toc: true
@@ -188,9 +188,9 @@ benchmark01 <- microbenchmark(
 
 ```r
 summary(benchmark01, unit = "ms")
-#>   expr         min          lq        mean     median          uq         max
-#> 1   MC    135.3031    135.4913    138.5891    138.173    140.9654    142.9056
-#> 2   NB 105540.9544 106356.3984 107543.6316 106943.973 109894.6242 110194.4106
+#>   expr         min          lq        mean      median          uq        max
+#> 1   MC    133.6276    134.7605    137.7524    136.2462    140.3607    145.128
+#> 2   NB 105483.5777 105795.3847 106929.5085 106415.9779 108720.8155 109199.366
 #>   neval cld
 #> 1    10  a 
 #> 2    10   b
@@ -201,9 +201,9 @@ summary(benchmark01, unit = "ms")
 
 ```r
 summary(benchmark01, unit = "relative")
-#>   expr      min       lq     mean  median       uq      max neval cld
-#> 1   MC   1.0000   1.0000   1.0000   1.000   1.0000   1.0000    10  a 
-#> 2   NB 780.0334 784.9684 775.9891 773.986 779.5858 771.0991    10   b
+#>   expr      min       lq     mean   median       uq      max neval cld
+#> 1   MC   1.0000   1.0000   1.0000   1.0000   1.0000   1.0000    10  a 
+#> 2   NB 789.3845 785.0625 776.2441 781.0563 774.5817 752.4348    10   b
 ```
 
 ### Plot
@@ -246,12 +246,12 @@ benchmark02 <- microbenchmark(
 
 ```r
 summary(benchmark02, unit = "ms")
-#>   expr          min           lq         mean       median           uq
-#> 1   MC     71.75587     72.22693     74.61731     74.53807     76.73976
-#> 2   NB 102390.72269 103109.44302 104713.31063 105346.31006 106148.99428
-#>            max neval cld
-#> 1     77.83855    10  a 
-#> 2 106895.34386    10   b
+#>   expr          min           lq         mean      median           uq
+#> 1   MC     73.05276     74.55636     85.92779     75.2243     78.47444
+#> 2   NB 104752.83499 105583.13571 105695.75952 105653.5940 105859.05020
+#>           max neval cld
+#> 1    177.0068    10  a 
+#> 2 106788.7516    10   b
 ```
 
 ### Summary of Benchmark Results Relative to the Faster Method
@@ -260,8 +260,8 @@ summary(benchmark02, unit = "ms")
 ```r
 summary(benchmark02, unit = "relative")
 #>   expr      min       lq     mean   median       uq      max neval cld
-#> 1   MC    1.000    1.000    1.000    1.000    1.000    1.000    10  a 
-#> 2   NB 1426.932 1427.576 1403.338 1413.322 1383.233 1373.296    10   b
+#> 1   MC    1.000    1.000    1.000    1.000    1.000   1.0000    10  a 
+#> 2   NB 1433.934 1416.152 1230.053 1404.514 1348.962 603.3031    10   b
 ```
 
 ### Plot

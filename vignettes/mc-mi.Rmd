@@ -170,4 +170,3 @@ stats::quantile(
   probs = c(0.025, 0.975)
 )
 ```
-
