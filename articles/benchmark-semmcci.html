@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Ivan Jacob
 Agaloos Pesigan</h4>
             
-            <h4 data-toc-skip class="date">2023-01-08</h4>
+            <h4 data-toc-skip class="date">2023-01-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslab/manMCMedMiss/blob/HEAD/vignettes/benchmark-semmcci.Rmd"><code>vignettes/benchmark-semmcci.Rmd</code></a></small>
       <div class="d-none name"><code>benchmark-semmcci.Rmd</code></div>
@@ -252,8 +252,8 @@ Monte Carlo confidence intervals.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark01</span>, unit <span class="op">=</span> <span class="st">"ms"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   expr         min          lq        mean      median          uq        max</span></span>
-<span><span class="co">#&gt; 1   MC    133.6276    134.7605    137.7524    136.2462    140.3607    145.128</span></span>
-<span><span class="co">#&gt; 2   NB 105483.5777 105795.3847 106929.5085 106415.9779 108720.8155 109199.366</span></span>
+<span><span class="co">#&gt; 1   MC    132.9568    138.4225    138.8264    139.2369    140.4276    142.879</span></span>
+<span><span class="co">#&gt; 2   NB 106292.6055 106548.3671 107720.0706 107179.4620 109365.9773 110529.239</span></span>
 <span><span class="co">#&gt;   neval cld</span></span>
 <span><span class="co">#&gt; 1    10  a </span></span>
 <span><span class="co">#&gt; 2    10   b</span></span></code></pre></div>
@@ -263,9 +263,9 @@ Monte Carlo confidence intervals.</p>
 </h3>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark01</span>, unit <span class="op">=</span> <span class="st">"relative"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   expr      min       lq     mean   median       uq      max neval cld</span></span>
-<span><span class="co">#&gt; 1   MC   1.0000   1.0000   1.0000   1.0000   1.0000   1.0000    10  a </span></span>
-<span><span class="co">#&gt; 2   NB 789.3845 785.0625 776.2441 781.0563 774.5817 752.4348    10   b</span></span></code></pre></div>
+<span><span class="co">#&gt;   expr      min      lq     mean   median       uq      max neval cld</span></span>
+<span><span class="co">#&gt; 1   MC   1.0000   1.000   1.0000   1.0000   1.0000   1.0000    10  a </span></span>
+<span><span class="co">#&gt; 2   NB 799.4524 769.733 775.9334 769.7633 778.8068 773.5861    10   b</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
@@ -305,21 +305,21 @@ Monte Carlo confidence intervals.</p>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark02</span>, unit <span class="op">=</span> <span class="st">"ms"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   expr          min           lq         mean      median           uq</span></span>
-<span><span class="co">#&gt; 1   MC     73.05276     74.55636     85.92779     75.2243     78.47444</span></span>
-<span><span class="co">#&gt; 2   NB 104752.83499 105583.13571 105695.75952 105653.5940 105859.05020</span></span>
-<span><span class="co">#&gt;           max neval cld</span></span>
-<span><span class="co">#&gt; 1    177.0068    10  a </span></span>
-<span><span class="co">#&gt; 2 106788.7516    10   b</span></span></code></pre></div>
+<span><span class="co">#&gt;   expr          min           lq         mean       median          uq</span></span>
+<span><span class="co">#&gt; 1   MC     72.53016     73.70168     76.86038     76.37909     78.3622</span></span>
+<span><span class="co">#&gt; 2   NB 105172.74361 105261.02419 105798.09342 105762.58849 105988.7712</span></span>
+<span><span class="co">#&gt;            max neval cld</span></span>
+<span><span class="co">#&gt; 1     89.12326    10  a </span></span>
+<span><span class="co">#&gt; 2 107287.22542    10   b</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="summary-of-benchmark-results-relative-to-the-faster-method-1">Summary of Benchmark Results Relative to the Faster Method<a class="anchor" aria-label="anchor" href="#summary-of-benchmark-results-relative-to-the-faster-method-1"></a>
 </h3>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark02</span>, unit <span class="op">=</span> <span class="st">"relative"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   expr      min       lq     mean   median       uq      max neval cld</span></span>
-<span><span class="co">#&gt; 1   MC    1.000    1.000    1.000    1.000    1.000   1.0000    10  a </span></span>
-<span><span class="co">#&gt; 2   NB 1433.934 1416.152 1230.053 1404.514 1348.962 603.3031    10   b</span></span></code></pre></div>
+<span><span class="co">#&gt;   expr      min       lq     mean   median      uq      max neval cld</span></span>
+<span><span class="co">#&gt; 1   MC    1.000    1.000    1.000    1.000    1.00    1.000    10  a </span></span>
+<span><span class="co">#&gt; 2   NB 1450.055 1428.204 1376.497 1384.706 1352.55 1203.807    10   b</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="plot-1">Plot<a class="anchor" aria-label="anchor" href="#plot-1"></a>

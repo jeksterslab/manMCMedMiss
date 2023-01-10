@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Ivan Jacob
 Agaloos Pesigan</h4>
             
-            <h4 data-toc-skip class="date">2023-01-09</h4>
+            <h4 data-toc-skip class="date">2023-01-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslab/manMCMedMiss/blob/HEAD/vignettes/semmcci.Rmd"><code>vignettes/semmcci.Rmd</code></a></small>
       <div class="d-none name"><code>semmcci.Rmd</code></div>
@@ -152,18 +152,18 @@ Monte Carlo confidence intervals.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">MC</a></span><span class="op">(</span><span class="va">fit</span>, R <span class="op">=</span> <span class="fl">20000L</span>, alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Monte Carlo Confidence Intervals</span></span>
 <span><span class="co">#&gt;              est     se     R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%</span></span>
-<span><span class="co">#&gt; cp        0.2335 0.0293 20000  0.1367  0.1588  0.1767 0.2907 0.3090 0.3326</span></span>
-<span><span class="co">#&gt; b         0.5112 0.0297 20000  0.4122  0.4343  0.4534 0.5700 0.5876 0.6078</span></span>
-<span><span class="co">#&gt; a         0.4809 0.0285 20000  0.3861  0.4067  0.4255 0.5372 0.5540 0.5759</span></span>
-<span><span class="co">#&gt; Y~~Y      0.5542 0.0268 20000  0.4694  0.4861  0.5021 0.6072 0.6243 0.6416</span></span>
-<span><span class="co">#&gt; M~~M      0.7564 0.0361 20000  0.6380  0.6599  0.6851 0.8266 0.8488 0.8706</span></span>
-<span><span class="co">#&gt; X~~X      1.0591 0.0499 20000  0.8980  0.9325  0.9619 1.1574 1.1873 1.2179</span></span>
-<span><span class="co">#&gt; Y~1      -0.0127 0.0253 20000 -0.0956 -0.0775 -0.0620 0.0376 0.0536 0.0753</span></span>
-<span><span class="co">#&gt; M~1      -0.0223 0.0292 20000 -0.1129 -0.0962 -0.0804 0.0345 0.0525 0.0702</span></span>
-<span><span class="co">#&gt; X~1       0.0025 0.0338 20000 -0.1094 -0.0843 -0.0645 0.0688 0.0900 0.1138</span></span>
-<span><span class="co">#&gt; indirect  0.2458 0.0203 20000  0.1797  0.1960  0.2071 0.2872 0.3007 0.3178</span></span>
-<span><span class="co">#&gt; direct    0.2335 0.0293 20000  0.1367  0.1588  0.1767 0.2907 0.3090 0.3326</span></span>
-<span><span class="co">#&gt; total     0.4794 0.0286 20000  0.3854  0.4072  0.4233 0.5356 0.5541 0.5755</span></span></code></pre></div>
+<span><span class="co">#&gt; cp        0.2335 0.0296 20000  0.1350  0.1579  0.1765 0.2913 0.3094 0.3285</span></span>
+<span><span class="co">#&gt; b         0.5112 0.0298 20000  0.4177  0.4351  0.4524 0.5703 0.5899 0.6116</span></span>
+<span><span class="co">#&gt; a         0.4809 0.0286 20000  0.3872  0.4069  0.4256 0.5372 0.5542 0.5737</span></span>
+<span><span class="co">#&gt; Y~~Y      0.5542 0.0268 20000  0.4695  0.4860  0.5022 0.6074 0.6240 0.6411</span></span>
+<span><span class="co">#&gt; M~~M      0.7564 0.0358 20000  0.6442  0.6636  0.6860 0.8262 0.8474 0.8765</span></span>
+<span><span class="co">#&gt; X~~X      1.0591 0.0499 20000  0.8985  0.9326  0.9619 1.1572 1.1874 1.2185</span></span>
+<span><span class="co">#&gt; Y~1      -0.0127 0.0253 20000 -0.0960 -0.0776 -0.0618 0.0377 0.0536 0.0750</span></span>
+<span><span class="co">#&gt; M~1      -0.0223 0.0292 20000 -0.1127 -0.0962 -0.0803 0.0342 0.0526 0.0697</span></span>
+<span><span class="co">#&gt; X~1       0.0025 0.0338 20000 -0.1094 -0.0844 -0.0645 0.0690 0.0904 0.1135</span></span>
+<span><span class="co">#&gt; indirect  0.2458 0.0203 20000  0.1835  0.1939  0.2073 0.2871 0.3011 0.3142</span></span>
+<span><span class="co">#&gt; direct    0.2335 0.0296 20000  0.1350  0.1579  0.1765 0.2913 0.3094 0.3285</span></span>
+<span><span class="co">#&gt; total     0.4794 0.0287 20000  0.3886  0.4054  0.4233 0.5369 0.5538 0.5723</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
