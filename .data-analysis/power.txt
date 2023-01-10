@@ -1,83 +1,68 @@
 
-	 Conditional inference tree with 26 terminal nodes
+	 Conditional inference tree with 21 terminal nodes
 
 Response:  y 
 Inputs:  tauprime, n, alphabeta, mechanism, proportion, method 
-Number of observations:  9915 
+Number of observations:  9920 
 
-1) alphabeta == {.14(.38,.38), .23(.60,.38), .27(.71,.38)}; criterion = 1, statistic = 1046.041
-  2) n <= 75; criterion = 1, statistic = 651.181
-    3) tauprime <= 0.3605551; criterion = 1, statistic = 268.144
-      4) mechanism == {MAR, MCAR}; criterion = 1, statistic = 75.478
-        5) alphabeta == {.14(.38,.38), .27(.71,.38)}; criterion = 1, statistic = 62.816
-          6)*  weights = 432 
-        5) alphabeta == {.23(.60,.38)}
-          7) tauprime <= 0.1414214; criterion = 1, statistic = 58.848
-            8)*  weights = 144 
-          7) tauprime > 0.1414214
-            9) n <= 50; criterion = 1, statistic = 50.714
-              10)*  weights = 36 
-            9) n > 50
-              11)*  weights = 36 
-      4) mechanism == {COMPLETE}
-        12) n <= 50; criterion = 1, statistic = 33.327
-          13)*  weights = 36 
-        12) n > 50
-          14)*  weights = 36 
-    3) tauprime > 0.3605551
-      15) n <= 50; criterion = 1, statistic = 85.332
-        16) alphabeta == {.14(.38,.38), .27(.71,.38)}; criterion = 1, statistic = 79.13
-          17) mechanism == {COMPLETE}; criterion = 1, statistic = 37.421
-            18)*  weights = 8 
-          17) mechanism == {MAR, MCAR}
-            19)*  weights = 72 
-        16) alphabeta == {.23(.60,.38)}
-          20) method == {MC.FIML, MC.MI, NBBC.FIML, SIG.FIML, SIG.MI}; criterion = 1, statistic = 39
-            21)*  weights = 30 
-          20) method == {MC.COMPLETE, NBBC.COMPLETE, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE}
-            22)*  weights = 10 
-      15) n > 50
-        23) alphabeta == {.14(.38,.38)}; criterion = 1, statistic = 30.852
-          24) method == {MC.MI, NBPC.FIML}; criterion = 1, statistic = 39
-            25)*  weights = 12 
-          24) method == {MC.COMPLETE, MC.FIML, NBBC.COMPLETE, NBBC.FIML, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI}
-            26)*  weights = 28 
-        23) alphabeta == {.23(.60,.38), .27(.71,.38)}
-          27)*  weights = 80 
+1) alphabeta == {.14(.38,.38), .23(.38,.60), .23(.60,.38), .27(.38,.71), .27(.71,.38)}; criterion = 1, statistic = 708.071
+  2) n <= 75; criterion = 1, statistic = 497.609
+    3) alphabeta == {.23(.38,.60), .23(.60,.38), .27(.38,.71), .27(.71,.38)}; criterion = 1, statistic = 187.534
+      4) tauprime <= 0.1414214; criterion = 1, statistic = 124.782
+        5) mechanism == {MAR, MCAR}; criterion = 1, statistic = 54.392
+          6) n <= 50; criterion = 1, statistic = 36.189
+            7) alphabeta == {.23(.60,.38)}; criterion = 1, statistic = 73.8
+              8)*  weights = 72 
+            7) alphabeta == {.23(.38,.60), .27(.38,.71), .27(.71,.38)}
+              9)*  weights = 216 
+          6) n > 50
+            10) alphabeta == {.23(.38,.60), .23(.60,.38)}; criterion = 1, statistic = 161.437
+              11)*  weights = 144 
+            10) alphabeta == {.27(.38,.71), .27(.71,.38)}
+              12)*  weights = 144 
+        5) mechanism == {COMPLETE}
+          13)*  weights = 64 
+      4) tauprime > 0.1414214
+        14) alphabeta == {.27(.38,.71), .27(.71,.38)}; criterion = 1, statistic = 79.2
+          15) tauprime <= 0.3605551; criterion = 1, statistic = 24.157
+            16)*  weights = 160 
+          15) tauprime > 0.3605551
+            17)*  weights = 80 
+        14) alphabeta == {.23(.38,.60), .23(.60,.38)}
+          18) n <= 50; criterion = 1, statistic = 47.363
+            19) method == {MC.COMPLETE, NBBC.COMPLETE, NBBC.FIML, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE}; criterion = 1, statistic = 51.587
+              20)*  weights = 64 
+            19) method == {MC.FIML, MC.MI, SIG.FIML, SIG.MI}
+              21)*  weights = 96 
+          18) n > 50
+            22)*  weights = 160 
+    3) alphabeta == {.14(.38,.38)}
+      23)*  weights = 320 
   2) n > 75
-    28) tauprime <= 0.1414214; criterion = 1, statistic = 142.443
-      29) n <= 100; criterion = 1, statistic = 105.352
-        30) alphabeta == {.27(.71,.38)}; criterion = 1, statistic = 102.82
-          31) mechanism == {COMPLETE}; criterion = 1, statistic = 37.421
-            32)*  weights = 8 
-          31) mechanism == {MAR, MCAR}
-            33)*  weights = 72 
-        30) alphabeta == {.14(.38,.38), .23(.60,.38)}
-          34) method == {NBPC.FIML}; criterion = 1, statistic = 59
-            35)*  weights = 24 
-          34) method == {MC.COMPLETE, MC.FIML, MC.MI, NBBC.COMPLETE, NBBC.FIML, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI}
-            36) alphabeta == {.23(.60,.38)}; criterion = 1, statistic = 38.208
-              37) tauprime <= 0; criterion = 1, statistic = 52.895
-                38)*  weights = 34 
-              37) tauprime > 0
-                39)*  weights = 34 
-            36) alphabeta == {.14(.38,.38)}
-              40)*  weights = 68 
-      29) n > 100
-        41)*  weights = 1200 
-    28) tauprime > 0.1414214
-      42)*  weights = 1440 
-1) alphabeta == {.23(.38,.60), .27(.38,.71), .36(.60,.60), .43(.60,.71), .43(.71,.60), .51(.71,.71)}
-  43) alphabeta == {.23(.38,.60), .27(.38,.71)}; criterion = 1, statistic = 460.011
-    44) n <= 50; criterion = 1, statistic = 187.5
-      45) method == {MC.FIML, MC.MI, NBBC.FIML, NBPC.COMPLETE, NBPC.FIML, SIG.FIML, SIG.MI}; criterion = 1, statistic = 246.644
-        46) mechanism == {COMPLETE}; criterion = 1, statistic = 71.994
-          47)*  weights = 7 
-        46) mechanism == {MAR, MCAR}
-          48)*  weights = 251 
-      45) method == {MC.COMPLETE, NBBC.COMPLETE, SIG.COMPLETE}
-        49)*  weights = 21 
-    44) n > 50
-      50)*  weights = 1959 
-  43) alphabeta == {.36(.60,.60), .43(.60,.71), .43(.71,.60), .51(.71,.71)}
-    51)*  weights = 3837 
+    24) alphabeta == {.14(.38,.38), .23(.60,.38), .27(.38,.71)}; criterion = 1, statistic = 181.216
+      25) n <= 100; criterion = 1, statistic = 104.576
+        26) tauprime <= 0.1414214; criterion = 1, statistic = 104.815
+          27) alphabeta == {.27(.38,.71)}; criterion = 1, statistic = 90.819
+            28)*  weights = 80 
+          27) alphabeta == {.14(.38,.38), .23(.60,.38)}
+            29)*  weights = 160 
+        26) tauprime > 0.1414214
+          30)*  weights = 200 
+      25) n > 100
+        31) n <= 200; criterion = 1, statistic = 46.339
+          32) alphabeta == {.23(.60,.38), .27(.38,.71)}; criterion = 1, statistic = 47.852
+            33)*  weights = 560 
+          32) alphabeta == {.14(.38,.38)}
+            34)*  weights = 320 
+        31) n > 200
+          35)*  weights = 1320 
+    24) alphabeta == {.23(.38,.60), .27(.71,.38)}
+      36)*  weights = 1920 
+1) alphabeta == {.36(.60,.60), .43(.60,.71), .43(.71,.60), .51(.71,.71)}
+  37) alphabeta == {.43(.71,.60)}; criterion = 1, statistic = 54.24
+    38) tauprime <= 0; criterion = 1, statistic = 23.318
+      39)*  weights = 320 
+    38) tauprime > 0
+      40)*  weights = 640 
+  37) alphabeta == {.36(.60,.60), .43(.60,.71), .51(.71,.71)}
+    41)*  weights = 2880 
