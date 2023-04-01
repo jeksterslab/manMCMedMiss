@@ -25,21 +25,21 @@ note <- sprintf(
 )
 url <- "https://github.com/jeksterslab/manMCMedMiss"
 
-citHeader(
-  paste(
-    "To cite in publications, please use:"
-  )
-)
-
-citEntry(
-  entry = "Unpublished",
+bibentry(
+  bibtype = "Unpublished",
   author = author,
   title = title,
   year = year,
   note = note,
   textVersion = paste0(
     author_text, " ",
-    "(", "Under Review", ")", ".", " ",
-    title, " "
+    "(", "Forthcoming", ")", ".", " ",
+    title, ".", " ",
+    "Behavior Research Methods", " "
+  ),
+  header = paste(
+    "To cite",
+    pkg,
+    "in publications, please use:"
   )
 )

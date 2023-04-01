@@ -173,8 +173,8 @@ summary(benchmark, unit = "ms")
 #> 1 9.367104e+00    10 a  
 #> 2 1.076952e+01    10 a  
 #> 3 3.085715e+03    10 a  
-#> 4 1.788815e+06    10   c
-#> 5 7.661050e+04    10  b
+#> 4 1.788815e+06    10  b 
+#> 5 7.661050e+04    10   c
 ```
 
 ## Summary of Benchmark Results Relative to the Fastest Method
@@ -192,8 +192,8 @@ summary(benchmark, unit = "relative")
 #> 1 1.000000e+00    10 a  
 #> 2 1.149718e+00    10 a  
 #> 3 3.294203e+02    10 a  
-#> 4 1.909678e+05    10   c
-#> 5 8.178676e+03    10  b
+#> 4 1.909678e+05    10  b 
+#> 5 8.178676e+03    10   c
 ```
 
 ## Plot

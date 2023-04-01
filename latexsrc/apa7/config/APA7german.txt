@@ -71,6 +71,7 @@
 %%                                 APA7czech.txt,
 %%                                 APA7turkish.txt,
 %%                                 APA7spanish.txt,
+%%                                 APA7hungarian.txt,
 %%                                 APA7endfloat.cfg,
 %%                                 Figure1.pdf,
 %%                                 shortsample.tex,

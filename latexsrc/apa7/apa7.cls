@@ -27,7 +27,7 @@
 %% 
 %% ----------------------------------------------------------------------
 %% 
-\ProvidesClass{apa7}[2022/01/03 v2.15 APA formatting (7th edition)]
+\ProvidesClass{apa7}[2022/07/25 v2.16 APA formatting (7th edition)]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption{man}{%
@@ -1740,6 +1740,7 @@
 %%                                 APA7czech.txt,
 %%                                 APA7turkish.txt,
 %%                                 APA7spanish.txt,
+%%                                 APA7hungarian.txt,
 %%                                 APA7endfloat.cfg,
 %%                                 Figure1.pdf,
 %%                                 shortsample.tex,

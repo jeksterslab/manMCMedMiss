@@ -1,6 +1,6 @@
-This is TeX, Version 3.141592653 (TeX Live 2022) (preloaded format=tex 2022.4.29)  12 JUL 2022 08:37
+This is TeX, Version 3.14159265 (TeX Live 2019/Debian) (preloaded format=tex 2022.12.1)  10 JAN 2023 07:28
 **apa7.dtx
-(./apa7.dtx (/home/jek/.TinyTeX/texmf-dist/tex/latex/base/docstrip.tex
+(./apa7.dtx (/usr/share/texlive/texmf-dist/tex/latex/base/docstrip.tex
 \blockLevel=\count26
 \emptyLines=\count27
 \processedLines=\count28
@@ -35,8 +35,8 @@ This is TeX, Version 3.141592653 (TeX Live 2022) (preloaded format=tex 2022.4.29
 \@maxfiles=\count54
 \@maxoutfiles=\count55
 
-Utility: `docstrip' v2.6a <2020-11-23>
-English documentation    <2020-11-23>
+Utility: `docstrip' 2.5g <2018/05/03>
+English documentation    <2018/05/03>
 
 **********************************************************
 * This program converts documented macro-files into fast *
@@ -50,15 +50,47 @@ English documentation    <2020-11-23>
 )
 
 Generating file(s) apa7.cls 
+\openout0 = `apa7.cls'.
+
 
 Processing file apa7.dtx (class) -> apa7.cls
-Lines  processed: 3871
-Comments removed: 1324
+Lines  processed: 3892
+Comments removed: 1333
 Comments  passed: 46
-Codelines passed: 2453
+Codelines passed: 2463
 
 
-Generating file(s) ./config/APA7american.txt ./config/APA7british.txt ./config/APA7dutch.txt ./config/APA7english.txt ./config/APA7french.txt ./config/APA7german.txt ./config/APA7ngerman.txt ./config/APA7greek.txt ./config/APA7czech.txt ./config/APA7turkish.txt ./config/APA7spanish.txt ./config/APA7endfloat.cfg 
+Generating file(s) ./config/APA7american.txt ./config/APA7british.txt ./config/
+APA7dutch.txt ./config/APA7english.txt ./config/APA7french.txt ./config/APA7ger
+man.txt ./config/APA7ngerman.txt ./config/APA7greek.txt ./config/APA7czech.txt 
+./config/APA7turkish.txt ./config/APA7spanish.txt ./config/APA7hungarian.txt ./
+config/APA7endfloat.cfg 
+\openout0 = `./config/APA7american.txt'.
+
+\openout1 = `./config/APA7british.txt'.
+
+\openout2 = `./config/APA7dutch.txt'.
+
+\openout3 = `./config/APA7english.txt'.
+
+\openout4 = `./config/APA7french.txt'.
+
+\openout5 = `./config/APA7german.txt'.
+
+\openout6 = `./config/APA7ngerman.txt'.
+
+\openout7 = `./config/APA7greek.txt'.
+
+\openout8 = `./config/APA7czech.txt'.
+
+\openout9 = `./config/APA7turkish.txt'.
+
+\openout10 = `./config/APA7spanish.txt'.
+
+\openout11 = `./config/APA7hungarian.txt'.
+
+\openout12 = `./config/APA7endfloat.cfg'.
+
 
 Processing file apa7.dtx (american) -> ./config/APA7american.txt
                          (british) -> ./config/APA7british.txt
@@ -71,46 +103,58 @@ Processing file apa7.dtx (american) -> ./config/APA7american.txt
                          (czech) -> ./config/APA7czech.txt
                          (turkish) -> ./config/APA7turkish.txt
                          (spanish) -> ./config/APA7spanish.txt
+                         (hungarian) -> ./config/APA7hungarian.txt
                          (APAendfloat) -> ./config/APA7endfloat.cfg
-Lines  processed: 3871
-Comments removed: 1324
+Lines  processed: 3892
+Comments removed: 1333
 Comments  passed: 46
-Codelines passed: 2453
+Codelines passed: 2463
 
 
-Generating file(s) ./samples/bibliography.bib ./samples/shortsample.tex ./samples/longsample.tex 
+Generating file(s) ./samples/bibliography.bib ./samples/shortsample.tex ./sampl
+es/longsample.tex 
+\openout0 = `./samples/bibliography.bib'.
+
+\openout1 = `./samples/shortsample.tex'.
+
+\openout2 = `./samples/longsample.tex'.
+
 
 Processing file apa7.dtx (bibliography) -> ./samples/bibliography.bib
                          (shortsample) -> ./samples/shortsample.tex
                          (longsample) -> ./samples/longsample.tex
-Lines  processed: 3871
-Comments removed: 1324
+Lines  processed: 3892
+Comments removed: 1333
 Comments  passed: 46
-Codelines passed: 2453
+Codelines passed: 2463
 
 
 Generating file(s) apa7.ins 
+\openout0 = `apa7.ins'.
+
 
 Processing file apa7.dtx (install) -> apa7.ins
-Lines  processed: 3871
-Comments removed: 1324
+Lines  processed: 3892
+Comments removed: 1333
 Comments  passed: 46
-Codelines passed: 2453
+Codelines passed: 2463
 
 
 Generating file(s) README.txt 
+\openout0 = `README.txt'.
+
 
 Processing file apa7.dtx (readme) -> README.txt
-Lines  processed: 3871
-Comments removed: 1324
+Lines  processed: 3892
+Comments removed: 1333
 Comments  passed: 46
-Codelines passed: 2453
+Codelines passed: 2463
 
 Overall statistics:
 Files  processed: 5
-Lines  processed: 19355
-Comments removed: 6620
+Lines  processed: 19460
+Comments removed: 6665
 Comments  passed: 230
-Codelines passed: 12265
+Codelines passed: 12315
  )
 No pages of output.
