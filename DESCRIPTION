@@ -14,8 +14,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-9871-9448"))
     )
 Description: Research compendium for the manuscript
-    Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data
-    containing scripts used in the simulation study and other supplementary materials.
+    Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data.
 URL: https://github.com/jeksterslab/manMCMedMiss, https://jeksterslab.github.io/manMCMedMiss/
 BugReports: https://github.com/jeksterslab/manMCMedMiss/issues
 License: MIT + file LICENSE

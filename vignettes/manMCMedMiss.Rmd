@@ -1,5 +1,5 @@
 ---
-title: "manMCMedMiss"
+title: "Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
 output: github_document
@@ -65,9 +65,3 @@ can be generated using the `semmcci` package.
 Documentation and examples can be found
 in the accompanying website
 ([https://jeksterslab.github.io/semmcci](https://jeksterslab.github.io/semmcci)).
-
-## More Information
-
-See
-[GitHub Pages](https://jeksterslab.github.io/manMCMedMiss/index.html)
-for package documentation.

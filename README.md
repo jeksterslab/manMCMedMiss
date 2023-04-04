@@ -1,15 +1,15 @@
 manMCMedMiss
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-01
+2023-04-05
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ## Description
 
-Research compendium for the manuscript **Monte Carlo Confidence
-Intervals for the Indirect Effect with Missing Data** containing scripts
-used in the simulation study and other supplementary materials.
+Research compendium for the manuscript Pesigan, I. J. A., & Cheung, S.
+F. (In Press). Monte Carlo confidence intervals for the indirect effect
+with missing data. *Behavior Research Methods*.
 
 ## Acknowledgment
 
@@ -37,6 +37,24 @@ remotes::install_github("jeksterslab/manMCMedMiss")
 See
 [Containers](https://jeksterslab.github.io/manMCMedMiss/articles/containers.html)
 for containerized versions of the package.
+
+## Preprint
+
+See
+<https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/manMCMedMiss-manuscript.tex>
+for the latex file of the preprint version of the manuscript. See
+<https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/pdf/manMCMedMiss-manuscript.pdf>
+for the compiled PDF.
+
+## R Package
+
+Monte Carlo confidence intervals for free and defined parameters in
+models fitted in the structural equation modeling package `lavaan` can
+be generated using the `semmcci` package. `semmcci` is available on the
+Comprehensive R Archive Network (CRAN)
+(<https://CRAN.R-project.org/package=semmcci>. Documentation and
+examples can be found in the accompanying website
+(<https://jeksterslab.github.io/semmcci>).
 
 ## More Information
 

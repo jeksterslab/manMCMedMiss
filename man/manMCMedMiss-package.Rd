@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \title{manMCMedMiss: Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data}
 \description{
-Research compendium for the manuscript Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data containing scripts used in the simulation study and other supplementary materials.
+Research compendium for the manuscript Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data.
 }
 \seealso{
 Useful links:
