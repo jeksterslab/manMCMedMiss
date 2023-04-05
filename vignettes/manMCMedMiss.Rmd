@@ -65,4 +65,3 @@ can be generated using the `semmcci` package.
 Documentation and examples can be found
 in the accompanying website
 ([https://jeksterslab.github.io/semmcci](https://jeksterslab.github.io/semmcci)).
-

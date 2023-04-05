@@ -71,4 +71,3 @@ in the accompanying website
 See
 [GitHub Pages](https://jeksterslab.github.io/manMCMedMiss/index.html)
 for package documentation.
-
