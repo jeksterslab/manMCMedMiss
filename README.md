@@ -52,7 +52,7 @@ Monte Carlo confidence intervals for free and defined parameters in
 models fitted in the structural equation modeling package `lavaan` can
 be generated using the `semmcci` package. `semmcci` is available on the
 Comprehensive R Archive Network (CRAN)
-(<https://CRAN.R-project.org/package=semmcci>. Documentation and
+(<https://CRAN.R-project.org/package=semmcci>). Documentation and
 examples can be found in the accompanying website
 (<https://jeksterslab.github.io/semmcci>).
 

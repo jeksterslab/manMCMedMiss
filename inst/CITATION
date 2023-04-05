@@ -33,9 +33,9 @@ bibentry(
   note = note,
   textVersion = paste0(
     author_text, " ",
-    "(", "Forthcoming", ")", ".", " ",
+    "(", "In Press", ")", ".", " ",
     title, ".", " ",
-    "Behavior Research Methods", " "
+    "Behavior Research Methods", ".", " "
   ),
   header = paste(
     "To cite",
