@@ -1,15 +1,16 @@
 manMCMedMiss
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-05
+2023-04-28
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ## Description
 
 Research compendium for the manuscript Pesigan, I. J. A., & Cheung, S.
-F. (In Press). Monte Carlo confidence intervals for the indirect effect
-with missing data. *Behavior Research Methods*.
+F. (2023). Monte Carlo confidence intervals for the indirect effect with
+missing data. *Behavior Research Methods*.
+<https://doi.org/10.3758/s13428-023-02114-4>
 
 ## Acknowledgment
 

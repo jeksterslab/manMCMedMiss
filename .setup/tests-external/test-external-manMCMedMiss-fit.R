@@ -4,6 +4,22 @@ lapply(
   FUN = function(i,
                  tol,
                  text) {
+    message(text)
+    if (!exists("params")) {
+      try(
+        data(
+          "params",
+          package = "manMCMedMiss"
+        ),
+        silent = TRUE
+      )
+    }
+    root <- rprojroot::is_rstudio_project
+    mplus_bin <- root$find_file(
+      ".setup",
+      "bin",
+      "mpdemo"
+    )
     params <- params[which(params$taskid == 59), ]
     n <- params$n
     tauprime <- params$tauprime
@@ -30,28 +46,25 @@ lapply(
     )
     lav_complete_coefs <- lavaan::coef(lav_complete)
     lav_complete_se <- sqrt(diag(lavaan::vcov(lav_complete)))
-    mplus_complete_coefs <- c(
-      0.20517159,
-      0.80349916,
-      0.88020110,
-      0.28806210,
-      0.48237333,
-      0.98420686,
-      -0.10606843,
-      -0.00655774,
-      0.00792913
+    fit_complete_ml <- FitModelML(
+      data_complete,
+      mplus_bin = mplus_bin
     )
-    mplus_complete_se <- c(
-      0.12290850,
-      0.10928647,
-      0.09900229,
-      0.05761242,
-      0.09647466,
-      0.19682483,
-      0.07590865,
-      0.09822465,
-      0.14030017
+    mplus_complete_coefs <- fit_complete_ml$coef
+    mplus_complete_se <- sqrt(diag(fit_complete_ml$vcov))
+    varnames <- c(
+      "y~x",
+      "y~m",
+      "m~x",
+      "y~~y",
+      "m~~m",
+      "x~~x",
+      "y~1",
+      "m~1",
+      "x~1"
     )
+    mplus_complete_coefs <- mplus_complete_coefs[varnames]
+    mplus_complete_se <- mplus_complete_se[varnames]
     indirect <- FitModelIndirect(data_complete)
     lav_missing <- lavaan::sem(
       model = "y ~ x + m; m ~ x",
@@ -62,28 +75,14 @@ lapply(
     )
     lav_missing_coefs <- lavaan::coef(lav_missing)
     lav_missing_se <- sqrt(diag(lavaan::vcov(lav_missing)))
-    mplus_missing_coefs <- c(
-      0.294326360,
-      0.745302860,
-      0.871876660,
-      0.292516800,
-      0.517197490,
-      0.988752900,
-      -0.094182648,
-      0.007208682,
-      0.011078586
+    fit_missing_ml <- FitModelML(
+      data_missing,
+      mplus_bin = mplus_bin
     )
-    mplus_missing_se <- c(
-      0.13815306,
-      0.11954137,
-      0.11197224,
-      0.06496027,
-      0.11557141,
-      0.20962431,
-      0.08403133,
-      0.11306079,
-      0.14721230
-    )
+    mplus_missing_coefs <- fit_missing_ml$coef
+    mplus_missing_se <- sqrt(diag(fit_missing_ml$vcov))
+    mplus_missing_coefs <- mplus_missing_coefs[varnames]
+    mplus_missing_se <- mplus_missing_se[varnames]
     testthat::test_that(
       paste(text, "complete est"),
       {
@@ -146,5 +145,5 @@ lapply(
     )
   },
   tol = 0.0001,
-  text = "fit"
+  text = "test-external-manMCMedMiss-fit"
 )

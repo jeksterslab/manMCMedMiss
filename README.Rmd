@@ -19,9 +19,10 @@ knitr::opts_chunk$set(
 ## Description
 
 Research compendium for the manuscript
-Pesigan, I. J. A., & Cheung, S. F. (In Press).
+Pesigan, I. J. A., & Cheung, S. F. (2023).
 Monte Carlo confidence intervals for the indirect effect with missing data.
 *Behavior Research Methods*.
+https://doi.org/10.3758/s13428-023-02114-4
 
 ## Acknowledgment
 

@@ -1,7 +1,7 @@
 ---
 title: "Benchmark: The Simple Mediation Model with Missing Data using semmcci vs. Nonparametric Bootstrap in lavaan"
 author: "Ivan Jacob Agaloos Pesigan"
-date: "2023-04-05"
+date: "2023-04-27"
 output:
   rmarkdown::html_vignette:
     toc: true
