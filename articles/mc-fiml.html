@@ -9,7 +9,10 @@
 <title>Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package • manMCMedMiss</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.6/font.css" rel="stylesheet">
+<link href="../deps/JetBrains_Mono-0.4.6/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Slab-0.4.6/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates Using the semmcci Package">
 <meta property="og:description" content="manMCMedMiss">
@@ -250,19 +253,24 @@ the model syntax.</p>
 intervals.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/semmcci" class="external-link">semmcci</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'semmcci'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:manMCMedMiss':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     MCMI</span></span>
 <span><span class="fu"><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">MC</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Monte Carlo Confidence Intervals</span></span>
 <span><span class="co">#&gt;             est     se     R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%</span></span>
-<span><span class="co">#&gt; y~x      0.1513 0.1278 20000 -0.2508 -0.1755 -0.0993 0.3986 0.4764 0.5562</span></span>
-<span><span class="co">#&gt; b        0.1521 0.0557 20000 -0.0302  0.0063  0.0418 0.2606 0.2959 0.3320</span></span>
-<span><span class="co">#&gt; a        0.3697 0.1291 20000 -0.0593  0.0395  0.1178 0.6236 0.7024 0.7753</span></span>
-<span><span class="co">#&gt; y~~y     1.1491 0.0902 20000  0.8684  0.9206  0.9716 1.3257 1.3839 1.4412</span></span>
-<span><span class="co">#&gt; m~~m     1.2120 0.0934 20000  0.9083  0.9687  1.0292 1.3965 1.4510 1.5174</span></span>
-<span><span class="co">#&gt; x~~x     0.2415 0.0193 20000  0.1797  0.1919  0.2036 0.2795 0.2923 0.3052</span></span>
-<span><span class="co">#&gt; y~1      0.3364 0.0778 20000  0.0862  0.1410  0.1856 0.4910 0.5429 0.5987</span></span>
-<span><span class="co">#&gt; m~1      0.0068 0.0789 20000 -0.2488 -0.1989 -0.1492 0.1628 0.2102 0.2674</span></span>
-<span><span class="co">#&gt; x~1      0.4119 0.0275 20000  0.3223  0.3418  0.3582 0.4663 0.4849 0.5051</span></span>
-<span><span class="co">#&gt; indirect 0.0562 0.0294 20000 -0.0139 -0.0003  0.0090 0.1224 0.1501 0.1930</span></span></code></pre></div>
+<span><span class="co">#&gt; y~x      0.1513 0.1268 20000 -0.2690 -0.1796 -0.0985 0.3982 0.4729 0.5561</span></span>
+<span><span class="co">#&gt; b        0.1521 0.0561 20000 -0.0363  0.0059  0.0422 0.2620 0.2973 0.3386</span></span>
+<span><span class="co">#&gt; a        0.3697 0.1274 20000 -0.0693  0.0349  0.1193 0.6157 0.7016 0.7798</span></span>
+<span><span class="co">#&gt; y~~y     1.1491 0.0892 20000  0.8513  0.9221  0.9747 1.3235 1.3792 1.4358</span></span>
+<span><span class="co">#&gt; m~~m     1.2120 0.0933 20000  0.9101  0.9748  1.0271 1.3951 1.4492 1.5090</span></span>
+<span><span class="co">#&gt; x~~x     0.2415 0.0191 20000  0.1772  0.1922  0.2039 0.2788 0.2899 0.3037</span></span>
+<span><span class="co">#&gt; y~1      0.3364 0.0781 20000  0.0836  0.1389  0.1843 0.4907 0.5385 0.5858</span></span>
+<span><span class="co">#&gt; m~1      0.0068 0.0788 20000 -0.2648 -0.1977 -0.1468 0.1624 0.2092 0.2606</span></span>
+<span><span class="co">#&gt; x~1      0.4119 0.0275 20000  0.3209  0.3410  0.3578 0.4656 0.4822 0.5022</span></span>
+<span><span class="co">#&gt; indirect 0.0562 0.0295 20000 -0.0164 -0.0006  0.0093 0.1236 0.1521 0.1869</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

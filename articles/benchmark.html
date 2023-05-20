@@ -9,7 +9,10 @@
 <title>Benchmark • manMCMedMiss</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.6/font.css" rel="stylesheet">
+<link href="../deps/JetBrains_Mono-0.4.6/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Slab-0.4.6/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Benchmark">
 <meta property="og:description" content="manMCMedMiss">
@@ -290,17 +293,17 @@ and their sampling covariance matrix are pooled.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark</span>, unit <span class="op">=</span> <span class="st">"ms"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   expr          min           lq         mean       median           uq</span></span>
-<span><span class="co">#&gt; 1 MCML 2.925195e+00 3.003301e+00 3.690824e+00 3.061971e+00 3.171860e+00</span></span>
-<span><span class="co">#&gt; 2 MCMI 5.823092e+00 5.974410e+00 7.064057e+00 6.504374e+00 6.732710e+00</span></span>
-<span><span class="co">#&gt; 3 NBML 3.014750e+03 3.034268e+03 3.048779e+03 3.043221e+03 3.060870e+03</span></span>
-<span><span class="co">#&gt; 4 NBMI 1.746965e+06 1.769778e+06 1.775446e+06 1.777643e+06 1.785323e+06</span></span>
-<span><span class="co">#&gt; 5 MINB 7.560330e+04 7.588840e+04 7.611221e+04 7.617148e+04 7.622979e+04</span></span>
+<span><span class="co">#&gt; 1 MCML 3.886549e+00 3.943137e+00 6.184367e+00 4.594421e+00 5.548452e+00</span></span>
+<span><span class="co">#&gt; 2 MCMI 9.956686e+00 1.030185e+01 1.343406e+01 1.095779e+01 1.117503e+01</span></span>
+<span><span class="co">#&gt; 3 NBML 2.648407e+03 2.683022e+03 2.711899e+03 2.718089e+03 2.736076e+03</span></span>
+<span><span class="co">#&gt; 4 NBMI 9.952354e+05 9.972481e+05 1.059047e+06 1.072066e+06 1.113894e+06</span></span>
+<span><span class="co">#&gt; 5 MINB 9.081848e+04 9.099982e+04 9.194101e+04 9.157158e+04 9.299716e+04</span></span>
 <span><span class="co">#&gt;            max neval cld</span></span>
-<span><span class="co">#&gt; 1 9.367104e+00    10 a  </span></span>
-<span><span class="co">#&gt; 2 1.076952e+01    10 a  </span></span>
-<span><span class="co">#&gt; 3 3.085715e+03    10 a  </span></span>
-<span><span class="co">#&gt; 4 1.788815e+06    10  b </span></span>
-<span><span class="co">#&gt; 5 7.661050e+04    10   c</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 1.326859e+01    10 a  </span></span>
+<span><span class="co">#&gt; 2 2.807690e+01    10 a  </span></span>
+<span><span class="co">#&gt; 3 2.766765e+03    10 a  </span></span>
+<span><span class="co">#&gt; 4 1.116860e+06    10  b </span></span>
+<span><span class="co">#&gt; 5 9.335249e+04    10   c</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="summary-of-benchmark-results-relative-to-the-fastest-method">Summary of Benchmark Results Relative to the Fastest Method<a class="anchor" aria-label="anchor" href="#summary-of-benchmark-results-relative-to-the-fastest-method"></a>
@@ -309,16 +312,16 @@ and their sampling covariance matrix are pooled.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">benchmark</span>, unit <span class="op">=</span> <span class="st">"relative"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   expr          min           lq         mean       median           uq</span></span>
 <span><span class="co">#&gt; 1 MCML 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00</span></span>
-<span><span class="co">#&gt; 2 MCMI 1.990668e+00 1.989281e+00 1.913951e+00 2.124245e+00 2.122638e+00</span></span>
-<span><span class="co">#&gt; 3 NBML 1.030615e+03 1.010311e+03 8.260428e+02 9.938766e+02 9.650080e+02</span></span>
-<span><span class="co">#&gt; 4 NBMI 5.972133e+05 5.892776e+05 4.810433e+05 5.805552e+05 5.628631e+05</span></span>
-<span><span class="co">#&gt; 5 MINB 2.584556e+04 2.526833e+04 2.062201e+04 2.487662e+04 2.403315e+04</span></span>
+<span><span class="co">#&gt; 2 MCMI 2.561832e+00 2.612604e+00 2.172261e+00 2.385022e+00 2.014081e+00</span></span>
+<span><span class="co">#&gt; 3 NBML 6.814291e+02 6.804284e+02 4.385087e+02 5.916064e+02 4.931242e+02</span></span>
+<span><span class="co">#&gt; 4 NBMI 2.560718e+05 2.529073e+05 1.712458e+05 2.333408e+05 2.007577e+05</span></span>
+<span><span class="co">#&gt; 5 MINB 2.336738e+04 2.307803e+04 1.486668e+04 1.993104e+04 1.676092e+04</span></span>
 <span><span class="co">#&gt;            max neval cld</span></span>
-<span><span class="co">#&gt; 1 1.000000e+00    10 a  </span></span>
-<span><span class="co">#&gt; 2 1.149718e+00    10 a  </span></span>
-<span><span class="co">#&gt; 3 3.294203e+02    10 a  </span></span>
-<span><span class="co">#&gt; 4 1.909678e+05    10  b </span></span>
-<span><span class="co">#&gt; 5 8.178676e+03    10   c</span></span></code></pre></div>
+<span><span class="co">#&gt; 1     1.000000    10 a  </span></span>
+<span><span class="co">#&gt; 2     2.116042    10 a  </span></span>
+<span><span class="co">#&gt; 3   208.519899    10 a  </span></span>
+<span><span class="co">#&gt; 4 84173.248755    10  b </span></span>
+<span><span class="co">#&gt; 5  7035.599661    10   c</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
@@ -352,16 +355,6 @@ estimate parameters in the context of structural equation modeling,
 <code>NBMI</code> and <code>MINB</code> will be significantly
 slower.</p>
 </blockquote>
-</div>
-<div class="section level2">
-<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h2>
-<p>Asparouhov, T., &amp; Muthen, B. (2010). <em>Multiple imputation with
-Mplus</em>. Retrieved from <a href="http://www.statmodel.com/download/Imputations7.pdf" class="external-link uri">http://www.statmodel.com/download/Imputations7.pdf</a></p>
-<p>Schouten, R. M., Lugtig, P. and Vink, G. (2018). Generating missing
-values for simulation purposes: A multivariate amputation procedure.
-<em>Journal of Statistical Computation and Simulation</em>,
-<em>88</em>(15), 1909–1930. <a href="https://doi.org/10.1080/00949655.2018.1491577" class="external-link uri">https://doi.org/10.1080/00949655.2018.1491577</a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
