@@ -1,9 +1,13 @@
 manMCMedMiss
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-28
+2023-05-20
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+[![DOI](https://zenodo.org/badge/DOI/10.3758/s13428-023-02114-4.svg)](https://doi.org/10.3758/s13428-023-02114-4)
+<!-- badges: end -->
 
 ## Description
 

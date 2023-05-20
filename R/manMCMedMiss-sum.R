@@ -91,12 +91,6 @@ Sum <- function(taskid,
         reps = reps,
         output_folder = output_folder,
         params_taskid = params_taskid
-      ),
-      nb_stacked_mi = SumNBStackedMI(
-        taskid = taskid,
-        reps = reps,
-        output_folder = output_folder,
-        params_taskid = params_taskid
       )
     )
     out <- c(

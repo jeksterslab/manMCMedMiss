@@ -8,7 +8,7 @@
 #'
 #' @inheritParams Template
 #' @export
-#' @keywords manMCMedMiss ci mediation mi simulation summary
+#' @keywords manMCMedMiss ci mediation mi summary
 SumNBMI <- function(taskid,
                     reps,
                     output_folder,

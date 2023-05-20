@@ -5,6 +5,7 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a logical vector.
+#'
 #' @param lower Numeric vector.
 #'   Lower limit.
 #' @param upper Numeric vector.
@@ -12,10 +13,13 @@
 #' @param theta Numeric.
 #'   Parameter.
 #'
-#' @keywords internal
+#' @family Simulation Helper Functions
+#' @keywords simTools internal
 #' @noRd
 .SimHit <- function(lower,
                     upper,
                     theta) {
-  lower <= theta & theta <= upper
+  return(
+    lower <= theta & theta <= upper
+  )
 }

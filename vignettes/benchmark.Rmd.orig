@@ -306,9 +306,3 @@ The `MC` approaches are faster compared to their `NB` counterparts. Note the inc
 However, if we perform the model fitting step outside the benchmark calculation, the speed of `MCML` and `MCMI` will be virtually identical. In this implementation, however, `MCMI` will be a little bit slower than `MCML` because it generates two sets of confidence intervals (`vcov` and `vcov_tilde`) while `MCML` generates a single set. Since `MC` relies on a single estimate of the parameters and the sampling covariance matrix, it is suited for more complex models.
 
 > **NOTE**: Note that since `NB` only needs point estimates, a closed form solution of the indirect effect is used in `NBMI` and `MINB`. When optimization is used to estimate parameters in the context of structural equation modeling, `NBMI` and `MINB` will be significantly slower.
-
-## References
-
-Asparouhov, T., & Muthen, B. (2010). *Multiple imputation with Mplus*. Retrieved from http://www.statmodel.com/download/Imputations7.pdf
-
-Schouten, R. M., Lugtig, P. and Vink, G. (2018). Generating missing values for simulation purposes: A multivariate amputation procedure. *Journal of Statistical Computation and Simulation*, *88*(15), 1909--1930. https://doi.org/10.1080/00949655.2018.1491577

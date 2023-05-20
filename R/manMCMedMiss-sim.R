@@ -176,16 +176,5 @@ Sim <- function(taskid,
       m = m,
       mplus_bin = mplus_bin
     )
-    SimNBStackedMI(
-      taskid = taskid,
-      repid = repid,
-      output_folder = output_folder,
-      seed = seed,
-      suffix = suffix,
-      overwrite = overwrite,
-      integrity = integrity,
-      B = B,
-      alpha = alpha
-    )
   }
 }

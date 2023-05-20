@@ -57,7 +57,6 @@ This function is executed via the \code{Sim} function.
 \author{
 Ivan Jacob Agaloos Pesigan
 }
-\keyword{check}
 \keyword{gendata}
 \keyword{impute}
 \keyword{manMCMedMiss}

@@ -5,7 +5,9 @@
 #' @return Invisible.
 #'
 #' @inheritParams base::Sys.chmod
-#' @keywords internal
+#'
+#' @family Simulation Helper Functions
+#' @keywords simTools internal
 #' @noRd
 .SimChMod <- function(paths,
                       mode = "0777",

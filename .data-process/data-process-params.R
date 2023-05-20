@@ -1,8 +1,17 @@
 data_process_params <- function(overwrite = FALSE) {
   # find root directory
   root <- rprojroot::is_rstudio_project
-  params_file <- root$find_file(
-    "data",
+  data_folder <- root$find_file(
+    "data"
+  )
+  if (!dir.exists(data_folder)) {
+    dir.create(
+      data_folder,
+      recursive = TRUE
+    )
+  }
+  params_file <- file.path(
+    data_folder,
     "params.rda"
   )
   if (!file.exists(params_file)) {

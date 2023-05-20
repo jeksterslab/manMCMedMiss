@@ -1,0 +1,43 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.5.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "manMCMedMiss" in publications use:'
+type: software
+license: MIT
+title: 'manMCMedMiss: Monte Carlo Confidence Intervals for the Indirect Effect with
+  Missing Data'
+version: 0.9.2
+doi: 10.3758/s13428-023-02114-4
+abstract: Research compendium for the manuscript Monte Carlo Confidence Intervals
+  for the Indirect Effect with Missing Data.
+authors:
+- family-names: Pesigan
+  given-names: Ivan Jacob Agaloos
+  email: r.jeksterslab@gmail.com
+  orcid: https://orcid.org/0000-0003-4818-8420
+preferred-citation:
+  type: article
+  title: Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data
+  authors:
+  - family-names: Pesigan
+    given-names: Ivan Jacob Agaloos
+    email: r.jeksterslab@gmail.com
+    orcid: https://orcid.org/0000-0003-4818-8420
+  - family-names: Cheung
+    given-names: Shu Fai
+    email: shufai.cheung@gmail.com
+    orcid: https://orcid.org/0000-0002-9871-9448
+  year: '2023'
+  doi: 10.3758/s13428-023-02114-4
+  journal: Behavior Research Methods
+  notes: R package version 0.9.2
+repository-code: https://github.com/jeksterslab/manMCMedMiss
+url: https://jeksterslab.github.io/manMCMedMiss/
+contact:
+- family-names: Pesigan
+  given-names: Ivan Jacob Agaloos
+  email: r.jeksterslab@gmail.com
+  orcid: https://orcid.org/0000-0003-4818-8420

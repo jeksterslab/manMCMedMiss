@@ -6,11 +6,13 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns the OS specific project path as a character string.
+#'
 #' @param root Character string.
 #'   Root path of the simulation output path.
 #'   The default value is the `home` directory.
 #'
-#' @keywords internal
+#' @family Simulation Helper Functions
+#' @keywords simTools internal
 #' @noRd
 .SimPath <- function(root = Sys.getenv("HOME"),
                      project) {
@@ -23,5 +25,7 @@
     showWarnings = FALSE,
     recursive = TRUE
   )
-  path
+  return(
+    path
+  )
 }

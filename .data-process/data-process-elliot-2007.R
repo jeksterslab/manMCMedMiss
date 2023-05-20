@@ -16,10 +16,19 @@ data_process_elliot2007 <- function(overwrite = FALSE) {
     m = m,
     y = y
   )
+  data_folder <- root$find_file(
+    "data"
+  )
+  if (!dir.exists(data_folder)) {
+    dir.create(
+      data_folder,
+      recursive = TRUE
+    )
+  }
   save(
     elliot2007,
-    file = root$find_file(
-      "data",
+    file = file.path(
+      data_folder,
       "elliot2007.rda"
     ),
     compress = "xz"

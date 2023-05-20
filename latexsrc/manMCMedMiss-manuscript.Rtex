@@ -119,7 +119,7 @@ Implications of the results for applied research are discussed.
   Monte Carlo confidence intervals for the indirect effect with missing data.
   \textit{Behavior Research Methods}.
   \url{https://doi.org/10.1080/00273171.2023.2201277}
- }
+}
 
 \begin{document}
 
@@ -914,13 +914,7 @@ The estimated parameters and their corresponding sampling variance-covariance ma
 rules.
 The pooled vector of parameter estimates is given by
 
-\begin{equation}
-    \bar{\boldsymbol{\theta}}
-    =
-    M^{-1}
-    \sum_{m = 1}^{M}
-    \hat{\boldsymbol{\theta}}_{m}
-\end{equation}
+\input{latexsrc/equations/manMCMedMiss-theta-bar}
 
 \noindent where $M$ is the number of imputations,
 $m = \left\{ 1, 2, \cdots, M \right\}$,
@@ -934,47 +928,11 @@ they will be omitted in the manuscript as this approach did not provide a signif
 consists of combining between and within imputation variances
 given by
 
-\begin{equation}
-    \mathbf{V}_{\mathrm{within}}
-    =
-    M^{-1}
-    \sum_{m = 1}^{M}
-    \mathrm{Var}
-    \left(
-    \hat{\boldsymbol{\theta}}_{m}
-    \right)
-\end{equation}
+\input{latexsrc/equations/manMCMedMiss-var-within}
 
-\begin{equation}
-    \mathbf{V}_{\mathrm{between}}
-    =
-    \left( 
-    M - 1 
-    \right)^{-1} 
-    \sum_{m = 1}^{M} 
-    \left( 
-    \hat{\boldsymbol{\theta}}_{m}
-    - 
-    \bar{\boldsymbol{\theta}} 
-    \right) 
-    \left( 
-    \hat{\boldsymbol{\theta}}_{m}
-    - 
-    \bar{\boldsymbol{\theta}} 
-    \right)^{\prime}
-\end{equation}
+\input{latexsrc/equations/manMCMedMiss-var-between}
 
-\begin{equation}
-    \mathbf{V}_{\mathrm{total}} 
-    = 
-    \mathbf{V}_{\mathrm{within}} 
-    + 
-    \mathbf{V}_{\mathrm{between}} 
-    + 
-    M^{-1} 
-    \mathbf{V}_{\mathrm{between}} .
-    \label{eq:mi-var-total}
-\end{equation}
+\input{latexsrc/equations/manMCMedMiss-var-total}
 
 \noindent The wrapper function \texttt{ImputeData} was used to perform the imputation stage while the \texttt{FitModelMI}
 was used to fit the model for each of the data sets,
@@ -1251,37 +1209,105 @@ For researchers who are already using \texttt{lavaan} to fit structural equation
 we provide the \texttt{R} package \texttt{semmcci},
 which is a simple and convenient tool for generating MC CIs from \texttt{lavaan} output.
 \texttt{Lavaan} is used to fit the model,
-and the output is passed as an argument to the \texttt{MC} function.
-The simple mediation model is first estimated in \texttt{lavaan} using FIML in the example below.
+and the output is passed as an argument to the \texttt{MC} or the \texttt{MCMI} function.
+For MC using FIML estimates,
+the simple mediation model is first estimated in \texttt{lavaan} using FIML in the example below.
 The \texttt{fit} \texttt{lavaan} object is passed to the \texttt{MC} function as an argument.
+For MC using MI estimates,
+an appropriate imputation method is implemented to generate multiply imputed data sets.
+Then simple mediation model is fitted using \texttt{lavaan}.
+The \texttt{fit} \texttt{lavaan} object and the \texttt{mi} multiple imputation object
+are passed to the \texttt{MCMI} function as arguments.
 The \texttt{semmcci} package can also generate confidence intervals for standardized parameters including standardized indirect effects. The \texttt{semmcci} package is available on CRAN (\url{https://CRAN.R-project.org/package=semmcci}). 
 Documentation and examples are available on \url{https://jeksterslab.github.io/semmcci/}.
 The \texttt{MonteCarloCI} function in the \texttt{semTools}
 \parencite{Lib-Structural-Equation-Modeling-Software-Manuals-Jorgensen-2022} package is another option.
-For researchers who wish to implement MC using MI estimates in \texttt{R},
-a worked example is provided as supplementary material on
-\url{https://jeksterslab.github.io/manMCMedMiss/articles/mc-mi.html}.
+
+\newpage
 
 %% begin.rcode
+% #| size = "footnotesize",
+% #| eval = FALSE,
+% #| echo = FALSE
+% set.seed(42)
+% n <- 1000
+% a <- 0.50
+% b <- 0.50
+% cp <- 0.25
+% s2_em <- 1 - a^2
+% s2_ey <- 1 - cp^2 - a^2 * b^2 - b^2 * s2_em - 2 * cp * a * b
+% em <- rnorm(n = n, mean = 0, sd = sqrt(s2_em))
+% ey <- rnorm(n = n, mean = 0, sd = sqrt(s2_ey))
+% X <- rnorm(n = n)
+% M <- a * X + em
+% Y <- cp * X + b * M + ey
+% data <- data.frame(X, M, Y)
+% # Create data set with missing values.
+% miss <- sample(seq_len(dim(data)[1]), 300)
+% data[miss[1:100], "X"] <- NA
+% data[miss[101:200], "M"] <- NA
+% data[miss[201:300], "Y"] <- NA
+%% end.rcode
+
+%% begin.rcode
+% #| size = "footnotesize",
 % #| eval = FALSE
-% # Step 1: Model Fitting
+% # Monte Carlo confidence intervals using FIML estimates -----------------
+% ## Step 1: Model Fitting
 % library(lavaan)
 % model <- "Y ~ cp * X + b * M
 %           M ~ a * X
+%           X ~~ X
 %           ab := a * b"
 % fit <- sem(model = model, data = data, missing = "fiml")
-% # Step 2: Monte Carlo CIs
+% ## Step 2: Monte Carlo CIs
 % library(semmcci)
-% MC(fit)
+% MC(fit, alpha = 0.05)
 % #> Monte Carlo Confidence Intervals
-% #>             est     se     R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-% #> cp       0.2333 0.0263 20000 0.1490 0.1655 0.1813 0.2846 0.3002 0.3183
-% #> b        0.5082 0.0273 20000 0.4205 0.4397 0.4549 0.5616 0.5779 0.6004
-% #> a        0.4820 0.0264 20000 0.3959 0.4140 0.4299 0.5337 0.5495 0.5642
-% #> Y~~Y     0.5462 0.0244 20000 0.4660 0.4832 0.4979 0.5944 0.6095 0.6263
-% #> M~~M     0.7527 0.0339 20000 0.6471 0.6660 0.6859 0.8181 0.8402 0.8613
-% #> ab       0.2449 0.0187 20000 0.1878 0.1995 0.2091 0.2829 0.2958 0.3085
+% #>          est     se     R    2.5%  97.5%
+% #> cp    0.2335 0.0292 20000  0.1763 0.2908
+% #> b     0.5113 0.0296 20000  0.4527 0.5684
+% #> a     0.4809 0.0284 20000  0.4255 0.5369
+% #> X~~X  1.0591 0.0496 20000  0.9627 1.1560
+% #> Y~~Y  0.5542 0.0266 20000  0.5030 0.6071
+% #> M~~M  0.7564 0.0360 20000  0.6853 0.8263
+% #> Y~1  -0.0127 0.0252 20000 -0.0617 0.0366
+% #> M~1  -0.0223 0.0291 20000 -0.0786 0.0353
+% #> X~1   0.0025 0.0337 20000 -0.0643 0.0681
+% #> ab    0.2458 0.0202 20000  0.2074 0.2867
 %% end.rcode
+
+\newpage
+
+%% begin.rcode
+% #| size = "footnotesize",
+% #| eval = FALSE
+% # Monte Carlo confidence intervals using MI estimates -------------------
+% ## Multiple imputation (m = 100 imputations)
+% library(mice)
+% mi <- mice(data = data, m = 100L, method = "norm", print = FALSE)
+% ## Step 1: Model Fitting
+% library(lavaan)
+% model <- "Y ~ cp * X + b * M
+%           M ~ a * X
+%           X ~~ X
+%           ab := a * b"
+% fit <- sem(model = model, data = data)
+% ## Step 2: Monte Carlo CIs
+% library(semmcci)
+% MCMI(fit, mi = mi, alpha = 0.05)
+% #> Monte Carlo Confidence Intervals (Multiple Imputation Estimates)
+% #>         est     se     R   2.5%  97.5%
+% #> cp   0.2330 0.0300 20000 0.1751 0.2917
+% #> b    0.5113 0.0293 20000 0.4537 0.5684
+% #> a    0.4813 0.0284 20000 0.4256 0.5370
+% #> X~~X 1.0613 0.0499 20000 0.9638 1.1585
+% #> Y~~Y 0.5534 0.0269 20000 0.5016 0.6073
+% #> M~~M 0.7571 0.0354 20000 0.6878 0.8265
+% #> ab   0.2461 0.0204 20000 0.2073 0.2868
+%% end.rcode
+
+\newpage
 
 Finally,
 we acknowledge the study's limitations and make recommendations for future research.

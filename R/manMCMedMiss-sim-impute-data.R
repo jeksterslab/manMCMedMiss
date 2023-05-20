@@ -8,7 +8,7 @@
 #'
 #' @inheritParams Template
 #' @export
-#' @keywords manMCMedMiss gendata impute check simulation
+#' @keywords manMCMedMiss gendata impute simulation
 SimImputeData <- function(taskid,
                           repid,
                           output_folder,

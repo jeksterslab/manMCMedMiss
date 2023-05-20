@@ -1,8 +1,17 @@
 data_process_results <- function(overwrite = FALSE) {
   # find root directory
   root <- rprojroot::is_rstudio_project
-  results_file <- root$find_file(
-    "data",
+  data_folder <- root$find_file(
+    "data"
+  )
+  if (!dir.exists(data_folder)) {
+    dir.create(
+      data_folder,
+      recursive = TRUE
+    )
+  }
+  results_file <- file.path(
+    data_folder,
     "results.rda"
   )
   if (!file.exists(results_file)) {

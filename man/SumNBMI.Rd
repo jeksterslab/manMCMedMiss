@@ -35,5 +35,4 @@ Ivan Jacob Agaloos Pesigan
 \keyword{manMCMedMiss}
 \keyword{mediation}
 \keyword{mi}
-\keyword{simulation}
 \keyword{summary}

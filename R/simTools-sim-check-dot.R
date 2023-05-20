@@ -3,6 +3,7 @@
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns logical.
+#'
 #' @param fn Complete file name and path of the simulation output file.
 #' @param overwrite Logical.
 #'   If `overwrite = TRUE`,
@@ -18,7 +19,9 @@
 #' @param integrity Logical.
 #'   If `integrity = TRUE`,
 #'   check for integrity of `fn` when `overwrite = FALSE`.
-#' @keywords internal
+#'
+#' @family Simulation Helper Functions
+#' @keywords simTools internal
 #' @noRd
 .SimCheck <- function(fn,
                       overwrite,

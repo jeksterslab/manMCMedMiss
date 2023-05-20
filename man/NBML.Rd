@@ -33,8 +33,7 @@ Other Confidence Interval Functions:
 \code{\link{MCMI}()},
 \code{\link{MCML}()},
 \code{\link{MINB}()},
-\code{\link{NBMI}()},
-\code{\link{NBStackedMI}()}
+\code{\link{NBMI}()}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

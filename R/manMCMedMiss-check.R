@@ -105,12 +105,6 @@ Check <- function(taskids,
           repid = repid,
           output_folder = output_folder,
           suffix = suffix
-        ),
-        CheckStackedMINB(
-          taskid = taskid,
-          repid = repid,
-          output_folder = output_folder,
-          suffix = suffix
         )
       )
     }
