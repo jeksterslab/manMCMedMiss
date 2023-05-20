@@ -35,4 +35,6 @@ Suggests:
     DT,
     microbenchmark,
     semmcci
+Remotes:
+    jeksterslab/semmcci
 RoxygenNote: 7.2.3
