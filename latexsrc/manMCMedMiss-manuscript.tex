@@ -56,6 +56,7 @@
 \usepackage{blkarray}
 \usepackage{csquotes}
 \usepackage{endnotes}
+\usepackage{setspace}
 
 
 
@@ -190,9 +191,9 @@ Early attempts,
 such as the normal-theory approach,
 are simple to apply but assume that the sampling distribution is symmetric
 \parencite{Lib-Mediation-Delta-Method-Sobel-1982,
-Lib-Mediation-Delta-Method-Sobel-1986,
-Lib-Mediation-Delta-Method-Sobel-1987,
-Lib-Mediation-Delta-Method-Aroian-1947,
+	Lib-Mediation-Delta-Method-Sobel-1986,
+	Lib-Mediation-Delta-Method-Sobel-1987,
+	Lib-Mediation-Delta-Method-Aroian-1947,
 Lib-Mediation-Delta-Method-Goodman-1960}.
 Several other methods have been proposed
 to take into account the asymmetry of the sampling distribution,
@@ -205,7 +206,7 @@ which involves resampling the original sample data
 and fitting the model many times
 to produce a sampling distribution of the indirect effect
 \parencite{Lib-Mediation-Bootstrap-Bollen-1990,
-Lib-Mediation-Bootstrap-Shrout-2002,
+	Lib-Mediation-Bootstrap-Shrout-2002,
 Lib-Mediation-Bootstrap-Preacher-2008};
 (3) the Monte Carlo method,
 which involves simulating regression coefficients
@@ -216,19 +217,19 @@ and
 (4) the likelihood-based approach where CIs are estimated
 using the likelihood ratio test
 \parencite{Lib-Confidence-Intervals-Profile-Likelihood-Venzon-1988,
-Lib-Mediation-Profile-Likelihood-Cheung-2009a,
-Lib-Mediation-Profile-Likelihood-Cheung-2009b,
-Lib-Confidence-Intervals-Profile-Likelihood-Pawitan-2013,
+	Lib-Mediation-Profile-Likelihood-Cheung-2009a,
+	Lib-Mediation-Profile-Likelihood-Cheung-2009b,
+	Lib-Confidence-Intervals-Profile-Likelihood-Pawitan-2013,
 Lib-Mediation-Profile-Likelihood-Pesigan-2020}.
 
 Several researchers have concluded that nonparametric bootstrapping
 is the recommended method of generating CIs for the indirect effect
 \parencite[e.g.,][]{Lib-Mediation-Bootstrap-Shrout-2002,
-Lib-Mediation-Monte-Carlo-Method-MacKinnon-2004,
-Lib-Mediation-Bootstrap-Preacher-2008,
-Lib-Mediation-Bootstrap-Cheung-2007-07,
-Lib-Mediation-Bootstrap-Taylor-2007,
-Lib-Mediation-Profile-Likelihood-Cheung-2009a,
+	Lib-Mediation-Monte-Carlo-Method-MacKinnon-2004,
+	Lib-Mediation-Bootstrap-Preacher-2008,
+	Lib-Mediation-Bootstrap-Cheung-2007-07,
+	Lib-Mediation-Bootstrap-Taylor-2007,
+	Lib-Mediation-Profile-Likelihood-Cheung-2009a,
 Lib-Mediation-Bootstrap-Biesanz-2010}.
 \Textcite{Lib-Mediation-Bootstrap-Koopman-2015},
 however,
@@ -259,7 +260,7 @@ While not as widely studied as nonparametric bootstrapping,
 previous studies have shown that Monte Carlo CIs performed
 just as well as nonparametric bootstrap CIs
 \parencite[see][]{Lib-Mediation-Monte-Carlo-Method-MacKinnon-2004,
-Lib-Mediation-Monte-Carlo-Method-Preacher-2012,
+	Lib-Mediation-Monte-Carlo-Method-Preacher-2012,
 Lib-Mediation-Monte-Carlo-Method-Tofighi-2015}.
 Therefore,
 in the present study,
@@ -469,7 +470,7 @@ combined with MI or ML estimation,
 to compute CIs around an indirect effect
 when the data set has missing data
 \parencite{Lib-Mediation-Missing-Data-Zhang-2012,
-Lib-Mediation-Missing-Data-Wu-2013,
+	Lib-Mediation-Missing-Data-Wu-2013,
 Lib-Mediation-Missing-Data-Zhang-2015}.
 We describe these methods and summarize the findings
 from previous research in the next sections.
@@ -531,7 +532,7 @@ on each of the bootstrap samples;
 and (4) MI followed by NB.
 See
 \Textcite{Lib-Mediation-Missing-Data-Zhang-2012,
-Lib-Mediation-Missing-Data-Wu-2013,
+	Lib-Mediation-Missing-Data-Wu-2013,
 Lib-Mediation-Missing-Data-Zhang-2015}
 for the performance of the approaches mentioned above.
 These methods have specific assumptions about the missing data mechanism.
@@ -545,7 +546,7 @@ dropping cases resulted in the loss of statistical power
 MI or ML methods combined with NB worked well
 when missingness is MCAR
 \parencite{Lib-Mediation-Missing-Data-Zhang-2012,
-Lib-Mediation-Missing-Data-Wu-2013,
+	Lib-Mediation-Missing-Data-Wu-2013,
 Lib-Mediation-Missing-Data-Zhang-2015}.
 When missingness is not MCAR,
 deletion methods such as listwise deletion,
@@ -558,7 +559,7 @@ from the observed data to handle missing data in this context.
 Results have shown that MI (NB then MI or MI then NB) or ML methods
 combined with NB performed well for MAR
 \parencite{Lib-Mediation-Missing-Data-Zhang-2012,
-Lib-Mediation-Missing-Data-Wu-2013,
+	Lib-Mediation-Missing-Data-Wu-2013,
 Lib-Mediation-Missing-Data-Zhang-2015}.
 Last,
 results have shown that MI or ML methods combined with NB
@@ -567,7 +568,7 @@ in MNAR
 with the addition of auxiliary variables,
 making MNAR become MAR
 \parencite{Lib-Mediation-Missing-Data-Zhang-2012,
-Lib-Mediation-Missing-Data-Wu-2013,
+	Lib-Mediation-Missing-Data-Wu-2013,
 Lib-Mediation-Missing-Data-Zhang-2015}.
 
 Although some of these methods that combined NB with MI or ML are promising,
@@ -910,8 +911,8 @@ for a sample size of $1,000$
 and $30\%$ missing data,
 $300$ cases will have been dropped had listwise deletion been employed.\footnote{
 	The \texttt{ampute} function defines the proportion of missing cases as the proportion of the original case which would be dropped had listwise deletion been employed. There are other ways of thinking about proportion of missing data, for example, the number of cells in the data matrix with missing values over the total number of cells. For a more thorough presentation of the proportion of missing data used in the study see \url{https://jeksterslab.github.io/manMCMedMiss/articles/proportion-missing.html}.
-% 	Another way of thinking about missing proportions is to determine the number of cells in the data matrix with missing values over the total number of cells (cells with missing values divided by $n$ rows times $k$ columns).
-% 		Because the likelihood of having missing values for each column is defined to be equal by default \texttt{ampute}, the proportion of missing cells compared to the overall number of cells would be $3.33\%$, $6.67\%$, and $10\%$ for the $10\%$, $20\%$, and $30\%$ defined in the main text.
+	% 	Another way of thinking about missing proportions is to determine the number of cells in the data matrix with missing values over the total number of cells (cells with missing values divided by $n$ rows times $k$ columns).
+	% 		Because the likelihood of having missing values for each column is defined to be equal by default \texttt{ampute}, the proportion of missing cells compared to the overall number of cells would be $3.33\%$, $6.67\%$, and $10\%$ for the $10\%$, $20\%$, and $30\%$ defined in the main text.
 }
 These percentages are similar to previous studies
 \parencite{Lib-Mediation-Missing-Data-Zhang-2012,
@@ -958,9 +959,9 @@ and
 $\hat{\boldsymbol{\theta}}_{m}$
 is the vector of parameter estimates for the $m^{\mathrm{th}}$ imputation.
 The pooled or total sampling variance-covariance matrix\footnote{An alternative total variance was introduced by
-\Textcite{Lib-Missing-Data-Multiple-Imputation-Li-1991} and was used in the simulation.
-While results for this approach are available in the supplementary materials,
-they will be omitted in the manuscript as this approach did not provide a significant improvement to the performance of Equation \ref{eq:mi-var-total}.}
+	\Textcite{Lib-Missing-Data-Multiple-Imputation-Li-1991} and was used in the simulation.
+	While results for this approach are available in the supplementary materials,
+	they will be omitted in the manuscript as this approach did not provide a significant improvement to the performance of Equation \ref{eq:mi-var-total}.}
 consists of combining between and within imputation variances
 given by
 
@@ -974,7 +975,7 @@ given by
 was used to fit the model for each of the data sets,
 extract the parameter estimates and the sampling variance-covariance matrix,
 and pool the parameter estimates and the sampling variance-covariance matrix.\footnote{The automated MI implementation in \texttt{Mplus} only pools the diagonal elements of the sampling variance-covariance matrix.
-The wrapper function \texttt{FitModelMI} fits the model using normal-theory maximum likelihood on each imputation in \texttt{Mplus},
+	The wrapper function \texttt{FitModelMI} fits the model using normal-theory maximum likelihood on each imputation in \texttt{Mplus},
 extracts, and pools the entire sampling variance-covariance matrix for each of the fitted models.}
 
 The second step is identical for MC.COMPLETE,
@@ -1074,8 +1075,8 @@ The figures show that all methods had deflated Type I error rates when both ${\a
 NBBC had inflated Type I error rates associated with small effect and sample sizes,
 which is consistent with previous research
 \parencite[e.g.,][]{Lib-Mediation-Monte-Carlo-Method-MacKinnon-2004,
-Lib-Mediation-Bootstrap-Biesanz-2010,
-Lib-Mediation-Bootstrap-Hayes-2013,
+	Lib-Mediation-Bootstrap-Biesanz-2010,
+	Lib-Mediation-Bootstrap-Hayes-2013,
 Lib-Mediation-Bootstrap-Tofighi-2020}.
 An increase in effect size in ${\alpha}$ or ${\beta}$ while the other effect size is zero and an increase in sample size reduced the inflation of the Type I error rate.
 For example,
@@ -1259,14 +1260,15 @@ Documentation and examples are available on \url{https://jeksterslab.github.io/s
 The \texttt{MonteCarloCI} function in the \texttt{semTools}
 \parencite{Lib-Structural-Equation-Modeling-Software-Manuals-Jorgensen-2022} package is another option.
 
-\newpage
 
 
-
-\begin{knitrout}\footnotesize
+\vspace{-.5em}
+\begin{minipage}{.9\linewidth}
+	\singlespacing
+\begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# Monte Carlo confidence intervals using FIML estimates -----------------}
+\hlcom{# Monte Carlo confidence intervals using FIML estimates -----------}
 \hlcom{## Step 1: Model Fitting}
 \hlkwd{library}\hlstd{(lavaan)}
 \hlstd{model} \hlkwb{<-} \hlstr{"Y ~ cp * X + b * M
@@ -1292,13 +1294,15 @@ The \texttt{MonteCarloCI} function in the \texttt{semTools}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
+\end{minipage}
 
-\newpage
-
-\begin{knitrout}\footnotesize
+\vspace{-.5em}
+\begin{minipage}{.9\linewidth}
+	\singlespacing
+\begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# Monte Carlo confidence intervals using MI estimates -------------------}
+\hlcom{# Monte Carlo confidence intervals using MI estimates -------------}
 \hlcom{## Multiple imputation (m = 100 imputations)}
 \hlkwd{library}\hlstd{(mice)}
 \hlstd{mi} \hlkwb{<-} \hlkwd{mice}\hlstd{(}\hlkwc{data} \hlstd{= data,} \hlkwc{m} \hlstd{=} \hlnum{100L}\hlstd{,} \hlkwc{method} \hlstd{=} \hlstr{"norm"}\hlstd{,} \hlkwc{print} \hlstd{=} \hlnum{FALSE}\hlstd{)}
@@ -1324,8 +1328,7 @@ The \texttt{MonteCarloCI} function in the \texttt{semTools}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
-\newpage
+\end{minipage}
 
 Finally,
 we acknowledge the study's limitations and make recommendations for future research.
@@ -1394,7 +1397,7 @@ GitHub
 		${\tau}^{\prime}$ = direct effect,
 		MC.COMPLETE = Monte Carlo with complete data,
 		NBBC.COMPLETE = Nonparametric bootstrap with bias-corrected confidence intervals with complete data,
-        NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data,
+		NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data,
 		SIG.COMPLETE = Joint-significance test with complete data.
 	}
 	\label{fig:complete-type1}
@@ -1415,10 +1418,10 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
 		SIG.FIML = Joint-significance test using FIML estimates,
 		SIG.MI = Joint-significance test using MI estimates.
-    }
+	}
 	\label{fig:mcar-30-type1}
 \end{figure}
 
@@ -1437,10 +1440,10 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
 		SIG.FIML = Joint-significance test using FIML estimates,
 		SIG.MI = Joint-significance test using MI estimates.
-    }
+	}
 	\label{fig:mar-30-type1}
 \end{figure}
 
@@ -1458,7 +1461,7 @@ GitHub
 		${\tau}^{\prime}$ = direct effect,
 		MC.COMPLETE = Monte Carlo with complete data,
 		NBBC.COMPLETE = Nonparametric bootstrap with bias-corrected confidence intervals with complete data,
-        NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data,
+		NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data,
 		SIG.COMPLETE = Joint-significance test with complete data.
 	}
 	\label{fig:complete-power}
@@ -1479,10 +1482,10 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
 		SIG.FIML = Joint-significance test using FIML estimates,
 		SIG.MI = Joint-significance test using MI estimates.
-    }
+	}
 	\label{fig:mcar-30-power}
 \end{figure}
 
@@ -1501,10 +1504,10 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML,
 		SIG.FIML = Joint-significance test using FIML estimates,
 		SIG.MI = Joint-significance test using MI estimates.
-    }
+	}
 	\label{fig:mar-30-power}
 \end{figure}
 
@@ -1524,7 +1527,7 @@ GitHub
 		${\tau}^{\prime}$ = direct effect,
 		MC.COMPLETE = Monte Carlo with complete data,
 		NBBC.COMPLETE = Nonparametric bootstrap with bias-corrected confidence intervals with complete data,
-        NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data.
+		NBPC.COMPLETE = Nonparametric bootstrap with percentile confidence intervals with complete data.
 	}
 	\label{fig:complete-miss}
 \end{figure}
@@ -1544,8 +1547,8 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML.
-    }
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML.
+	}
 	\label{fig:mcar-30-miss}
 \end{figure}
 
@@ -1564,11 +1567,12 @@ GitHub
 		MC.FIML = Monte Carlo using FIML estimates,
 		MC.MI = Monte Carlo using MI estimates,
 		NBBC.FIML = Nonparametric bootstrap with bias-corrected confidence intervals using FIML,
-        NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML.
-    }
+		NBPC.FIML = Nonparametric bootstrap with percentile confidence intervals using FIML.
+	}
 	\label{fig:mar-30-miss}
 \end{figure}
 
 \newpage
 
 \end{document}
+
