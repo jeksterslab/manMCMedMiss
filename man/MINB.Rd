@@ -20,7 +20,9 @@ Number of bootstrap samples.}
 Significance level.}
 }
 \value{
-Nonparametric bootstrap percentile confidence intervals.
+Nonparametric bootstrap confidence intervals.
+\code{bc} corresponds to bias-corrected and \code{pc} corresponds to percentile
+confidence intervals.
 }
 \description{
 Nonparametric Bootstrap Confidence Intervals for the Indirect Effect

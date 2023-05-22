@@ -4,7 +4,9 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Nonparametric bootstrap percentile confidence intervals.
+#' @return Nonparametric bootstrap confidence intervals.
+#'   `bc` corresponds to bias-corrected and `pc` corresponds to percentile
+#'  confidence intervals.
 #'
 #' @references
 #' Wu, Wei., & Jia, F. (2012).
