@@ -163,9 +163,9 @@ Implications of the results for applied research are discussed.
 \maketitle
 Mediation is an important model in psychology.
 A Google Scholar search using the search phrase `psychology AND mediation'
-returns almost two million entries (as of May 8, 2022),
-and over forty thousand entries,
-restricted to entries in 2021.
+returns more than three million entries (as of May 8, 2023),
+and over ninety-five thousand entries,
+restricted to entries in 2022.
 \Textcite{Lib-Mediation-Causal-Steps-Baron-1986}
 describe mediation as a mechanism
 through which an independent variable ${X}$
@@ -814,7 +814,7 @@ The vector of expected values of ${X}$, ${M}$, and ${Y}$ from Equations \ref{eq:
 \input{latexsrc/equations/manMCMedMiss-expected}
 
 \noindent The means of ${X}$, ${M}$, and ${Y}$
-namely $\mu_{X}$, $\mu_{M}$, $\mu_{Y}$ were fixed to zero.
+namely $\mu_{X}$, $\mu_{M}$, and $\mu_{Y}$ were fixed to zero.
 The lower triangular elements
 of the model-implied variance-covariance matrix
 from Equations \ref{eq:eq1} and \ref{eq:eq2} are given by
@@ -1252,7 +1252,7 @@ the simple mediation model is first estimated in \texttt{lavaan} using FIML in t
 The \texttt{fit} \texttt{lavaan} object is passed to the \texttt{MC} function as an argument.
 For MC using MI estimates,
 an appropriate imputation method is implemented to generate multiply imputed data sets.
-Then simple mediation model is fitted using \texttt{lavaan}.
+Then the simple mediation model is fitted using \texttt{lavaan}.
 The \texttt{fit} \texttt{lavaan} object and the \texttt{mi} multiple imputation object
 are passed to the \texttt{MCMI} function as arguments.
 The \texttt{semmcci} package can also generate confidence intervals for standardized parameters including standardized indirect effects. The \texttt{semmcci} package is available on CRAN (\url{https://CRAN.R-project.org/package=semmcci}). 
@@ -1575,4 +1575,3 @@ GitHub
 \newpage
 
 \end{document}
-

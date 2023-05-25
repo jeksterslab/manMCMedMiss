@@ -66,13 +66,13 @@ library(lavaan)
 model <- "
   y ~ x + b * m
   m ~ a * x
+  x ~~ x
   indirect := a * b
 "
 fit <- sem(
   model = model,
   data = data_missing,
-  missing = "fiml",
-  fixed.x = FALSE
+  missing = "fiml"
 )
 ```
 
@@ -82,5 +82,5 @@ The fitted `lavaan` model saved in the object `fit` is passed as the first argum
 
 ```{r}
 library(semmcci)
-MC(fit)
+MC(fit, alpha = 0.05)
 ```

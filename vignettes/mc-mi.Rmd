@@ -1,9 +1,9 @@
 ---
-title: "Monte Carlo Confidence Intervals from Multiple Imputation Estimates"
+title: "Monte Carlo Confidence Intervals from Multiple Imputation Estimates Using the semmcci Package"
 author: Ivan Jacob Agaloos Pesigan
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Monte Carlo Confidence Intervals from Multiple Imputation Estimates}
+  %\VignetteIndexEntry{Monte Carlo Confidence Intervals from Multiple Imputation Estimates Using the semmcci Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -58,30 +58,27 @@ knitr::kable(head(data_missing, n = 10))
 ## Multiple Imputation
 
 Multiple data sets with complete data are generated from the original data set with missing values using multiple imputation.
-There are several packages in `R` such as `Amelia`, `mice`, and `norm2` that can be used to generate completed data sets.
+There are several packages in `R` such as `Amelia`, and `mice` that can be used to generate completed data sets.
 In the example below, we use the `mice` package to generate `m = 100` completed data sets using the joint specification approach
 by specifying `method = "norm"`.
-The data sets are saved in the list `mi` of length `m`.
 
 ```{r}
 #| message = FALSE
 library(mice)
-mi <- complete(
-  mice(
-    data_missing,
-    method = "norm",
-    m = 100,
-    print = FALSE,
-    seed = 42
-  ),
-  action = "all"
+mi <- mice(
+  data_missing,
+  method = "norm",
+  m = 100,
+  print = FALSE,
+  seed = 42
 )
 ```
 
 ## Model Fitting
 
-We fit the model to each of the `m = 100` data sets using `lavaan`.
-The output is saved in the list `fit`.
+We fit the model using `lavaan`.
+We do not need to deal with missing values in this stage.
+The output is saved in the object `fit`.
 
 ```{r}
 #| message = FALSE
@@ -89,84 +86,24 @@ library(lavaan)
 model <- "
   y ~ x + b * m
   m ~ a * x
+  x ~~ x
+  indirect := a * b
 "
-fit <- lapply(
-  X = mi,
-  FUN = function(data,
-                 model) {
-    sem(
-      model = model,
-      data = data
-    )
-  },
-  model = model
+fit <- sem(
+  model = model,
+  data = data_missing
 )
 ```
 
-## Pooling Estimates
+## Monte Carlo Confidence Intervals
 
-We pool the estimates to generate the estimated parameter vector (`param_vec`)
-and the sampling variance-covariance matrix (`var_mat`).
-
-We use the `lavaan::coef()` function to extract the parameter estimates
-for each of the `m = 100` fitted models
-and save the results in a list `param_vec`.
+The `fit` `lavaan` object and `mi` `mids` object can then be passed to the `semmcci::MCMI()` function
+to generate Monte Carlo confidence intervals
+using multiple imputation.
 
 ```{r}
-param_vec <- lapply(
-  X = fit,
-  FUN = function(fit) {
-    coef(fit)
-  }
-)
+#| message = FALSE
+library(semmcci)
+MCMI(fit, mi = mi, alpha = 0.05)
 ```
 
-We use the `lavaan::vcov()` function to extract the sampling variance-covariance matrix
-for each of the `m = 100` fitted models
-and save the results in a list `var_mat`.
-
-```{r}
-var_mat <- lapply(
-  X = fit,
-  FUN = function(fit) {
-    vcov(fit)
-  }
-)
-```
-
-The estimates are combined using the `manMCMedMiss::MICombine()` function.
-The `manMCMedMiss::MICombine()` function uses a multivariate approach to combining
-the entire sampling variance-covariance matrix and not just the diagonal elements.
-
-```{r}
-mi <- MICombine(
-  param_vec = param_vec,
-  var_mat = var_mat
-)
-```
-
-A distribution of parameter estimates
-are generated from the multivariate normal distribution
-using the pooled parameter estimates vector
-and the total sampling variance-covariance matrix.
-
-```{r}
-set.seed(42)
-R <- 20000
-mc <- MASS::mvrnorm(
-  n = R,
-  mu = mi$estimates,
-  Sigma = mi$total
-)
-```
-
-The corresponding quantiles for the 95% confidence intervals,
-namely 2.5% and 97.5%,
-are the lower and upper limits of the Monte Carlo confidence intervals.
-
-```{r}
-stats::quantile(
-  mc[, "a"] * mc[, "b"],
-  probs = c(0.025, 0.975)
-)
-```
