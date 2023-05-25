@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="manMCMedMiss">
-<title>Monte Carlo Confidence Intervals from Multiple Imputation Estimates • manMCMedMiss</title>
+<title>Monte Carlo Confidence Intervals from Multiple Imputation Estimates Using the semmcci Package • manMCMedMiss</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.6/font.css" rel="stylesheet">
@@ -14,7 +14,7 @@
 <link href="../deps/Roboto_Slab-0.4.6/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Monte Carlo Confidence Intervals from Multiple Imputation Estimates">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Monte Carlo Confidence Intervals from Multiple Imputation Estimates Using the semmcci Package">
 <meta property="og:description" content="manMCMedMiss">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -74,7 +74,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Monte Carlo Confidence Intervals from Multiple Imputation Estimates</h1>
+      <img src="" class="logo" alt=""><h1>Monte Carlo Confidence Intervals from Multiple Imputation Estimates Using the semmcci Package</h1>
                         <h4 data-toc-skip class="author">Ivan Jacob
 Agaloos Pesigan</h4>
             
@@ -227,107 +227,59 @@ is missing at random (MAR). The proportion of missing cases is 0.30.</p>
 </h2>
 <p>Multiple data sets with complete data are generated from the original
 data set with missing values using multiple imputation. There are
-several packages in <code>R</code> such as <code>Amelia</code>,
-<code>mice</code>, and <code>norm2</code> that can be used to generate
-completed data sets. In the example below, we use the <code>mice</code>
-package to generate <code>m = 100</code> completed data sets using the
-joint specification approach by specifying <code>method = "norm"</code>.
-The data sets are saved in the list <code>mi</code> of length
-<code>m</code>.</p>
+several packages in <code>R</code> such as <code>Amelia</code>, and
+<code>mice</code> that can be used to generate completed data sets. In
+the example below, we use the <code>mice</code> package to generate
+<code>m = 100</code> completed data sets using the joint specification
+approach by specifying <code>method = "norm"</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice" class="external-link">mice</a></span><span class="op">)</span></span>
-<span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">complete</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://amices.org/mice/reference/mice.html" class="external-link">mice</a></span><span class="op">(</span></span>
-<span>    <span class="va">data_missing</span>,</span>
-<span>    method <span class="op">=</span> <span class="st">"norm"</span>,</span>
-<span>    m <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>    print <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    seed <span class="op">=</span> <span class="fl">42</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  action <span class="op">=</span> <span class="st">"all"</span></span>
+<span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/mice.html" class="external-link">mice</a></span><span class="op">(</span></span>
+<span>  <span class="va">data_missing</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"norm"</span>,</span>
+<span>  m <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  print <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  seed <span class="op">=</span> <span class="fl">42</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="model-fitting">Model Fitting<a class="anchor" aria-label="anchor" href="#model-fitting"></a>
 </h2>
-<p>We fit the model to each of the <code>m = 100</code> data sets using
-<code>lavaan</code>. The output is saved in the list
+<p>We fit the model using <code>lavaan</code>. We do not need to deal
+with missing values in this stage. The output is saved in the object
 <code>fit</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be" class="external-link">lavaan</a></span><span class="op">)</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">  y ~ x + b * m</span></span>
 <span><span class="st">  m ~ a * x</span></span>
+<span><span class="st">  x ~~ x</span></span>
+<span><span class="st">  indirect := a * b</span></span>
 <span><span class="st">"</span></span>
-<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
-<span>  X <span class="op">=</span> <span class="va">mi</span>,</span>
-<span>  FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>,</span>
-<span>                 <span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/sem.html" class="external-link">sem</a></span><span class="op">(</span></span>
-<span>      model <span class="op">=</span> <span class="va">model</span>,</span>
-<span>      data <span class="op">=</span> <span class="va">data</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">}</span>,</span>
-<span>  model <span class="op">=</span> <span class="va">model</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/sem.html" class="external-link">sem</a></span><span class="op">(</span></span>
+<span>  model <span class="op">=</span> <span class="va">model</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">data_missing</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="pooling-estimates">Pooling Estimates<a class="anchor" aria-label="anchor" href="#pooling-estimates"></a>
+<h2 id="monte-carlo-confidence-intervals">Monte Carlo Confidence Intervals<a class="anchor" aria-label="anchor" href="#monte-carlo-confidence-intervals"></a>
 </h2>
-<p>We pool the estimates to generate the estimated parameter vector
-(<code>param_vec</code>) and the sampling variance-covariance matrix
-(<code>var_mat</code>).</p>
-<p>We use the <code>lavaan::coef()</code> function to extract the
-parameter estimates for each of the <code>m = 100</code> fitted models
-and save the results in a list <code>param_vec</code>.</p>
+<p>The <code>fit</code> <code>lavaan</code> object and <code>mi</code>
+<code>mids</code> object can then be passed to the
+<code><a href="https://github.com/jeksterslab/semmcci/reference/MCMI.html" class="external-link">semmcci::MCMI()</a></code> function to generate Monte Carlo confidence
+intervals using multiple imputation.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">param_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
-<span>  X <span class="op">=</span> <span class="va">fit</span>,</span>
-<span>  FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">fit</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>We use the <code>lavaan::vcov()</code> function to extract the
-sampling variance-covariance matrix for each of the <code>m = 100</code>
-fitted models and save the results in a list <code>var_mat</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">var_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span></span>
-<span>  X <span class="op">=</span> <span class="va">fit</span>,</span>
-<span>  FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">fit</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>The estimates are combined using the
-<code><a href="../reference/MICombine.html">manMCMedMiss::MICombine()</a></code> function. The
-<code><a href="../reference/MICombine.html">manMCMedMiss::MICombine()</a></code> function uses a multivariate
-approach to combining the entire sampling variance-covariance matrix and
-not just the diagonal elements.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MICombine.html">MICombine</a></span><span class="op">(</span></span>
-<span>  param_vec <span class="op">=</span> <span class="va">param_vec</span>,</span>
-<span>  var_mat <span class="op">=</span> <span class="va">var_mat</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>A distribution of parameter estimates are generated from the
-multivariate normal distribution using the pooled parameter estimates
-vector and the total sampling variance-covariance matrix.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
-<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fl">20000</span></span>
-<span><span class="va">mc</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html" class="external-link">mvrnorm</a></span><span class="op">(</span></span>
-<span>  n <span class="op">=</span> <span class="va">R</span>,</span>
-<span>  mu <span class="op">=</span> <span class="va">mi</span><span class="op">$</span><span class="va">estimates</span>,</span>
-<span>  Sigma <span class="op">=</span> <span class="va">mi</span><span class="op">$</span><span class="va">total</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p>The corresponding quantiles for the 95% confidence intervals, namely
-2.5% and 97.5%, are the lower and upper limits of the Monte Carlo
-confidence intervals.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html" class="external-link">quantile</a></span><span class="op">(</span></span>
-<span>  <span class="va">mc</span><span class="op">[</span>, <span class="st">"a"</span><span class="op">]</span> <span class="op">*</span> <span class="va">mc</span><span class="op">[</span>, <span class="st">"b"</span><span class="op">]</span>,</span>
-<span>  probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt;        2.5%       97.5% </span></span>
-<span><span class="co">#&gt; 0.009149208 0.122679519</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/semmcci" class="external-link">semmcci</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/MCMI.html">MCMI</a></span><span class="op">(</span><span class="va">fit</span>, mi <span class="op">=</span> <span class="va">mi</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Monte Carlo Confidence Intervals (Multiple Imputation Estimates)</span></span>
+<span><span class="co">#&gt;             est     se     R    2.5%  97.5%</span></span>
+<span><span class="co">#&gt; y~x      0.1434 0.1277 20000 -0.1084 0.3957</span></span>
+<span><span class="co">#&gt; b        0.1516 0.0550 20000  0.0444 0.2604</span></span>
+<span><span class="co">#&gt; a        0.3661 0.1285 20000  0.1135 0.6162</span></span>
+<span><span class="co">#&gt; x~~x     0.2418 0.0190 20000  0.2044 0.2788</span></span>
+<span><span class="co">#&gt; y~~y     1.1485 0.0892 20000  0.9723 1.3226</span></span>
+<span><span class="co">#&gt; m~~m     1.2115 0.0939 20000  1.0273 1.3956</span></span>
+<span><span class="co">#&gt; indirect 0.0557 0.0290 20000  0.0087 0.1209</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

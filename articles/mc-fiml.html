@@ -235,13 +235,13 @@ the model syntax.</p>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">  y ~ x + b * m</span></span>
 <span><span class="st">  m ~ a * x</span></span>
+<span><span class="st">  x ~~ x</span></span>
 <span><span class="st">  indirect := a * b</span></span>
 <span><span class="st">"</span></span>
 <span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/sem.html" class="external-link">sem</a></span><span class="op">(</span></span>
 <span>  model <span class="op">=</span> <span class="va">model</span>,</span>
 <span>  data <span class="op">=</span> <span class="va">data_missing</span>,</span>
-<span>  missing <span class="op">=</span> <span class="st">"fiml"</span>,</span>
-<span>  fixed.x <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  missing <span class="op">=</span> <span class="st">"fiml"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -258,19 +258,19 @@ intervals.</p>
 <span><span class="co">#&gt; The following object is masked from 'package:manMCMedMiss':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     MCMI</span></span>
-<span><span class="fu"><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">MC</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://github.com/jeksterslab/semmcci/reference/MC.html" class="external-link">MC</a></span><span class="op">(</span><span class="va">fit</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Monte Carlo Confidence Intervals</span></span>
-<span><span class="co">#&gt;             est     se     R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%</span></span>
-<span><span class="co">#&gt; y~x      0.1513 0.1281 20000 -0.2647 -0.1773 -0.1012 0.4014 0.4751 0.5671</span></span>
-<span><span class="co">#&gt; b        0.1521 0.0562 20000 -0.0366  0.0072  0.0419 0.2619 0.2972 0.3283</span></span>
-<span><span class="co">#&gt; a        0.3697 0.1274 20000 -0.0482  0.0376  0.1222 0.6229 0.6970 0.7886</span></span>
-<span><span class="co">#&gt; y~~y     1.1491 0.0892 20000  0.8550  0.9180  0.9745 1.3249 1.3801 1.4386</span></span>
-<span><span class="co">#&gt; m~~m     1.2120 0.0939 20000  0.8866  0.9646  1.0272 1.3963 1.4539 1.5145</span></span>
-<span><span class="co">#&gt; x~~x     0.2415 0.0191 20000  0.1819  0.1928  0.2040 0.2789 0.2901 0.3029</span></span>
-<span><span class="co">#&gt; y~1      0.3364 0.0780 20000  0.0760  0.1354  0.1840 0.4893 0.5400 0.5911</span></span>
-<span><span class="co">#&gt; m~1      0.0068 0.0783 20000 -0.2558 -0.1966 -0.1465 0.1598 0.2066 0.2512</span></span>
-<span><span class="co">#&gt; x~1      0.4119 0.0274 20000  0.3221  0.3414  0.3584 0.4651 0.4821 0.5039</span></span>
-<span><span class="co">#&gt; indirect 0.0562 0.0295 20000 -0.0173 -0.0009  0.0091 0.1241 0.1498 0.1893</span></span></code></pre></div>
+<span><span class="co">#&gt;             est     se     R    2.5%  97.5%</span></span>
+<span><span class="co">#&gt; y~x      0.1513 0.1280 20000 -0.1003 0.4023</span></span>
+<span><span class="co">#&gt; b        0.1521 0.0560 20000  0.0421 0.2600</span></span>
+<span><span class="co">#&gt; a        0.3697 0.1293 20000  0.1171 0.6211</span></span>
+<span><span class="co">#&gt; x~~x     0.2415 0.0191 20000  0.2043 0.2792</span></span>
+<span><span class="co">#&gt; y~~y     1.1491 0.0906 20000  0.9689 1.3253</span></span>
+<span><span class="co">#&gt; m~~m     1.2120 0.0943 20000  1.0262 1.3942</span></span>
+<span><span class="co">#&gt; y~1      0.3364 0.0777 20000  0.1838 0.4884</span></span>
+<span><span class="co">#&gt; m~1      0.0068 0.0792 20000 -0.1484 0.1622</span></span>
+<span><span class="co">#&gt; x~1      0.4119 0.0274 20000  0.3586 0.4651</span></span>
+<span><span class="co">#&gt; indirect 0.0562 0.0295 20000  0.0088 0.1228</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
