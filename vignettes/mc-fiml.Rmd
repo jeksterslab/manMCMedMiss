@@ -81,6 +81,9 @@ fit <- sem(
 The fitted `lavaan` model saved in the object `fit` is passed as the first argument to the `semmcci::MC()` function to generate Monte Carlo confidence intervals. 
 
 ```{r}
+#| message = FALSE,
+#| warning = FALSE
 library(semmcci)
 MC(fit, alpha = 0.05)
 ```
+
