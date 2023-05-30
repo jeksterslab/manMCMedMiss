@@ -86,4 +86,3 @@ The fitted `lavaan` model saved in the object `fit` is passed as the first argum
 library(semmcci)
 MC(fit, alpha = 0.05)
 ```
-

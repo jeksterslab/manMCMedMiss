@@ -107,4 +107,3 @@ using multiple imputation.
 library(semmcci)
 MCMI(fit, mi = mi, alpha = 0.05)
 ```
-
