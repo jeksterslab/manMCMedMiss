@@ -17,6 +17,3 @@
 ^quarto$
 ^scripts$
 ^vignettes$
-^manMCMedMiss\.Rcheck$
-^manMCMedMiss.*\.tar\.gz$
-^manMCMedMiss.*\.tgz$
