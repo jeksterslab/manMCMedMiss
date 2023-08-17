@@ -15,7 +15,7 @@ jobs:
       image: ijapesigan/docs@sha256:0ec79e8efb879a81eb3df95d5208c12faf53259c68f63c0afdef20cad244ae4b
     # Only restrict concurrency for non-PR jobs
     concurrency:
-      group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+      group: pkgdown-gh-pages-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     permissions:
