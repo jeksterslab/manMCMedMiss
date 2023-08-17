@@ -21,7 +21,10 @@ pkg_cran <- c(
   "semmcci",
   "MASS",
   "mice",
-  "party"
+  "party",
+  "DT",
+  "ggplot2",
+  "microbenchmark"
 )
 
 pkg_github <- c()

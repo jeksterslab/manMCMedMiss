@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ijapesigan/docs
+      image: ijapesigan/docs@sha256:0ec79e8efb879a81eb3df95d5208c12faf53259c68f63c0afdef20cad244ae4b
     # Only restrict concurrency for non-PR jobs
     concurrency:
       group: quarto-gh-pages-${{ github.event_name != 'pull_request' || github.run_id }}
@@ -26,6 +26,21 @@ jobs:
         name: Checkout 
         uses: actions/checkout@v3
       -
+        name: Clone mpdemo-v8.8
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+        with:
+          owner: 'jeksterslab'
+          repository: 'mpdemo-v8.8'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+      -
+        name: Move 
+        run: |
+          pwd=$(pwd)
+          cd mpdemo-v8.8
+          mv mpdemo $pwd/.setup/bin
+          cd ..
+          rm -rf mpdemo-v8.8
+      -
         name: Make Project
         run: make build
       -
@@ -33,6 +48,9 @@ jobs:
         run: |
           make bibrproject
           make pdf
+      -
+        name: Remove mpdemo-v8.8
+        run: rm -rf .setup/bin/mpdemo
       - 
         name: Push to the latex branch
         uses: s0/git-publish-subdir-action@develop
