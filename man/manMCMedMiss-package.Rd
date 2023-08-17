@@ -13,6 +13,8 @@ Useful links:
 \itemize{
   \item \url{https://github.com/jeksterslab/manMCMedMiss}
   \item \url{https://jeksterslab.github.io/manMCMedMiss/}
+  \item \url{https://osf.io/zt3rq/}
+  \item \doi{10.3758/s13428-023-02114-4}
   \item Report bugs at \url{https://github.com/jeksterslab/manMCMedMiss/issues}
 }
 

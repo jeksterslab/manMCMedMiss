@@ -1,0 +1,134 @@
+---
+title: "semmcci: Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{semmcci: Monte Carlo Confidence Intervals from Full-Information Maximum Likelihood Estimates}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.path = "fig-vignettes-",
+  fig.cap = "",
+  fig.width = 11,
+  fig.height = 8,
+  fig.retina = 2,
+  dpi = 300,
+  comment = "#>"
+)
+```
+
+```{r}
+#| include = FALSE
+if (!require("remotes")) install.packages("remotes")
+remotes::install_version(
+  package = "MASS",
+  version = "7.3-58.1"
+)
+remotes::install_version(
+  package = "mice",
+  version = "3.14.0"
+)
+remotes::install_version(
+  package = "party",
+  version = "1.3-10"
+)
+remotes::install_version(
+  package = "semmcci",
+  version = "1.1.2"
+)
+```
+
+In this example, we use the `semmcci` package to generate Monte Carlo confidence intervals from full-information maximum likelihood estimates as described in Pesigan & Cheung (2023). We use data from a study by Elliot and others (2007) on the effects of an intervention on healthy dietary behavior mediated by knowledge of healthy dietary behavior. This data was used as an empirical example in Yuan and MacKinnon (2009) and Wu and Jia (2013).
+
+## Data
+
+```{r}
+#| message = FALSE
+library(manMCMedMiss)
+```
+
+The data frame `elliot2007()`, which is included in the `manMCMedMiss` package, has 354 cases and 3 variables:
+
+  - `x` - Intervention group membership.
+  - `m` - Knowledge of healthy dietary behavior (knowledge post-intervention minus knowledge pre-intervention).
+  - `y` - Healthy dietary behavior (behavior post-intervention minus behavior pre-intervention).
+
+```{r}
+knitr::kable(head(elliot2007))
+```
+
+## Amputation
+
+Generate sample data with missing values. The missing data mechanism is missing at random (MAR). The proportion of missing cases is 0.30.
+
+```{r}
+set.seed(42)
+data_missing <- AmputeData(
+  elliot2007,
+  mech = "MAR",
+  prop = 0.10
+)
+knitr::kable(head(data_missing, n = 10))
+```
+
+## Model Fitting
+
+We fit the model using the argument `missing = "fiml"` to use full-information maximum likelihood to deal with missing data.
+Note that we need to define the indirect effect as the product of `a` and `b` using the `:=` operator in the model syntax.
+
+```{r}
+#| message = FALSE
+library(lavaan)
+model <- "
+  y ~ x + b * m
+  m ~ a * x
+  x ~~ x
+  indirect := a * b
+"
+fit <- sem(
+  model = model,
+  data = data_missing,
+  missing = "fiml"
+)
+```
+
+## Monte Carlo Confidence Intervals
+
+The fitted `lavaan` model saved in the object `fit` is passed as the first argument to the `semmcci::MC()` function to generate Monte Carlo confidence intervals. 
+
+```{r}
+#| message = FALSE,
+#| warning = FALSE
+library(semmcci)
+MC(fit, alpha = 0.05)
+```
+
+## References
+
+Elliot, D. L., Goldberg, L., Kuehl, K. S., Moe, E. L., Breger, R. K., &
+Pickering, M. A. (2007).
+The PHLAME (Promoting Healthy Lifestyles: Alternative Models' Effects)
+firefighter study: Outcomes of two models of behavior change.
+*Journal of occupational and environmental medicine*, *49*(2), 204–213.
+http://doi.org/10.1097/JOM.0b013e3180329a8d
+
+Pesigan, I. J. A., & Cheung, S. F. (2023).
+Monte Carlo confidence intervals for the indirect effect with missing data.
+*Behavior Research Methods*.
+https://doi.org/10.3758/s13428-023-02114-4
+
+Wu, W., & Jia, F. (2013).
+A new procedure to test mediation with missing data
+through nonparametric bootstrapping and multiple imputation,
+*Multivariate Behavioral Research*, *48*(5), 663-691.
+http://doi.org/10.1080/00273171.2013.816235
+
+Yuan, Y., & MacKinnon, D. P. (2009).
+Bayesian mediation analysis.
+*Psychological methods*, *14*(4), 301–322.
+http://doi.org/10.1037/a0016972

@@ -22,7 +22,7 @@ Healthy dietary behavior
 }
 }
 \source{
-\url{https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt}
+\url{https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt} # nolint
 }
 \usage{
 elliot2007

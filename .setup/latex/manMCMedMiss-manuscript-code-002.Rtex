@@ -1,0 +1,50 @@
+\documentclass{standalone}
+
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   ".setup",
+% #|   "latex",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+\begin{document}
+
+%% begin.rcode
+% #| size = "footnotesize",
+% #| eval = FALSE
+% # Monte Carlo confidence intervals using MI estimates -----------------------------
+% ## Multiple imputation (m = 100 imputations)
+% library(mice)
+% mi <- mice(data = data, m = 100L, method = "norm", print = FALSE)
+% ## Step 1: Model Fitting
+% library(lavaan)
+% model <- "Y ~ cp * X + b * M
+%           M ~ a * X
+%           X ~~ X
+%           ab := a * b"
+% fit <- sem(model = model, data = data)
+% ## Step 2: Monte Carlo CIs
+% library(semmcci)
+% MCMI(fit, mi = mi, alpha = 0.05)
+% #> Monte Carlo Confidence Intervals (Multiple Imputation Estimates)
+% #>         est     se     R   2.5%  97.5%
+% #> cp   0.2330 0.0300 20000 0.1751 0.2917
+% #> b    0.5113 0.0293 20000 0.4537 0.5684
+% #> a    0.4813 0.0284 20000 0.4256 0.5370
+% #> X~~X 1.0613 0.0499 20000 0.9638 1.1585
+% #> Y~~Y 0.5534 0.0269 20000 0.5016 0.6073
+% #> M~~M 0.7571 0.0354 20000 0.6878 0.8265
+% #> ab   0.2461 0.0204 20000 0.2073 0.2868
+%% end.rcode
+
+\end{document}

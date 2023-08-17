@@ -16,8 +16,10 @@ Authors@R: c(
 Description: Research compendium for the manuscript
     Pesigan, I. J. A., & Cheung, S. F. (2023).
     Monte Carlo confidence intervals for the indirect effect with missing data.
-    Behavior Research Methods. <doi:10.3758/s13428-023-02114-4>.
-URL: https://github.com/jeksterslab/manMCMedMiss, https://jeksterslab.github.io/manMCMedMiss/
+    Behavior Research Methods.
+    <doi:10.3758/s13428-023-02114-4>.
+URL: https://github.com/jeksterslab/manMCMedMiss, https://jeksterslab.github.io/manMCMedMiss/,
+    https://osf.io/zt3rq/, https://doi.org/10.3758/s13428-023-02114-4
 BugReports: https://github.com/jeksterslab/manMCMedMiss/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -36,6 +38,7 @@ Suggests:
     testthat,
     DT,
     microbenchmark,
+    rprojroot,
     semmcci
 Remotes:
     jeksterslab/semmcci

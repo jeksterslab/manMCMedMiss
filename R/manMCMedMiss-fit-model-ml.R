@@ -178,10 +178,10 @@ FitModelML <- function(data,
   vcovs <- data.matrix(utils::read.table(fn_vcov))
   vcovs <- .SymofVech(
     c(
-      vcovs[1, 1], vcovs[1, 2], vcovs[1, 4], vcovs[2, 2], vcovs[3, 1], vcovs[4, 1], vcovs[5, 2], vcovs[6, 4], vcovs[8, 2],
-      vcovs[1, 3], vcovs[1, 5], vcovs[2, 3], vcovs[3, 2], vcovs[4, 2], vcovs[5, 3], vcovs[6, 5], vcovs[8, 3],
-      vcovs[2, 1], vcovs[2, 4], vcovs[3, 3], vcovs[4, 3], vcovs[5, 4], vcovs[7, 1], vcovs[8, 4],
-      vcovs[2, 5], vcovs[3, 4], vcovs[4, 4], vcovs[5, 5], vcovs[7, 2], vcovs[8, 5],
+      vcovs[1, 1], vcovs[1, 2], vcovs[1, 4], vcovs[2, 2], vcovs[3, 1], vcovs[4, 1], vcovs[5, 2], vcovs[6, 4], vcovs[8, 2], # nolint
+      vcovs[1, 3], vcovs[1, 5], vcovs[2, 3], vcovs[3, 2], vcovs[4, 2], vcovs[5, 3], vcovs[6, 5], vcovs[8, 3], # nolint
+      vcovs[2, 1], vcovs[2, 4], vcovs[3, 3], vcovs[4, 3], vcovs[5, 4], vcovs[7, 1], vcovs[8, 4], # nolint
+      vcovs[2, 5], vcovs[3, 4], vcovs[4, 4], vcovs[5, 5], vcovs[7, 2], vcovs[8, 5], # nolint
       vcovs[3, 5], vcovs[4, 5], vcovs[6, 1], vcovs[7, 3], vcovs[9, 1],
       vcovs[5, 1], vcovs[6, 2], vcovs[7, 4], vcovs[9, 2],
       vcovs[6, 3], vcovs[7, 5], vcovs[9, 3],

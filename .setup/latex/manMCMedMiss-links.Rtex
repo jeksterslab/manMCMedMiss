@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{hyperref}
+
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   ".setup",
+% #|   "latex",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+\begin{document}
+
+\section*{Links}
+
+\subsection*{GitHub}
+
+\begin{itemize}
+    \item \url{https://github.com/jeksterslab/manMCMedMiss}
+\end{itemize}
+
+\subsection*{OSF}
+
+\begin{itemize}
+    \item \url{https://osf.io/8hy7w/}
+\end{itemize}
+
+\subsection*{Author-Accepted Manuscript}
+
+\begin{itemize}
+    \item \url{https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/pdf/manMCMedMiss-manuscript.pdf}
+\end{itemize}
+
+\subsection*{Published Journal Article}
+
+\begin{itemize}
+    \item \url{https://link.springer.com/article/10.3758/s13428-023-02114-4}
+\end{itemize}
+
+\end{document}

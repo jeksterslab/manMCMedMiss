@@ -2,7 +2,13 @@
 title: "Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data"
 author: "Ivan Jacob Agaloos Pesigan"
 date: "`r Sys.Date()`"
-output: github_document
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Monte Carlo Confidence Intervals for the Indirect Effect with Missing Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -23,9 +29,10 @@ knitr::opts_chunk$set(
 ## Description
 
 Research compendium for the manuscript
-Pesigan, I. J. A., & Cheung, S. F. (In Press).
+Pesigan, I. J. A., & Cheung, S. F. (2023).
 Monte Carlo confidence intervals for the indirect effect with missing data.
 *Behavior Research Methods*.
+https://doi.org/10.3758/s13428-023-02114-4
 
 ## Acknowledgment
 
@@ -54,10 +61,10 @@ remotes::install_github("jeksterslab/manMCMedMiss")
 See [Containers](https://jeksterslab.github.io/manMCMedMiss/articles/containers.html)
 for containerized versions of the package.
 
-## Preprint
+## Author-Accepted Manuscript
 
-See [https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/manMCMedMiss-manuscript.tex](https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/manMCMedMiss-manuscript.tex) for the latex file of the preprint version of the manuscript.
-See [https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/pdf/manMCMedMiss-manuscript.pdf](https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/pdf/manMCMedMiss-manuscript.pdf) for the compiled PDF.
+See [https://github.com/jeksterslab/manMCMedMiss/blob/main/.setup/latex/manMCMedMiss-manuscript.Rtex](https://github.com/jeksterslab/manMCMedMiss/blob/main/.setup/latex/manMCMedMiss-manuscript.Rtex) for the latex file of the manuscript.
+See [https://github.com/jeksterslab/manMCMedMiss/blob/latex/manMCMedMiss-manuscript.pdf](https://github.com/jeksterslab/manMCMedMiss/blob/latex/manMCMedMiss-manuscript.pdf) for the compiled PDF.
 
 ## R Package
 
@@ -69,3 +76,15 @@ can be generated using the `semmcci` package.
 Documentation and examples can be found
 in the accompanying website
 ([https://jeksterslab.github.io/semmcci](https://jeksterslab.github.io/semmcci)).
+
+## More Information
+
+See
+[GitHub Pages](https://jeksterslab.github.io/manMCMedMiss/index.html)
+for package documentation.
+
+## Citation
+
+To cite `semmcci` in publications, please cite @Pesigan-Cheung-2023.
+
+## References

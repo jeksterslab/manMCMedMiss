@@ -37,9 +37,9 @@ The most basic mediation model involves three variables, $X$, $M$, and $Y$ whose
 
 \noindent where $\alpha$ represents the effect of the independent variable $X$ on the mediator variable $M$; $\beta$ represents the effect of the mediator variable $M$  on the dependent variable $Y$; $\tau^{\prime}$ represents the effect of the independent variable $X$ on the dependent variable $Y$, adjusting for the mediator variable $M$; $\delta_{M}$ and $\delta_{Y}$ are intercepts; and $\varepsilon_{M}$ and $\varepsilon_{Y}$ are stochastic error terms. The direct effect, $\tau^{\prime}$, which is the change in the dependent variable corresponding to one unit change in the independent variable, while the mediator variable is held constant, can be contrasted with the indirect effect (the product of $\alpha$ and $\beta$ or $\alpha \beta$), which represents  the change in the dependent variable via the mediator if the independent variable increases by one unit. See MacKinnon (2008) for more information on the simple mediation model.
 
-![The Simple Mediation Model (Covariance Structure)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/latexsrc/figures/png/indirectEffect-tikz-simple-csa.png)
+![The Simple Mediation Model (Covariance Structure)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/.setup/latex/figures/png/indirectEffect-tikz-simple-csa.png)
 
-![The Simple Mediation Model (Mean and Covariance Structures)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/latexsrc/figures/png/indirectEffect-tikz-simple.png)
+![The Simple Mediation Model (Mean and Covariance Structures)](https://raw.githubusercontent.com/jeksterslab/manMCMedMiss/main/.setup/latex/figures/png/indirectEffect-tikz-simple.png)
 
 ## Expected Values
 

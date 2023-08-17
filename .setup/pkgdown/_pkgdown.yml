@@ -1,0 +1,119 @@
+destination: pkgdown
+url: https://github.com/jeksterslab/manMCMedMiss/
+
+template:
+  bootstrap: 5
+  bslib:
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
+
+figures:
+  dev: ragg::agg_png
+  dpi: 300
+  dev.args: []
+  fig.ext: png
+  fig.width: 11
+  fig.height: 8
+  fig.retina: 2
+  bg: NA
+  other.parameters: []
+
+reference:
+- title: Data Generation Functions
+  contents:
+  - has_concept("Data Generation Functions")
+- title: Model Fitting Functions
+  contents:
+  - has_concept("Model Fitting Functions")
+- title: Confidence Interval Functions
+  contents:
+  - has_concept("Confidence Interval Functions")
+- title: Significance Test Functions
+  contents:
+  - has_concept("Significance Test Functions")
+- title: Multiple Imputation Functions
+  contents:
+  - has_concept("Multiple Imputation Functions")
+- title: Simulation Functions
+  contents:
+  - has_keyword("simulation")
+- title: Check Functions
+  contents:
+  - has_keyword("check")
+- title: Summary Functions
+  contents:
+  - has_keyword("summary")
+- title: Compression Functions
+  contents:
+  - has_keyword("compress")
+- title: Data
+  contents:
+  - has_keyword("data")
+- title: Figures
+  contents:
+  - has_keyword("figure")
+- title: Tables
+  contents:
+  - has_keyword("table")
+- title: Conditional Inference Trees
+  contents:
+  - has_keyword("tree")
+- title: All Functions
+  contents:
+  - has_keyword("manMCMedMiss")
+
+articles:
+- title: manMCMedMiss
+  contents:
+  - manMCMedMiss
+- title: The Simple Mediation Model
+  contents:
+  - model
+- title: Results
+  contents:
+  - parameters
+  - results
+- title: Plots
+  contents:
+  - fig-scatter-plots
+  - fig-box-plots
+- title: Descriptive Statistics
+  contents:
+  - tab-describe
+- title: Conditional Inference Trees
+  contents:
+  - tree
+- title: Functions
+  contents:
+  - data-generation
+  - model-fitting
+  - inference
+  - mplus
+- title: Proportion of Missing Values
+  contents:
+  - proportion-missing
+- title: Empirical Example
+  contents:
+  - empirical-example
+- title: semmcci
+  contents:
+  - semmcci-mc-fiml
+  - semmcci-mc-mi
+- title: Monte Carlo Method using Open-Source Software
+  contents:
+  - open-source
+- title: Benchmarks
+  contents:
+  - benchmark
+  - benchmark-semmcci
+- title: Containers
+  contents:
+  - containers
+- title: Package Versions
+  contents:
+  - 000-packages
+- title: Session
+  contents:
+  - session-hpc
+  - session-pkgdown

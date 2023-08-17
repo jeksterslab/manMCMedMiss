@@ -1,0 +1,347 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\documentclass{standalone}
+\usepackage{forest}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+<<echo = FALSE>>=
+foo <- function(x,
+background = "white") {
+	# -------------------------------------------
+	percentage <- c(
+	0.762755,
+	0,
+	0.889699,
+	0.634673,
+	0.269841,
+	0.452381,
+	0.1875,
+	0,
+	0.375,
+	0.982143,
+	0.178571,
+	0.853571,
+	0.9875,
+	0.585714,
+	0.080357,
+	0.922619,
+	0.943804,
+	0.603535,
+	0.40404,
+	0.87037,
+	0.229167,
+	0,
+	0.34375,
+	0.125,
+	0.5625,
+	0.80303,
+	0.87037,
+	0.740741,
+	0.444444,
+	0,
+	0.8,
+	0.888889,
+	0.5,
+	0,
+	1,
+	1,
+	1,
+	0.5,
+	0.25,
+	1,
+	0.992423,
+	1,
+	0.977273,
+	0.948052,
+	0.896104,
+	1,
+	0.987013,
+	0.964286,
+	0.928571,
+	1,
+	1
+	)
+	# -------------------------------------------
+	x <- percentage[[x]]
+			
+	if (x < 0.5) {
+		rule <- "Red"
+	}
+	if (x >= 0.5 & x < 0.6) {
+		rule <- "YellowOrange"
+	}
+	if (x >= 0.6 & x < 0.7) {
+		rule <- "Yellow"
+	}
+	if (x >= 0.7 & x < 0.8) {
+		rule <- "ForestGreen"
+	}
+	if (x >= 0.8 & x < 0.9) {
+		rule <- "Aquamarine"
+	}
+	if (x >= 0.9) {
+		rule <- "RoyalBlue"
+	}
+	if (x < 0.9) {
+		rule <- "Red"
+	}
+	rule_background <- "lightgray"
+			 
+	.FormatNum <- function(x,
+	digits = 4,
+	nozero = TRUE) {
+		y <- format(
+		round(
+		x,
+		digits = digits
+		),
+		nsmall = digits
+		)
+		if (nozero) {
+			y <- sub("^0+", "", y)
+			y <- sub("^-0+", "", y)
+		}
+		trimws(y)
+	}
+	scalar <- 75
+	number <- .FormatNum(x)
+	digits <- nchar(number)
+	if (digits < 6) {
+		zeroes <- paste0(
+		rep(
+		x = "0",
+		times = 6 - digits
+		),
+		collapse = ""
+		)
+		zeroes <- paste0(
+		"\\textcolor{",
+			background,
+		"}",
+		"{",
+			zeroes,
+		"}",
+		collapse = ""
+		)
+		} else {
+		zeroes <- ""
+	}
+	paste0(
+	"{",
+		zeroes,
+		number,
+		" ",
+		"{",
+			"\\color",
+			"{",
+				rule,
+			"}",
+			"\\rule",
+			"{",
+				(x * scalar),
+				"pt",
+			"}",
+			"{8pt}",
+			"\\color",
+			"{",
+				rule_background,
+			"}",
+			"\\rule",
+			"{",
+				((1 - x) * scalar),
+				"pt",
+			"}",
+			"{8pt}",
+		"}",
+	"}"
+	)
+}
+@
+
+\forestset{
+	decision tree/.style = {
+		for tree = {
+			text width = 115pt,
+			grow = east,
+			parent anchor = east,
+			child anchor = west,
+			anchor = base west,
+			tier/.pgfmath = level(),
+			rectangle,
+			draw = {gray, ultra thin},
+			edge = gray,
+			if n children = 0{
+				rectangle,
+				draw = {gray, ultra thin},
+				fill = white,
+				}{}
+		}
+	}
+}
+
+\tikzset{
+	every node/.style = {
+		align = center,
+	}
+}
+
+\begin{forest} decision tree
+	[
+		1) {root} \\ \Sexpr{foo(1)}
+		[
+			2) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.00)$} \\ \Sexpr{foo(2)}
+		]
+		[
+			3) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.00,.60)$, $.00(.00,.71)$, $.00(.38,.00)$, $.00(.60,.00)$, $.00(.71,.00)$} \\ \Sexpr{foo(3)}
+			[
+				4) {NBBC.COMPLETE, NBBC.FIML} \\ \Sexpr{foo(4)}
+				[
+					5) {$n \leq 100$} \\ \Sexpr{foo(5)}
+					[
+						6) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.71)$, $.00(.71,.00)$} \\ \Sexpr{foo(6)}
+						[
+							7) {$n \leq 75$} \\ \Sexpr{foo(7)}
+							[
+								8) {$n \leq 50$} \\ \Sexpr{foo(8)}
+							]
+							[
+								9) {$n > 50$} \\ \Sexpr{foo(9)}
+							]
+						]
+						[
+							10) {$n > 75$} \\ \Sexpr{foo(10)}
+						]
+					]
+					[
+						11) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.00,.60)$, $.00(.38,.00)$, $.00(.60,.00)$} \\ \Sexpr{foo(11)}
+					]
+				]
+				[
+					12) {$n > 100$} \\ \Sexpr{foo(12)}
+					[
+						13) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.60)$, $.00(.00,.71)$, $.00(.60,.00)$, $.00(.71,.00)$} \\ \Sexpr{foo(13)}
+					]
+					[
+						14) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.38,.00)$} \\ \Sexpr{foo(14)}
+						[
+							15) {$n \leq 200$} \\ \Sexpr{foo(15)}
+						]
+						[
+							16) {$n > 200$} \\ \Sexpr{foo(16)}
+						]
+					]
+				]
+			]
+			[
+				17) {MC.COMPLETE, MC.FIML, MC.MI, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE, SIG.FIML, SIG.MI} \\ \Sexpr{foo(17)}
+				[
+					18) {$n \leq 50$} \\ \Sexpr{foo(18)}
+					[
+						19) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.71)$, $.00(.60,.00)$, $.00(.71,.00)$} \\ \Sexpr{foo(19)}
+						[
+							20) {MC.COMPLETE, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE} \\ \Sexpr{foo(20)}
+						]
+						[
+							21) {MC.FIML, MC.MI, SIG.FIML, SIG.MI} \\ \Sexpr{foo(21)}
+							[
+								22) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.60,.00)$} \\ \Sexpr{foo(22)}
+							]
+							[
+								23) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.71)$, $.00(.71,.00)$} \\ \Sexpr{foo(23)}
+								[
+									24) {MC.FIML, SIG.FIML} \\ \Sexpr{foo(24)}
+								]
+								[
+									25) {MC.MI, SIG.MI} \\ \Sexpr{foo(25)}
+								]
+							]
+						]
+					]
+					[
+						26) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.00,.60)$, $.00(.38,.00)$} \\ \Sexpr{foo(26)}
+						[
+							27) {MC.COMPLETE, MC.FIML, MC.MI, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI} \\ \Sexpr{foo(27)}
+							[
+								28) {$\tau^{\prime} \leq .1414214$} \\ \Sexpr{foo(28)}
+								[
+									29) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.60)$} \\ \Sexpr{foo(29)}
+									[
+										30) {MC.FIML, SIG.FIML} \\ \Sexpr{foo(30)}
+									]
+									[
+										31) {MC.COMPLETE, MC.MI, NBPC.COMPLETE, SIG.COMPLETE, SIG.MI} \\ \Sexpr{foo(31)}
+									]
+								]
+								[
+									32) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.38,.00)$} \\ \Sexpr{foo(32)}
+									[
+										33) {MC.MI} \\ \Sexpr{foo(33)}
+										[
+											34) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$} \\ \Sexpr{foo(34)}
+										]
+										[
+											35) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.38,.00)$} \\ \Sexpr{foo(35)}
+										]
+									]
+									[
+										36) {MC.COMPLETE, MC.FIML, NBPC.COMPLETE, SIG.COMPLETE, SIG.FIML, SIG.MI} \\ \Sexpr{foo(36)}
+									]
+								]
+							]
+							[
+								37) {$\tau^{\prime} > .1414214$} \\ \Sexpr{foo(37)}
+							]
+						]
+						[
+							38) {NBPC.FIML} \\ \Sexpr{foo(38)}
+							[
+								39) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.38,.00)$} \\ \Sexpr{foo(39)}
+							]
+							[
+								40) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.60)$} \\ \Sexpr{foo(40)}
+							]
+						]
+					]
+				]
+				[
+					41) {$n > 50$} \\ \Sexpr{foo(41)}
+					[
+						42) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.00,.38)$, $.00(.00,.60)$, $.00(.00,.71)$, $.00(.38,.00)$} \\ \Sexpr{foo(42)}
+					]
+					[
+						43) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.60,.00)$, $.00(.71,.00)$} \\ \Sexpr{foo(43)}
+						[
+							44) {$\tau^{\prime} \leq 0$} \\ \Sexpr{foo(44)}
+							[
+								45) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.60,.00)$} \\ \Sexpr{foo(45)}
+							]
+							[
+								46) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.71,.00)$} \\ \Sexpr{foo(46)}
+							]
+						]
+						[
+							47) {$\tau^{\prime} > 0$} \\ \Sexpr{foo(47)}
+							[
+								48) {MC.FIML, SIG.FIML} \\ \Sexpr{foo(48)}
+								[
+									49) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.71,.00)$} \\ \Sexpr{foo(49)}
+								]
+								[
+									50) {$\alpha \beta \left( \alpha, \beta \right)$ $=$ $.00(.60,.00)$} \\ \Sexpr{foo(50)}
+								]
+							]
+							[
+								51) {MC.COMPLETE, MC.MI, NBPC.COMPLETE, NBPC.FIML, SIG.COMPLETE, SIG.MI} \\ \Sexpr{foo(51)}
+							]
+						]
+					]
+				]
+			]
+		]
+	]
+\end{forest}
+
+\end{document}

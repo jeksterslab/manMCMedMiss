@@ -160,9 +160,7 @@ FigScatterPlot <- function(results,
         ymin = 0.035,
         ymax = 0.065
       ) +
-      ggplot2::geom_point(
-        # size = 0.75
-      ) +
+      ggplot2::geom_point() +
       ggplot2::geom_line() +
       ggplot2::facet_grid(
         factor(
@@ -224,9 +222,7 @@ FigScatterPlot <- function(results,
         ymin = 0.035,
         ymax = 0.065
       ) +
-      ggplot2::geom_point(
-        # size = 0.75
-      ) +
+      ggplot2::geom_point() +
       ggplot2::geom_line() +
       ggplot2::facet_grid(
         factor(
@@ -302,7 +298,3 @@ FigScatterPlot <- function(results,
   }
   return(p)
 }
-
-# ggplot2::scale_color_brewer(
-#  palette = "Set1"
-# ) +

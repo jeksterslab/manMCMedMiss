@@ -179,7 +179,8 @@ knitr::kable(
 #| message = FALSE,
 #| warning = FALSE
 benchmark01_file <- root$find_file(
-  ".data-raw",
+  ".setup",
+  "data-raw",
   "benchmark01.Rds"
 )
 if (!file.exists(benchmark01_file)) {
@@ -283,7 +284,8 @@ fit <- sem(
   fixed.x = FALSE
 )
 benchmark02_file <- root$find_file(
-  ".data-raw",
+  ".setup",
+  "data-raw",
   "benchmark02.Rds"
 )
 if (!file.exists(benchmark02_file)) {

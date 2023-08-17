@@ -23,7 +23,7 @@
 #'   }
 #' }
 #' @source
-#' [https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt](https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt)
+#' [https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt](https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt) # nolint
 #' @references
 #' Elliot, D. L., Goldberg, L., Kuehl, K. S., Moe, E. L., Breger, R. K., &
 #' Pickering, M. A. (2007).
