@@ -1,0 +1,32 @@
+pandoc: 3.1.1
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  000-packages: 000-packages.html
+  benchmark-semmcci: benchmark-semmcci.html
+  benchmark: benchmark.html
+  containers: containers.html
+  data-generation: data-generation.html
+  empirical-example: empirical-example.html
+  fig-box-plots: fig-box-plots.html
+  fig-scatter-plots: fig-scatter-plots.html
+  inference: inference.html
+  manMCMedMiss: manMCMedMiss.html
+  model-fitting: model-fitting.html
+  model: model.html
+  mplus: mplus.html
+  open-source: open-source.html
+  parameters: parameters.html
+  proportion-missing: proportion-missing.html
+  results: results.html
+  semmcci-mc-fiml: semmcci-mc-fiml.html
+  semmcci-mc-mi: semmcci-mc-mi.html
+  session-hpc: session-hpc.html
+  session-pkgdown: session-pkgdown.html
+  tab-describe: tab-describe.html
+  tree: tree.html
+last_built: 2023-08-18T17:17Z
+urls:
+  reference: https://github.com/jeksterslab/manMCMedMiss/reference
+  article: https://github.com/jeksterslab/manMCMedMiss/articles
+
