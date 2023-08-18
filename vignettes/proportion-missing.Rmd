@@ -214,11 +214,13 @@ bar <- function(mech) {
 }
 root <- rprojroot::is_rstudio_project
 prop_mar_file <- root$find_file(
-  ".data-raw",
+  ".setup",
+  "data-raw",
   "prop_mar.Rds"
 )
 prop_mcar_file <- root$find_file(
-  ".data-raw",
+  ".setup",
+  "data-raw",
   "prop_mcar.Rds"
 )
 if (!file.exists(prop_mar_file)) {
