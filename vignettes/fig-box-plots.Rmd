@@ -1,0 +1,647 @@
+---
+title: "Box Plots"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Box Plots}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+Presented below are box plots of Type I error rates, statistical power, and miss rates. See `FigBoxPlot()` for more details on the plots below.
+
+
+
+
+
+## Complete Data
+
+
+
+
+### Type I Error Rate (Mechanism = COMPLETE)
+<img src="fig-vignettes-box-plots-unnamed-chunk-5-1.png" width="3300" />
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-1.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-2.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-3.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-4.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-5.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-6.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-7.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Type I Error Rate (Mechanism = COMPLETE, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-6-8.png" width="3300" /></div>  
+
+
+### Statistical Power (Mechanism = COMPLETE)
+<img src="fig-vignettes-box-plots-unnamed-chunk-7-1.png" width="3300" />
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-1.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-2.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-3.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-4.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-5.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-6.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-7.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Statistical Power (Mechanism = COMPLETE, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-8-8.png" width="3300" /></div>  
+
+
+### Miss Rate (Mechanism = COMPLETE)
+<img src="fig-vignettes-box-plots-unnamed-chunk-9-1.png" width="3300" />
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-1.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-2.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-3.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-4.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-5.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-6.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-7.png" width="3300" /></div>  
+
+<div class="boxplot">
+### Miss Rate (Mechanism = COMPLETE, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-10-8.png" width="3300" /></div>  
+
+## Missing Completely at Random (MCAR)
+
+
+
+<!-- 10 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-13-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-14-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MCAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-15-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-16-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MCAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-17-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-18-8.png" width="3300" /></div>  
+
+<!-- 20 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-20-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-21-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MCAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-22-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-23-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MCAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-24-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-25-8.png" width="3300" /></div>  
+
+<!-- 30 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-27-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MCAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-28-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MCAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-29-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MCAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-30-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MCAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-31-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MCAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-32-8.png" width="3300" /></div>  
+
+## Missing at Random (MAR)
+
+
+
+<!-- 10 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-35-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-36-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-37-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-38-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MAR, Proportion = 0.1)
+<img src="fig-vignettes-box-plots-unnamed-chunk-39-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.1, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-40-8.png" width="3300" /></div>  
+
+<!-- 20 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-42-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-43-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-44-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-45-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MAR, Proportion = 0.2)
+<img src="fig-vignettes-box-plots-unnamed-chunk-46-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.2, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-47-8.png" width="3300" /></div>  
+
+<!-- 30 Percent Missing Observations -->
+
+
+
+### Type I Error Rate (Mechanism = MAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-49-1.png" width="3300" />
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Type I Error Rate (Mechanism = MAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-50-8.png" width="3300" /></div>  
+
+### Statistical Power (Mechanism = MAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-51-1.png" width="3300" />
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Statistical Power (Mechanism = MAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-52-8.png" width="3300" /></div>  
+
+### Miss Rate (Mechanism = MAR, Proportion = 0.3)
+<img src="fig-vignettes-box-plots-unnamed-chunk-53-1.png" width="3300" />
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 50)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-1.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 75)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-2.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 100)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-3.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 150)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-4.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 200)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-5.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 250)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-6.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 500)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-7.png" width="3300" /></div>  
+
+<div class="boxplot">### Miss Rate (Mechanism = MAR, Proportion = 0.3, n = 1000)
+<img src="fig-vignettes-box-plots-unnamed-chunk-54-8.png" width="3300" /></div>  
