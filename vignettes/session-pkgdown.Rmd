@@ -39,6 +39,7 @@ remotes::install_version(
 ```
 
 ```{r}
+#| message = FALSE
 library(manMCMedMiss)
 library(semmcci)
 ```

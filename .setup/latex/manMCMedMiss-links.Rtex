@@ -17,6 +17,7 @@
 % #|   "r-scripts",
 % #|   "knitr.R"
 % #| )
+% library(RefManageR)
 %% end.rcode
 
 \begin{document}
@@ -32,13 +33,13 @@
 \subsection*{OSF}
 
 \begin{itemize}
-    \item \url{https://osf.io/8hy7w/}
+    \item \url{https://osf.io/zt3rq/}
 \end{itemize}
 
 \subsection*{Author-Accepted Manuscript}
 
 \begin{itemize}
-    \item \url{https://github.com/jeksterslab/manMCMedMiss/blob/main/latexsrc/pdf/manMCMedMiss-manuscript.pdf}
+    \item \url{https://github.com/jeksterslab/manMCMedMiss/blob/latex/manMCMedMiss-manuscript.pdf}
 \end{itemize}
 
 \subsection*{Published Journal Article}

@@ -21,11 +21,14 @@ knitr::opts_chunk$set(
 options(DT.warn.size = FALSE)
 ```
 
-```{r, message = FALSE}
+```{r}
+#| message = FALSE
 library(manMCMedMiss)
 ```
 
-```{r echo = FALSE, message = FALSE}
+```{r}
+#| echo = FALSE,
+#| message = FALSE
 DT::datatable(
   results,
   options = list(

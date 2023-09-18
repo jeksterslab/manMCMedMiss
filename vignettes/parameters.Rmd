@@ -16,13 +16,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, message = FALSE}
+```{r}
+#| message = FALSE
 library(manMCMedMiss)
 ```
 
 ## Effect and Sample Sizes
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 DT::formatRound(
   DT::datatable(
     params,
@@ -37,49 +39,57 @@ DT::formatRound(
 
 $\tau^{\prime}$
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(params$tauprime))
 ```
 
 $\beta$
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(params$beta))
 ```
 
 $\alpha$
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(params$alpha))
 ```
 
 $\alpha \beta$
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(params$alphabeta))
 ```
 
 $n$
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(params$n))
 ```
 
 ## Missing Data Mechanism
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(results$mechanism))
 ```
 
 ## Proportion of Missing Cases
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(results$proportion))
 ```
 
 ## Methods
 
-```{r echo = FALSE}
+```{r}
+#| echo = FALSE
 sort(unique(results$method))
 ```
 

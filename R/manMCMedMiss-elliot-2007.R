@@ -22,14 +22,15 @@
 #'     (behavior post-intervention minus behavior pre-intervention).
 #'   }
 #' }
-#' @source
-#' # nolint start [https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt](https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt) # nolint end
+#' @source 
+#' [https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt](https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt)
+#'
 #' @references
 #' Elliot, D. L., Goldberg, L., Kuehl, K. S., Moe, E. L., Breger, R. K., &
 #' Pickering, M. A. (2007).
 #' The PHLAME (Promoting Healthy Lifestyles: Alternative Models' Effects)
 #' firefighter study: Outcomes of two models of behavior change.
-#' *Journal of occupational and environmental medicine*, *49*(2), 204–213.
+#' *Journal of occupational and environmental medicine*, *49*(2), 204-213.
 #' \doi{10.1097/JOM.0b013e3180329a8d}
 #'
 #' Wu, W., & Jia, F. (2013).
@@ -40,7 +41,7 @@
 #'
 #' Yuan, Y., & MacKinnon, D. P. (2009).
 #' Bayesian mediation analysis.
-#' *Psychological methods*, *14*(4), 301–322.
+#' *Psychological methods*, *14*(4), 301-322.
 #' \doi{10.1037/a0016972}
 #' @keywords data
 "elliot2007"

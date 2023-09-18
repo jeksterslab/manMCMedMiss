@@ -16,13 +16,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, message = FALSE, eval = FALSE}
+```{r}
+#| message = FALSE,
+#| eval = FALSE
 library(manMCMedMiss)
 ```
 
 # Session
 
-```{r, echo = FALSE, eval = FALSE}
+```{r}
+#| echo = FALSE,
+#| eval = FALSE
 sessionInfo()
 ```
 
@@ -65,7 +69,9 @@ sessionInfo()
 
 # CPU
 
-```{r, echo = FALSE, eval = FALSE}
+```{r}
+#| echo = FALSE,
+#| eval = FALSE
 cat(system("lscpu", intern = TRUE), sep = "\n")
 ```
 
@@ -99,7 +105,9 @@ cat(system("lscpu", intern = TRUE), sep = "\n")
 
 # Memory
 
-```{r, echo = FALSE, eval = FALSE}
+```{r}
+#| echo = FALSE,
+#| eval = FALSE
 cat(system("free -g -h -t", intern = TRUE), sep = "\n")
 ```
 

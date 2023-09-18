@@ -61,6 +61,7 @@ In the simulation stage, $\hat{\alpha}$ and $\hat{\beta}$ are used as the mean v
 The `MASS` package can be used in `R` to generate the sampling distribution of the indirect effect.
 
 ```{r}
+#| message = FALSE
 library(MASS)
 mustar <- mvrnorm(
   n = 20000,

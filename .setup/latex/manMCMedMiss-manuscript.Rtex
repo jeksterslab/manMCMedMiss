@@ -100,9 +100,9 @@
   
   Correspondence concerning this article should be addressed to Ivan Jacob Agaloos Pesigan, Department of Psychology, Faculty of Social Sciences, University of Macau, Avenida da Universidade, Taipa, Macao SAR, China, or by email (i.j.a.pesigan@connect.um.edu.mo).
 
-  This is an Author-Accepted Manuscript (AAM). The Version of Record (VOR) of this manuscript has been published in Behavior Research Methods on XX June 2023, available at \url{https://link.springer.com/article/10.3758/s13428-023-02114-4}.
+  This is an Author-Accepted Manuscript (AAM). The Version of Record (VOR) of this manuscript has been published in Behavior Research Methods on 07 August 2023, available at \url{https://link.springer.com/article/10.3758/s13428-023-02114-4}.
   
-  To cite the VOR, please use: Pesigan, I. J. A., \& Cheung, S. F. (2023). Monte Carlo confidence intervals for the indirect effect with missing data. \textit{Behavior Research Methods}. \url{https://doi.org/10.1080/00273171.2023.2201277}
+  To cite the VOR, please use: Pesigan, I. J. A., \& Cheung, S. F. (2023). Monte Carlo confidence intervals for the indirect effect with missing data. \textit{Behavior Research Methods}. \url{https://doi.org/10.3758/s13428-023-02114-4}
 }
 
 \begin{document}
@@ -384,7 +384,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Type I Error for Complete Data
 	}
-	\includegraphics[scale=.60]{figures/png/complete-type1.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/complete-type1.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -404,7 +404,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Type I Error for MCAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mcar-30-type1.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mcar-30-type1.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -426,7 +426,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Type I Error for MAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mar-30-type1.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mar-30-type1.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -448,7 +448,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Statistical Power for Complete Data
 	}
-	\includegraphics[scale=.60]{figures/png/complete-power.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/complete-power.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -468,7 +468,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Statistical Power for MCAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mcar-30-power.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mcar-30-power.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -490,7 +490,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Statistical Power for MAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mar-30-power.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mar-30-power.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -514,7 +514,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Miss Rate for Complete Data
 	}
-	\includegraphics[scale=.60]{figures/png/complete-miss.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/complete-miss.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -533,7 +533,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Miss Rate for MCAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mcar-30-miss.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mcar-30-miss.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
@@ -553,7 +553,7 @@ The data and materials for this study are available on OSF (\url{https://osf.io/
 	\caption{
 		Miss Rate for MAR (30\% Missing)
 	}
-	\includegraphics[scale=.60]{figures/png/mar-30-miss.png}
+	\includegraphics[scale=.60]{.setup/latex/figures/png/mar-30-miss.png}
 	\figurenote{
 		${n}$ = sample size,
 		${\alpha}$ = path from ${X}$ to ${M}$,
