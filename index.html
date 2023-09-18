@@ -77,12 +77,62 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Research compendium for the manuscript
-    Pesigan, I. J. A., &amp; Cheung, S. F. (2023).
-    Monte Carlo confidence intervals for the indirect effect with missing data.
-    Behavior Research Methods.
-    &lt;<a href="https://doi.org/10.3758/s13428-023-02114-4" class="external-link">doi:10.3758/s13428-023-02114-4</a>&gt;.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="manmcmedmiss">manMCMedMiss<a class="anchor" aria-label="anchor" href="#manmcmedmiss"></a>
+</h1></div>
+<p>Ivan Jacob Agaloos Pesigan 2023-09-18</p>
+<!-- README.md is generated from .setup/readme/README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+<div class="section level2">
+<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+</h2>
+<p>Research compendium for the manuscript Pesigan, I. J. A., &amp; Cheung, S. F. (2023). Monte Carlo confidence intervals for the indirect effect with missing data. <em>Behavior Research Methods</em>. <a href="https://doi.org/10.3758/s13428-023-02114-4" class="external-link uri">https://doi.org/10.3758/s13428-023-02114-4</a></p>
+</div>
+<div class="section level2">
+<h2 id="acknowledgment">Acknowledgment<a class="anchor" aria-label="anchor" href="#acknowledgment"></a>
+</h2>
+<p>The simulation was performed in part at the High-Performance Computing Cluster (HPCC) which is supported by the Information and Communication Technology Office (ICTO) of the University of Macau. See <a href="https://icto.um.edu.mo/teaching-learning-research/high-performance-computing-cluster-hpcc/" class="external-link uri">https://icto.um.edu.mo/teaching-learning-research/high-performance-computing-cluster-hpcc/</a> for more information on the University of Macau’s High-Performance Computing Cluster (HPCC). We used the third-generation HPCC (Coral) particularly the <code>serial-normal</code> and <code>serial-short</code> cluster partitions. See <code>.sim/README.md</code> and the scripts in the <code>.sim</code> folder in the <a href="https://github.com/jeksterslab/manMCMedMiss">GitHub</a> repository for more details on how the simulation was performed.</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install <code>manMCMedMiss</code> from <a href="https://github.com/jeksterslab/manMCMedMiss">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jeksterslab/manMCMedMiss"</span><span class="op">)</span></span></code></pre></div>
+<p>See <a href="https://jeksterslab.github.io/manMCMedMiss/articles/containers.html" class="external-link">Containers</a> for containerized versions of the package.</p>
+</div>
+<div class="section level2">
+<h2 id="author-accepted-manuscript">Author-Accepted Manuscript<a class="anchor" aria-label="anchor" href="#author-accepted-manuscript"></a>
+</h2>
+<p>See <a href="https://github.com/jeksterslab/manMCMedMiss/blob/main/.setup/latex/manMCMedMiss-manuscript.Rtex" class="uri">https://github.com/jeksterslab/manMCMedMiss/blob/main/.setup/latex/manMCMedMiss-manuscript.Rtex</a> for the latex file of the manuscript. See <a href="https://github.com/jeksterslab/manMCMedMiss/blob/latex/manMCMedMiss-manuscript.pdf" class="uri">https://github.com/jeksterslab/manMCMedMiss/blob/latex/manMCMedMiss-manuscript.pdf</a> for the compiled PDF.</p>
+</div>
+<div class="section level2">
+<h2 id="r-package">R Package<a class="anchor" aria-label="anchor" href="#r-package"></a>
+</h2>
+<p>Monte Carlo confidence intervals for free and defined parameters in models fitted in the structural equation modeling package <code>lavaan</code> can be generated using the <code>semmcci</code> package. <code>semmcci</code> is available on the Comprehensive R Archive Network (CRAN) (<a href="https://CRAN.R-project.org/package=semmcci" class="external-link uri">https://CRAN.R-project.org/package=semmcci</a>). Documentation and examples can be found in the accompanying website (<a href="https://jeksterslab.github.io/semmcci" class="external-link uri">https://jeksterslab.github.io/semmcci</a>).</p>
+</div>
+<div class="section level2">
+<h2 id="more-information">More Information<a class="anchor" aria-label="anchor" href="#more-information"></a>
+</h2>
+<p>See <a href="https://jeksterslab.github.io/manMCMedMiss/index.html" class="external-link">GitHub Pages</a> for package documentation.</p>
+</div>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>To cite <code>semmcci</code> in publications, please cite Pesigan &amp; Cheung (2023).</p>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-Pesigan-Cheung-2023" class="csl-entry">
+Pesigan, I. J. A., &amp; Cheung, S. F. (2023). Monte Carlo confidence intervals for the indirect effect with missing data. <em>Behavior Research Methods</em>. <a href="https://doi.org/10.3758/s13428-023-02114-4" class="external-link uri">https://doi.org/10.3758/s13428-023-02114-4</a>
+</div>
+</div>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -115,7 +165,12 @@ Research compendium for the manuscript
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://doi.org/10.3758/s13428-023-02114-4" class="external-link"><img src="https://zenodo.org/badge/DOI/10.3758/s13428-023-02114-4.svg" alt="DOI"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
