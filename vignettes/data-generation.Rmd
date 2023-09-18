@@ -1,0 +1,268 @@
+---
+title: "Data Generation"
+author: Ivan Jacob Agaloos Pesigan
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Generation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+The following presents an example of how to use the functions in this package to simulate a data set, perform a multivariate amputation, and multiple imputations. See the individual function documentation for more information.
+
+The most basic mediation model involves three variables, $X$, $M$, and $Y$ whose associations are expressed in the following equations
+
+\begin{equation}
+	Y
+	=
+	\delta_{Y}
+	+ \tau^{\prime}{X}
+	+ \beta{M}
+	+ \varepsilon_{Y},
+\end{equation}
+
+\begin{equation}
+	M
+	=
+	\delta_{M}
+	+ \alpha X
+	+ \varepsilon_{M},
+\end{equation}
+
+\noindent where $\alpha$ represents the effect of the independent variable $X$ on the mediator variable $M$; $\beta$ represents the effect of the mediator variable $M$  on the dependent variable $Y$; $\tau^{\prime}$ represents the effect of the independent variable $X$ on the dependent variable $Y$, adjusting for the mediator variable $M$; $\delta_{M}$ and $\delta_{Y}$ are intercepts; and $\varepsilon_{M}$ and $\varepsilon_{Y}$ are stochastic error terms. The direct effect, $\tau^{\prime}$, which is the change in the dependent variable corresponding to one unit change in the independent variable, while the mediator variable is held constant, can be contrasted with the indirect effect (the product of $\alpha$ and $\beta$ or $\alpha \beta$), which represents  the change in the dependent variable via the mediator if the independent variable increases by one unit. See MacKinnon (2008) for more information on the simple mediation model.
+
+## Mplus
+
+Mplus Version 8.8 Demo for GNU/Linux was used in the study. Note that this version is equivalent to the commercial release except for the limitations on the number of variables that can be used in the analysis. See [https://www.statmodel.com/demo.shtml](https://www.statmodel.com/demo.shtml) for more details on the limitations and installation instructions.
+
+The functions in this package will work on other versions of Mplus in various platforms. However, for compatibility, we recommend the use of Mplus Version 8.8 Demo for GNU/Linux. The functions in this package require the user to specify the path to the Mplus binary as the argument `mplus_bin`. For example, the default location of the Mplus demo binary in GNU/Linux is `/opt/mplusdemo/mpdemo`.
+
+> **NOTE**: For complete reproducibility of the software stack, we recommend the use of `manmcmedmiss.sif` described in the [Containers](containers.html) article.
+
+## Arguments
+
+
+```r
+library(manMCMedMiss)
+```
+
+
+
+
+
+|Variable  |Value                   |Notes                  |
+|:---------|:-----------------------|:----------------------|
+|m         |100                     |Number of imputations. |
+|mplus_bin |"/opt/mplusdemo/mpdemo" |Path to Mplus binary.  |
+
+
+
+> **NOTE**: If you are using `manmcmedmiss-rocker` or `manmcmedmiss.sif` described in the [Containers](containers.html) article, set `mplus_bin = "mpdemo"`.
+
+
+
+## Parameters
+
+
+
+|Variable |Value             |Notes           |
+|:--------|:-----------------|:---------------|
+|n        |50                |$n$             |
+|tauprime |0.14142135623731  |$\tau^{\prime}$ |
+|alpha    |0.714074191775111 |$\alpha$        |
+|beta     |0.714074191775111 |$\beta$         |
+
+
+
+## Data
+
+### Generation
+
+Generate sample data with complete observations.
+
+
+```r
+set.seed(42)
+data_complete <- GenData(
+  n = n,
+  tauprime = tauprime,
+  beta = beta,
+  alpha = alpha
+)
+knitr::kable(head(data_complete))
+```
+
+
+
+|          x|          m|          y|
+|----------:|----------:|----------:|
+|  1.4335508|  0.8481267|  1.4611211|
+| -0.8011428| -0.7484141|  0.0080208|
+|  1.0207058|  0.4294871| -0.4326847|
+|  0.9993171| -0.0979391|  0.8558379|
+|  0.3465149|  0.5793515|  0.1654108|
+|  0.0522852| -0.1740765| -0.1570564|
+
+
+
+### Amputation
+
+Generate sample data with missing values using the multivariate amputation approach proposed by Schouten et al. (2018).
+
+
+```r
+data_missing <- AmputeData(
+  data_complete,
+  mech = "MAR",
+  prop = 0.10
+)
+knitr::kable(head(data_missing))
+```
+
+
+
+|         x|          m|          y|
+|---------:|----------:|----------:|
+| 1.4335508|  0.8481267|  1.4611211|
+|        NA|         NA|  0.0080208|
+| 1.0207058|  0.4294871| -0.4326847|
+| 0.9993171| -0.0979391|  0.8558379|
+| 0.3465149|         NA|         NA|
+| 0.0522852| -0.1740765| -0.1570564|
+
+
+
+### Imputation
+
+Perform multiple imputations following Asparouhov and Muthen (2010) using `Mplus`.
+
+
+```r
+data_mi <- ImputeData(
+  data_missing,
+  m = m,
+  mplus_bin = mplus_bin
+)
+```
+
+Show the first two complete data sets.
+
+
+```r
+data_mi[1:2]
+#> [[1]]
+#>        V1     V2     V3
+#> 1   1.434  0.848  1.461
+#> 2   0.314  1.330  0.008
+#> 3   1.021  0.429 -0.433
+#> 4   0.999 -0.098  0.856
+#> 5   0.347 -1.297 -0.918
+#> 6   0.052 -0.174 -0.157
+#> 7   1.615  1.449  1.051
+#> 8  -0.046 -0.062 -0.147
+#> 9   0.284  2.270  1.068
+#> 10  0.095 -0.139 -0.117
+#> 11  0.947  1.283  1.299
+#> 12  2.081  2.076  2.053
+#> 13 -0.951 -1.229 -1.578
+#> 14  0.414 -0.305 -0.831
+#> 15 -0.595  0.517 -0.325
+#> 16  1.167  0.525  0.065
+#> 17 -0.117 -0.151 -0.500
+#> 18 -1.594 -3.507 -2.044
+#> 19 -1.758 -1.980 -2.873
+#> 20  1.510  1.084  1.010
+#> 21 -0.889  0.348 -0.338
+#> 22 -1.694 -1.179 -1.979
+#> 23  0.168 -0.293 -0.322
+#> 24  0.509  1.598  1.149
+#> 25  1.374  1.481  1.899
+#> 26 -0.117 -0.351 -0.689
+#> 27  0.112 -0.157 -0.639
+#> 28 -1.445 -1.066 -2.284
+#> 29  1.132  0.955  0.381
+#> 30 -1.085 -0.494 -0.186
+#> 31  1.183  0.020  0.082
+#> 32  0.703  0.780  0.431
+#> 33  1.504  0.955  1.670
+#> 34 -0.506 -0.913 -0.223
+#> 35 -0.049  0.185  1.217
+#> 36 -1.265 -1.343 -2.046
+#> 37 -0.795 -0.664 -0.676
+#> 38 -0.741 -1.155 -0.403
+#> 39 -1.665 -2.245 -2.620
+#> 40  0.433 -0.071 -0.242
+#> 41  0.860  0.015 -0.278
+#> 42 -0.612  0.018 -0.410
+#> 43  0.946  0.756  0.368
+#> 44  0.055 -0.876 -1.112
+#> 45 -1.764 -0.982 -1.002
+#> 46  0.030  0.174  0.959
+#> 47 -1.297 -0.437 -0.505
+#> 48  0.499  1.706  1.667
+#> 49 -0.284 -0.640 -0.236
+#> 50  0.815  0.857  0.113
+#> 
+#> [[2]]
+#>        V1     V2     V3
+#> 1   1.434  0.848  1.461
+#> 2  -0.601  0.203  0.008
+#> 3   1.021  0.429 -0.433
+#> 4   0.999 -0.098  0.856
+#> 5   0.347 -0.841 -0.182
+#> 6   0.052 -0.174 -0.157
+#> 7   1.615  1.449  1.051
+#> 8  -0.046 -0.062 -0.147
+#> 9   0.284  2.270  2.325
+#> 10  0.095 -0.139 -0.117
+#> 11  0.947  1.283  1.299
+#> 12  2.081  2.076  2.053
+#> 13 -0.951 -1.229 -1.578
+#> 14  0.414 -0.305 -0.831
+#> 15 -0.595  0.517 -0.325
+#> 16  1.167  0.525  0.065
+#> 17 -0.117 -0.151 -0.500
+#> 18 -1.594 -3.507 -2.044
+#> 19 -1.758 -1.980 -2.873
+#> 20  1.510  1.084  1.010
+#> 21 -0.889  0.348 -0.338
+#> 22 -1.694 -1.179 -1.979
+#> 23  0.168 -0.293 -0.322
+#> 24  0.509  1.598  1.149
+#> 25  1.374  1.531  1.899
+#> 26 -0.117 -0.351 -0.689
+#> 27  0.112 -0.157 -0.639
+#> 28 -1.445 -1.066 -2.284
+#> 29  0.196  0.955  0.381
+#> 30 -1.085 -0.494 -0.186
+#> 31  1.183  0.020  0.082
+#> 32  0.703  0.780  0.431
+#> 33  0.404  0.955  0.476
+#> 34 -0.506 -0.913 -0.223
+#> 35 -0.049  0.185  1.217
+#> 36 -1.265 -1.343 -2.046
+#> 37 -0.795 -0.664 -0.676
+#> 38 -0.741 -1.155 -0.403
+#> 39 -1.665 -2.245 -2.620
+#> 40  0.433 -0.071 -0.242
+#> 41  0.860  0.015 -0.278
+#> 42 -0.612  0.018 -0.410
+#> 43  0.946  0.756  0.368
+#> 44  0.055 -0.876 -1.112
+#> 45 -1.764 -0.982 -1.002
+#> 46  0.030  0.174  0.959
+#> 47 -1.297 -0.437 -0.505
+#> 48  0.499  1.706  1.667
+#> 49 -0.284 -0.640 -0.236
+#> 50  0.815  0.857  0.113
+```
+
+## References
+
+Asparouhov, T., & Muthen, B. (2010). *Multiple imputation with Mplus*. Retrieved from http://www.statmodel.com/download/Imputations7.pdf
+
+MacKinnon, D. P. (2008). *Introduction to statistical mediation analysis*. Lawrence Erlbaum Associates.
+
+Schouten, R. M., Lugtig, P. and Vink, G. (2018). Generating missing values for simulation purposes: A multivariate amputation procedure. *Journal of Statistical Computation and Simulation*, *88*(15), 1909--1930. https://doi.org/10.1080/00949655.2018.1491577

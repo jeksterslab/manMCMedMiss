@@ -22,7 +22,7 @@
 #'     (behavior post-intervention minus behavior pre-intervention).
 #'   }
 #' }
-#' @source 
+#' @source
 #' [https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt](https://odin.mdacc.tmc.edu/~yyuan/Software/Mediation/Bayesian/CodeRelease/BayesianMediation/firefighters.txt)
 #'
 #' @references
